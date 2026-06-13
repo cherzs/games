@@ -1,0 +1,43 @@
+{
+  "id": "level_1",
+  "name": "Level 1 – Downtown",
+  "kind": "template",
+  "baseMapId": "base_map_kota_raya",
+  "background": "/maps/maps.png",
+  "mapWidth": 2400,
+  "mapHeight": 1600,
+  "spawn": { "x": 50, "y": 48 },
+  "missionOrder": [
+    "tower_01", "rest_01", "store_01", "cafe_01",
+    "super_01", "games_01", "casino_01", "vip_01",
+    "church_01", "gym_01"
+  ],
+  "nodes": [
+    { "id": "spawn",        "name": "Home",          "type": "residential",   "purpose": "spawn",   "x": 50,  "y": 48,  "radius": 3, "district": "CITY CENTER" },
+
+    { "id": "tower_01",    "name": "City Tower",    "type": "office",        "purpose": "work",    "x": 50,  "y": 35,  "radius": 3, "district": "CITY CENTER" },
+    { "id": "office_01",   "name": "Office",        "type": "office",        "purpose": "work",    "x": 39,  "y": 47,  "radius": 3, "district": "CITY CENTER" },
+    { "id": "church_01",   "name": "Cathedral",     "type": "church",        "purpose": "visit",   "x": 50,  "y": 47,  "radius": 4, "district": "CITY CENTER" },
+    { "id": "gym_01",      "name": "GYM",           "type": "gym",           "purpose": "visit",   "x": 63,  "y": 47,  "radius": 3, "district": "CITY CENTER" },
+
+    { "id": "store_01",    "name": "Fashion Store", "type": "supermarket",   "purpose": "shop",    "x": 31,  "y": 21,  "radius": 3, "district": "MAIN ROAD" },
+    { "id": "rest_01",     "name": "Restaurant",    "type": "restaurant",    "purpose": "eat",     "x": 44,  "y": 21,  "radius": 3, "district": "MAIN ROAD" },
+    { "id": "play_01",     "name": "Playground",    "type": "park",          "purpose": "rest",    "x": 56,  "y": 21,  "radius": 3, "district": "MAIN ROAD" },
+    { "id": "bar_01",      "name": "Bar",           "type": "restaurant",    "purpose": "eat",     "x": 67,  "y": 21,  "radius": 3, "district": "MAIN ROAD" },
+
+    { "id": "super_01",    "name": "Supermarket",   "type": "supermarket",   "purpose": "shop",    "x": 31,  "y": 5,   "radius": 3, "district": "MARKET" },
+    { "id": "butcher_01",  "name": "Butcher Shop",  "type": "butcher",       "purpose": "shop",    "x": 42,  "y": 5,   "radius": 3, "district": "MARKET" },
+    { "id": "cafe_01",     "name": "Café",          "type": "cafe",          "purpose": "eat",     "x": 36,  "y": 14,  "radius": 3, "district": "MARKET" },
+
+    { "id": "beauty_01",   "name": "Beauty Salon",  "type": "beauty",        "purpose": "visit",   "x": 9,   "y": 8,   "radius": 3, "district": "BEAUTY & SOCIAL" },
+    { "id": "barber_01",   "name": "Barber Shop",   "type": "barber",        "purpose": "visit",   "x": 20,  "y": 8,   "radius": 3, "district": "BEAUTY & SOCIAL" },
+    { "id": "social_01",   "name": "Social Club",   "type": "social",        "purpose": "social",  "x": 6,   "y": 15,  "radius": 3, "district": "BEAUTY & SOCIAL" },
+
+    { "id": "games_01",    "name": "Game Center",   "type": "entertainment", "purpose": "play",    "x": 52,  "y": 6,   "radius": 3, "district": "GAMES" },
+    { "id": "billiard_01", "name": "Billiards",     "type": "entertainment", "purpose": "play",    "x": 60,  "y": 10,  "radius": 3, "district": "GAMES" },
+
+    { "id": "casino_01",   "name": "Casino",        "type": "entertainment", "purpose": "play",    "x": 71,  "y": 5,   "radius": 3, "district": "NIGHTLIFE" },
+    { "id": "nightclub_01","name": "Night Club",    "type": "entertainment", "purpose": "play",    "x": 79,  "y": 8,   "radius": 3, "district": "NIGHTLIFE" },
+    { "id": "vip_01",      "name": "VIP Lounge",    "type": "entertainment", "purpose": "play",    "x": 88,  "y": 6,   "radius": 3, "district": "NIGHTLIFE" }
+  ]
+}

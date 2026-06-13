@@ -1,0 +1,92 @@
+{
+  "id": "city_map_01",
+  "name": "Kota Raya",
+  "width": 2400,
+  "height": 1600,
+  "background": "/public/maps/maps.png",
+  "nodes": [
+    { "id": "spawn",        "name": "Home",          "type": "residential",   "purpose": "spawn",   "x": 46,  "y": 48,  "radius": 3, "district": "CITY CENTER" },
+
+    { "id": "beauty_01",   "name": "Beauty Salon",  "type": "beauty",        "purpose": "visit",   "x": 9,   "y": 8,   "radius": 3, "district": "BEAUTY & SOCIAL" },
+    { "id": "barber_01",   "name": "Barber Shop",   "type": "barber",        "purpose": "visit",   "x": 20,  "y": 8,   "radius": 3, "district": "BEAUTY & SOCIAL" },
+    { "id": "social_01",   "name": "Social Club",   "type": "social",        "purpose": "social",  "x": 6,   "y": 15,  "radius": 3, "district": "BEAUTY & SOCIAL" },
+
+    { "id": "super_01",    "name": "Supermarket",   "type": "supermarket",   "purpose": "shop",    "x": 31,  "y": 5,   "radius": 3, "district": "MARKET" },
+    { "id": "butcher_01",  "name": "Butcher Shop",  "type": "butcher",       "purpose": "shop",    "x": 42,  "y": 5,   "radius": 3, "district": "MARKET" },
+    { "id": "cafe_01",     "name": "Café",          "type": "cafe",          "purpose": "eat",     "x": 36,  "y": 14,  "radius": 3, "district": "MARKET" },
+
+    { "id": "games_01",    "name": "Game Center",   "type": "entertainment", "purpose": "play",    "x": 52,  "y": 6,   "radius": 3, "district": "GAMES" },
+    { "id": "billiard_01", "name": "Billiards",     "type": "entertainment", "purpose": "play",    "x": 60,  "y": 10,  "radius": 3, "district": "GAMES" },
+
+    { "id": "casino_01",   "name": "Casino",        "type": "entertainment", "purpose": "play",    "x": 71,  "y": 5,   "radius": 3, "district": "NIGHTLIFE" },
+    { "id": "nightclub_01","name": "Night Club",    "type": "entertainment", "purpose": "play",    "x": 79,  "y": 8,   "radius": 3, "district": "NIGHTLIFE" },
+    { "id": "vip_01",      "name": "VIP Lounge",    "type": "entertainment", "purpose": "play",    "x": 88,  "y": 6,   "radius": 3, "district": "NIGHTLIFE" },
+
+    { "id": "store_01",    "name": "Fashion Store", "type": "supermarket",   "purpose": "shop",    "x": 31,  "y": 21,  "radius": 3, "district": "MAIN ROAD" },
+    { "id": "rest_01",     "name": "Restaurant",    "type": "restaurant",    "purpose": "eat",     "x": 44,  "y": 21,  "radius": 3, "district": "MAIN ROAD" },
+    { "id": "play_01",     "name": "Playground",    "type": "park",          "purpose": "rest",    "x": 56,  "y": 21,  "radius": 3, "district": "MAIN ROAD" },
+    { "id": "bar_01",      "name": "Bar",           "type": "restaurant",    "purpose": "eat",     "x": 67,  "y": 21,  "radius": 3, "district": "MAIN ROAD" },
+
+    { "id": "tower_01",    "name": "City Tower",    "type": "office",        "purpose": "work",    "x": 50,  "y": 35,  "radius": 3, "district": "CITY CENTER" },
+    { "id": "office_01",   "name": "Office",        "type": "office",        "purpose": "work",    "x": 39,  "y": 47,  "radius": 3, "district": "CITY CENTER" },
+    { "id": "church_01",   "name": "Cathedral",     "type": "church",        "purpose": "visit",   "x": 50,  "y": 47,  "radius": 4, "district": "CITY CENTER" },
+    { "id": "gym_01",      "name": "GYM",           "type": "gym",           "purpose": "visit",   "x": 63,  "y": 47,  "radius": 3, "district": "CITY CENTER" },
+
+    { "id": "farm_01",     "name": "Farm",          "type": "park",          "purpose": "rest",    "x": 9,   "y": 27,  "radius": 3, "district": "FARM" },
+    { "id": "junk_01",     "name": "Junkyard",      "type": "service",       "purpose": "deliver", "x": 4,   "y": 33,  "radius": 3, "district": "FARM" },
+
+    { "id": "mech_01",     "name": "Mechanic",      "type": "auto",          "purpose": "service", "x": 4,   "y": 45,  "radius": 3, "district": "GARAGE" },
+    { "id": "park_lot_01", "name": "Parking",       "type": "parking",       "purpose": "service", "x": 10,  "y": 49,  "radius": 3, "district": "GARAGE" },
+    { "id": "wshop_01",    "name": "Workshop",      "type": "service",       "purpose": "deliver", "x": 17,  "y": 45,  "radius": 3, "district": "GARAGE" },
+
+    { "id": "bldg_01",     "name": "District HQ",   "type": "office",        "purpose": "work",    "x": 24,  "y": 36,  "radius": 3, "district": "DISTRICT" },
+    { "id": "police_01",   "name": "Police",        "type": "police",        "purpose": "visit",   "x": 23,  "y": 51,  "radius": 3, "district": "DISTRICT" },
+    { "id": "bank_01",     "name": "Bank",          "type": "bank",          "purpose": "deliver", "x": 22,  "y": 62,  "radius": 3, "district": "BANK DISTRICT" },
+
+    { "id": "hosp_01",     "name": "Hospital",      "type": "hospital",      "purpose": "visit",   "x": 88,  "y": 20,  "radius": 3, "district": "HOSPITAL" },
+    { "id": "hotel_01",    "name": "Hotel",         "type": "residential",   "purpose": "visit",   "x": 96,  "y": 20,  "radius": 3, "district": "HOSPITAL" },
+    { "id": "heli_01",     "name": "Helipad",       "type": "service",       "purpose": "deliver", "x": 92,  "y": 28,  "radius": 3, "district": "HOSPITAL" },
+
+    { "id": "stadium_01",  "name": "Stadium",       "type": "park",          "purpose": "rest",    "x": 84,  "y": 37,  "radius": 4, "district": "SPORTS" },
+    { "id": "pool_01",     "name": "Swimming Pool", "type": "gym",           "purpose": "visit",   "x": 95,  "y": 46,  "radius": 3, "district": "SPORTS" },
+
+    { "id": "school_01",   "name": "School",        "type": "school",        "purpose": "visit",   "x": 50,  "y": 57,  "radius": 4, "district": "EDUCATION" },
+    { "id": "lib_01",      "name": "Library",       "type": "library",       "purpose": "visit",   "x": 36,  "y": 67,  "radius": 3, "district": "EDUCATION" },
+    { "id": "chapel_01",   "name": "Church",        "type": "church",        "purpose": "visit",   "x": 47,  "y": 67,  "radius": 3, "district": "EDUCATION" },
+    { "id": "college_01",  "name": "College",       "type": "school",        "purpose": "visit",   "x": 57,  "y": 67,  "radius": 3, "district": "EDUCATION" },
+    { "id": "camp_01",     "name": "Scout Camp",    "type": "park",          "purpose": "rest",    "x": 68,  "y": 67,  "radius": 3, "district": "EDUCATION" },
+
+    { "id": "cake_01",     "name": "Cake Shop",     "type": "cafe",          "purpose": "eat",     "x": 80,  "y": 51,  "radius": 3, "district": "INDUSTRY" },
+    { "id": "ind_01",      "name": "Shop",          "type": "supermarket",   "purpose": "shop",    "x": 88,  "y": 52,  "radius": 3, "district": "INDUSTRY" },
+    { "id": "ind_02",      "name": "Workshop",      "type": "service",       "purpose": "deliver", "x": 96,  "y": 52,  "radius": 3, "district": "INDUSTRY" },
+    { "id": "ind_03",      "name": "Warehouse",     "type": "service",       "purpose": "deliver", "x": 92,  "y": 60,  "radius": 3, "district": "INDUSTRY" },
+    { "id": "auto_01",     "name": "Auto Repair",   "type": "auto",          "purpose": "service", "x": 77,  "y": 61,  "radius": 3, "district": "INDUSTRY" },
+
+    { "id": "post_01",     "name": "Post Office",   "type": "service",       "purpose": "deliver", "x": 4,   "y": 59,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "bank_02",     "name": "Savings Bank",  "type": "bank",          "purpose": "deliver", "x": 12,  "y": 59,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "shop_01",     "name": "Mini Shop",     "type": "supermarket",   "purpose": "shop",    "x": 4,   "y": 66,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "mkt_01",      "name": "Market",        "type": "supermarket",   "purpose": "shop",    "x": 13,  "y": 66,  "radius": 3, "district": "BANK DISTRICT" },
+
+    { "id": "atm_01",      "name": "ATM Kiosk",     "type": "bank",          "purpose": "deliver", "x": 4,   "y": 76,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "museum_01",   "name": "Museum",        "type": "library",       "purpose": "visit",   "x": 13,  "y": 76,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "pub_01",      "name": "Pub",           "type": "restaurant",    "purpose": "eat",     "x": 4,   "y": 84,  "radius": 3, "district": "BANK DISTRICT" },
+
+    { "id": "mall_01",     "name": "Mini Market",   "type": "supermarket",   "purpose": "shop",    "x": 27,  "y": 82,  "radius": 3, "district": "SHOPPING" },
+    { "id": "blue_01",     "name": "Blueprint Shop","type": "service",       "purpose": "deliver", "x": 33,  "y": 87,  "radius": 3, "district": "SHOPPING" },
+    { "id": "black_01",    "name": "Black Store",   "type": "supermarket",   "purpose": "shop",    "x": 40,  "y": 87,  "radius": 3, "district": "SHOPPING" },
+
+    { "id": "mosque_01",   "name": "Mosque",        "type": "church",        "purpose": "visit",   "x": 44,  "y": 82,  "radius": 3, "district": "TEMPLE" },
+    { "id": "mono_01",     "name": "Monument",      "type": "park",          "purpose": "rest",    "x": 50,  "y": 88,  "radius": 3, "district": "TEMPLE" },
+
+    { "id": "apt_01",      "name": "Apartments",    "type": "residential",   "purpose": "spawn",   "x": 57,  "y": 82,  "radius": 3, "district": "APARTMENTS" },
+    { "id": "bike_01",     "name": "Bike Rental",   "type": "service",       "purpose": "deliver", "x": 65,  "y": 88,  "radius": 3, "district": "APARTMENTS" },
+
+    { "id": "mil_01",      "name": "Military Base", "type": "military",      "purpose": "visit",   "x": 71,  "y": 82,  "radius": 3, "district": "MILITARY" },
+    { "id": "army_01",     "name": "Army Post",     "type": "military",      "purpose": "visit",   "x": 79,  "y": 87,  "radius": 3, "district": "MILITARY" },
+    { "id": "fact_01",     "name": "Factory",       "type": "service",       "purpose": "deliver", "x": 74,  "y": 90,  "radius": 3, "district": "MILITARY" },
+
+    { "id": "gas_01",      "name": "Gas Station",   "type": "auto",          "purpose": "service", "x": 89,  "y": 70,  "radius": 3, "district": "AUTO" },
+    { "id": "car_01",      "name": "Car Dealer",    "type": "auto",          "purpose": "service", "x": 92,  "y": 77,  "radius": 3, "district": "AUTO" },
+    { "id": "cars_01",     "name": "Car Lot",       "type": "auto",          "purpose": "service", "x": 97,  "y": 73,  "radius": 3, "district": "AUTO" }
+  ]
+}

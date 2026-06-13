@@ -1,0 +1,439 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { GameMap, MapNode, GameLevel, GameRef } from '@/game/types'
+import { saveCustomLevel } from '@/lib/storage'
+import type { StorageResult } from '@/lib/storage'
+
+const MAX_BG_UPLOAD_BYTES = 1 * 1024 * 1024
+
+const NODE_TYPES = [
+  'residential', 'restaurant', 'supermarket', 'office', 'park',
+  'hospital', 'school', 'cafe', 'gym', 'beauty', 'barber',
+  'entertainment', 'police', 'bank', 'church', 'library',
+  'military', 'parking', 'butcher', 'service', 'auto', 'social',
+]
+
+interface EditorPanelProps {
+  selectedNode: MapNode | undefined
+  gameRef: React.MutableRefObject<GameRef | null>
+  onMapUpdate: (map: GameMap) => void
+  customLevelId?: string | null
+  levelData?: GameLevel
+}
+
+export default function EditorPanel({
+  selectedNode,
+  gameRef,
+  onMapUpdate,
+  customLevelId,
+  levelData,
+}: EditorPanelProps) {
+  const [editForm, setEditForm] = useState<MapNode | null>(null)
+  const [notice, setNotice] = useState('')
+  const [nodeList, setNodeList] = useState<MapNode[]>(levelData?.nodes || [])
+  const [levelName, setLevelName] = useState(levelData?.name || '')
+  const [bgUrl, setBgUrl] = useState(levelData?.background || '/maps/maps.png')
+
+  useEffect(() => {
+    if (selectedNode) {
+      setEditForm({ ...selectedNode })
+    }
+    refreshNodeList()
+  }, [selectedNode])
+
+  useEffect(() => {
+    const id = setTimeout(() => setNotice(''), 2500)
+    return () => clearTimeout(id)
+  }, [notice])
+
+  useEffect(() => {
+    if (levelData) {
+      setLevelName(levelData.name)
+      setBgUrl(levelData.background)
+      setNodeList(levelData.nodes)
+    }
+  }, [levelData])
+
+  function refreshNodeList(): void {
+    const map = gameRef.current?.getMapData()
+    if (map) setNodeList(map.nodes)
+  }
+
+  function handleEditSubmit(e: React.FormEvent): void {
+    e.preventDefault()
+    if (!editForm) return
+    gameRef.current?.editNode(editForm.id, {
+      name: editForm.name,
+      type: editForm.type,
+      purpose: editForm.purpose,
+      radius: Number(editForm.radius),
+      district: editForm.district || undefined,
+    })
+    const map = gameRef.current?.getMapData()
+    if (map) onMapUpdate(map)
+    setNotice('Node updated!')
+    refreshNodeList()
+  }
+
+  function handleDelete(): void {
+    if (!selectedNode) return
+    gameRef.current?.deleteNode(selectedNode.id)
+    const map = gameRef.current?.getMapData()
+    if (map) onMapUpdate(map)
+    setNotice('Node deleted!')
+    refreshNodeList()
+  }
+
+  function handleExport(): void {
+    const map = gameRef.current?.exportMap()
+    if (!map) return
+
+    const exportData = levelData
+      ? { level: levelData, map }
+      : { map }
+
+    const json = JSON.stringify(exportData, null, 2)
+    navigator.clipboard.writeText(json).then(() => {
+      setNotice('Map copied to clipboard!')
+    })
+    const blob = new Blob([json], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = levelData ? `${levelData.name.replace(/\s+/g, '_').toLowerCase()}.json` : 'map.json'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  function handleImport(): void {
+    const input = document.createElement('input')
+    input.type = 'file'
+    input.accept = '.json'
+    input.onchange = async () => {
+      const file = input.files?.[0]
+      if (!file) return
+      const text = await file.text()
+      try {
+        const data = JSON.parse(text)
+
+        let map: GameMap
+        if (data.map && data.level) {
+          const rawMap = data.map
+          const rawLevel = data.level
+
+          map = {
+            id: rawMap.id || rawLevel.id || 'imported_map',
+            name: rawMap.name || rawLevel.name || 'Imported Map',
+            width: rawMap.width || rawMap.mapWidth || rawLevel.mapWidth || 2400,
+            height: rawMap.height || rawMap.mapHeight || rawLevel.mapHeight || 1600,
+            background: rawMap.background || rawLevel.background || '/maps/maps.png',
+            nodes: rawMap.nodes || rawLevel.nodes || [],
+          }
+
+          if (customLevelId) {
+            const updated: GameLevel = {
+              id: customLevelId,
+              name: rawLevel.name || rawMap.name || 'Imported Level',
+              kind: 'custom',
+              baseMapId: rawLevel.baseMapId || '',
+              background: rawMap.background || rawLevel.background || '/maps/maps.png',
+              mapWidth: rawMap.width || rawMap.mapWidth || rawLevel.mapWidth || 2400,
+              mapHeight: rawMap.height || rawMap.mapHeight || rawLevel.mapHeight || 1600,
+              spawn: rawLevel.spawn || { x: 50, y: 50 },
+              nodes: rawMap.nodes || rawLevel.nodes || [],
+              roads: rawLevel.roads,
+              createdAt: rawLevel.createdAt || new Date().toISOString(),
+              updatedAt: new Date().toISOString(),
+            }
+            const result = saveCustomLevel(updated)
+            if (result.success) {
+              setLevelName(updated.name)
+              setBgUrl(updated.background)
+            } else {
+              setNotice(`Save failed: ${result.error}`)
+            }
+          }
+        } else if (data.nodes) {
+          map = data as GameMap
+        } else if (data.id && data.nodes) {
+          map = {
+            id: data.id,
+            name: data.name || 'Imported Map',
+            width: data.width || data.mapWidth || 2400,
+            height: data.height || data.mapHeight || 1600,
+            background: data.background || '/maps/maps.png',
+            nodes: data.nodes,
+          }
+        } else {
+          setNotice('Invalid format! Expected map or level JSON.')
+          return
+        }
+
+        gameRef.current?.importMap(map)
+        if (onMapUpdate) onMapUpdate(map)
+        setNotice('Map imported!')
+        refreshNodeList()
+      } catch {
+        setNotice('Invalid JSON!')
+      }
+    }
+    input.click()
+  }
+
+  function handleBackgroundUpload(): void {
+    const input = document.createElement('input')
+    input.type = 'file'
+    input.accept = 'image/*'
+    input.onchange = async () => {
+      const file = input.files?.[0]
+      if (!file) return
+
+      if (!file.type.startsWith('image/')) {
+        setNotice('Error: Only image files are accepted.')
+        return
+      }
+
+      if (file.size > MAX_BG_UPLOAD_BYTES) {
+        const sizeMB = (file.size / (1024 * 1024)).toFixed(1)
+        setNotice(`Error: File is ${sizeMB} MB. Maximum allowed is 1 MB. Please use a smaller or compressed image.`)
+        return
+      }
+
+      const reader = new FileReader()
+      reader.onload = () => {
+        const dataUrl = reader.result as string
+        setBgUrl(dataUrl)
+
+        if (customLevelId && levelData) {
+          const updated: GameLevel = {
+            ...levelData,
+            background: dataUrl,
+            updatedAt: new Date().toISOString(),
+          }
+          const result = saveCustomLevel(updated)
+          if (!result.success) {
+            setNotice(`Save failed: ${result.error}`)
+          } else {
+            setNotice('Background updated! Reload editor to apply.')
+          }
+        }
+      }
+      reader.onerror = () => {
+        setNotice('Error: Failed to read image file.')
+      }
+      reader.readAsDataURL(file)
+    }
+    input.click()
+  }
+
+  function handleSaveLevelMeta(): void {
+    if (!customLevelId || !levelData) return
+    const updated: GameLevel = {
+      ...levelData,
+      name: levelName,
+      background: bgUrl,
+      updatedAt: new Date().toISOString(),
+    }
+    const result = saveCustomLevel(updated)
+    if (result.success) {
+      setNotice('Level saved!')
+    } else {
+      setNotice(`Save failed: ${result.error}`)
+    }
+  }
+
+  function handleSelectFromList(id: string): void {
+    gameRef.current?.selectNode(id)
+    const map = gameRef.current?.getMapData()
+    if (map) {
+      const node = map.nodes.find((n) => n.id === id)
+      if (node) setEditForm({ ...node })
+    }
+  }
+
+  const isCustomLevel = !!customLevelId
+
+  return (
+    <div className="w-80 bg-gray-900/95 p-4 overflow-y-auto z-20 text-white flex-shrink-0 h-full">
+      <h3 className="text-lg font-bold mb-2">Editor Panel</h3>
+
+      {isCustomLevel && (
+        <div className="mb-4 p-3 bg-gray-800 rounded space-y-2">
+          <h4 className="text-sm font-semibold text-yellow-400">Custom Level</h4>
+
+          <div>
+            <label className="text-xs text-gray-400">Level Name</label>
+            <input
+              value={levelName}
+              onChange={(e) => setLevelName(e.target.value)}
+              className="w-full px-2 py-1 bg-gray-700 rounded text-sm"
+            />
+          </div>
+
+          <div>
+            <label className="text-xs text-gray-400">Background</label>
+            <div className="flex gap-1">
+              <input
+                value={bgUrl}
+                onChange={(e) => setBgUrl(e.target.value)}
+                placeholder="/maps/maps.png or data:..."
+                className="flex-1 px-2 py-1 bg-gray-700 rounded text-sm truncate"
+              />
+              <button
+                type="button"
+                onClick={handleBackgroundUpload}
+                className="px-2 py-1 bg-purple-700 hover:bg-purple-600 rounded text-xs whitespace-nowrap"
+              >
+                Upload
+              </button>
+            </div>
+          </div>
+
+          <button
+            onClick={handleSaveLevelMeta}
+            className="w-full px-3 py-1.5 bg-green-700 hover:bg-green-600 rounded text-sm font-medium"
+          >
+            Save Level
+          </button>
+        </div>
+      )}
+
+      <div className="flex gap-2 mb-4">
+        <button
+          onClick={handleExport}
+          className="flex-1 px-3 py-1 bg-green-700 hover:bg-green-600 rounded text-sm"
+        >
+          Export
+        </button>
+        <button
+          onClick={handleImport}
+          className="flex-1 px-3 py-1 bg-blue-700 hover:bg-blue-600 rounded text-sm"
+        >
+          Import
+        </button>
+      </div>
+
+      {notice && (
+        <div className="text-xs text-yellow-300 mb-2">{notice}</div>
+      )}
+
+      <div className="mb-4">
+        <h4 className="text-sm font-semibold mb-1">Nodes ({nodeList.length})</h4>
+        <div className="max-h-40 overflow-y-auto space-y-1">
+          {nodeList.map((n) => (
+            <button
+              key={n.id}
+              onClick={() => handleSelectFromList(n.id)}
+              className={`w-full text-left text-xs px-2 py-1 rounded hover:bg-white/10 ${
+                selectedNode?.id === n.id ? 'bg-white/20 ring-1 ring-yellow-400' : ''
+              }`}
+            >
+              {n.name} <span className="text-gray-400">({n.type})</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {editForm && (
+        <form onSubmit={handleEditSubmit} className="space-y-2">
+          <h4 className="text-sm font-semibold">Edit Node</h4>
+
+          <div>
+            <label className="text-xs text-gray-400">Name</label>
+            <input
+              value={editForm.name}
+              onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
+              className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
+            />
+          </div>
+
+          <div>
+            <label className="text-xs text-gray-400">Type</label>
+            <select
+              value={editForm.type}
+              onChange={(e) => setEditForm({ ...editForm, type: e.target.value })}
+              className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
+            >
+              {NODE_TYPES.map((t) => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="text-xs text-gray-400">Purpose</label>
+            <select
+              value={editForm.purpose}
+              onChange={(e) => setEditForm({ ...editForm, purpose: e.target.value })}
+              className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
+            >
+              <option value="eat">Eat</option>
+              <option value="shop">Shop</option>
+              <option value="work">Work</option>
+              <option value="rest">Rest</option>
+              <option value="visit">Visit</option>
+              <option value="deliver">Deliver</option>
+              <option value="play">Play</option>
+              <option value="social">Social</option>
+              <option value="service">Service</option>
+              <option value="spawn">Spawn</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="text-xs text-gray-400">Radius (%)</label>
+            <input
+              type="number"
+              min={1}
+              max={20}
+              step={0.5}
+              value={editForm.radius}
+              onChange={(e) => setEditForm({ ...editForm, radius: Number(e.target.value) })}
+              className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
+            />
+          </div>
+
+          <div>
+            <label className="text-xs text-gray-400">District</label>
+            <input
+              value={editForm.district ?? ''}
+              onChange={(e) => setEditForm({ ...editForm, district: e.target.value || undefined })}
+              placeholder="e.g. CITY CENTER"
+              className="w-full px-2 py-1 bg-gray-800 rounded text-sm placeholder-gray-600"
+            />
+          </div>
+
+          <div>
+            <label className="text-xs text-gray-400">
+              Position: {editForm.x.toFixed(1)}%, {editForm.y.toFixed(1)}%
+            </label>
+          </div>
+
+          <div className="flex gap-2 pt-2">
+            <button
+              type="submit"
+              className="flex-1 px-3 py-1 bg-green-700 hover:bg-green-600 rounded text-sm"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              onClick={handleDelete}
+              className="flex-1 px-3 py-1 bg-red-700 hover:bg-red-600 rounded text-sm"
+            >
+              Delete
+            </button>
+          </div>
+        </form>
+      )}
+
+      <div className="mt-4 text-xs text-gray-500">
+        <p>Click on map: add node</p>
+        <p>Drag node to move</p>
+        <p>Right-drag: pan camera</p>
+        <p>Q/E: zoom</p>
+      </div>
+    </div>
+  )
+}

@@ -1,0 +1,45 @@
+{
+  "id": "level_2",
+  "name": "Level 2 – Suburbs",
+  "kind": "template",
+  "baseMapId": "base_map_kota_raya",
+  "background": "/maps/maps-lv2.png",
+  "mapWidth": 2400,
+  "mapHeight": 1600,
+  "spawn": { "x": 50, "y": 72 },
+  "missionOrder": [
+    "school_01", "lib_01", "college_01", "camp_01",
+    "bldg_01", "police_01", "bank_01",
+    "hosp_01", "hotel_01", "stadium_01", "pool_01"
+  ],
+  "nodes": [
+    { "id": "spawn",        "name": "Home",          "type": "residential",   "purpose": "spawn",   "x": 50,  "y": 72,  "radius": 3, "district": "EDUCATION" },
+
+    { "id": "school_01",   "name": "School",        "type": "school",        "purpose": "visit",   "x": 50,  "y": 57,  "radius": 4, "district": "EDUCATION" },
+    { "id": "lib_01",      "name": "Library",       "type": "library",       "purpose": "visit",   "x": 36,  "y": 67,  "radius": 3, "district": "EDUCATION" },
+    { "id": "chapel_01",   "name": "Church",        "type": "church",        "purpose": "visit",   "x": 47,  "y": 67,  "radius": 3, "district": "EDUCATION" },
+    { "id": "college_01",  "name": "College",       "type": "school",        "purpose": "visit",   "x": 57,  "y": 67,  "radius": 3, "district": "EDUCATION" },
+    { "id": "camp_01",     "name": "Scout Camp",    "type": "park",          "purpose": "rest",    "x": 68,  "y": 67,  "radius": 3, "district": "EDUCATION" },
+
+    { "id": "stadium_01",  "name": "Stadium",       "type": "park",          "purpose": "rest",    "x": 84,  "y": 37,  "radius": 4, "district": "SPORTS" },
+    { "id": "pool_01",     "name": "Swimming Pool", "type": "gym",           "purpose": "visit",   "x": 95,  "y": 46,  "radius": 3, "district": "SPORTS" },
+
+    { "id": "hosp_01",     "name": "Hospital",      "type": "hospital",      "purpose": "visit",   "x": 88,  "y": 20,  "radius": 3, "district": "HOSPITAL" },
+    { "id": "hotel_01",    "name": "Hotel",         "type": "residential",   "purpose": "visit",   "x": 96,  "y": 20,  "radius": 3, "district": "HOSPITAL" },
+    { "id": "heli_01",     "name": "Helipad",       "type": "service",       "purpose": "deliver", "x": 92,  "y": 28,  "radius": 3, "district": "HOSPITAL" },
+
+    { "id": "farm_01",     "name": "Farm",          "type": "park",          "purpose": "rest",    "x": 9,   "y": 27,  "radius": 3, "district": "FARM" },
+    { "id": "junk_01",     "name": "Junkyard",      "type": "service",       "purpose": "deliver", "x": 4,   "y": 33,  "radius": 3, "district": "FARM" },
+
+    { "id": "mech_01",     "name": "Mechanic",      "type": "auto",          "purpose": "service", "x": 4,   "y": 45,  "radius": 3, "district": "GARAGE" },
+    { "id": "park_lot_01", "name": "Parking",       "type": "parking",       "purpose": "service", "x": 10,  "y": 49,  "radius": 3, "district": "GARAGE" },
+    { "id": "wshop_01",    "name": "Workshop",      "type": "service",       "purpose": "deliver", "x": 17,  "y": 45,  "radius": 3, "district": "GARAGE" },
+
+    { "id": "bldg_01",     "name": "District HQ",   "type": "office",        "purpose": "work",    "x": 24,  "y": 36,  "radius": 3, "district": "DISTRICT" },
+    { "id": "police_01",   "name": "Police",        "type": "police",        "purpose": "visit",   "x": 23,  "y": 51,  "radius": 3, "district": "DISTRICT" },
+    { "id": "bank_01",     "name": "Bank",          "type": "bank",          "purpose": "deliver", "x": 22,  "y": 62,  "radius": 3, "district": "BANK DISTRICT" },
+
+    { "id": "post_01",     "name": "Post Office",   "type": "service",       "purpose": "deliver", "x": 4,   "y": 59,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "bank_02",     "name": "Savings Bank",  "type": "bank",          "purpose": "deliver", "x": 12,  "y": 59,  "radius": 3, "district": "BANK DISTRICT" }
+  ]
+}

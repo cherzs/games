@@ -1,0 +1,142 @@
+'use client'
+
+import { useRef, useState, useCallback, useEffect, Suspense } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic'
+import EditorPanel from '@/components/EditorPanel'
+import { GameMap, GameLevel, GameRef } from '@/game/types'
+import { saveMap, saveCustomLevel, loadCustomLevel } from '@/lib/storage'
+import { levelToGameMap, fetchTemplateLevel } from '@/game/levels/levelLoader'
+
+const GameCanvas = dynamic(() => import('@/components/GameCanvas'), {
+  ssr: false,
+})
+
+function EditorPageInner() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const levelId = searchParams.get('levelId')
+
+  const gameRef = useRef<GameRef | null>(null)
+  const [selectedNode, setSelectedNode] = useState<GameMap['nodes'][0] | undefined>(undefined)
+  const [customLevelId, setCustomLevelId] = useState<string | null>(levelId)
+  const [levelData, setLevelData] = useState<GameLevel | undefined>(undefined)
+  const [saveError, setSaveError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(!!levelId)
+
+  useEffect(() => {
+    if (!levelId) {
+      setLoading(false)
+      return
+    }
+    setLoading(true)
+    const custom = loadCustomLevel(levelId)
+    if (custom) {
+      setLevelData(custom)
+      setCustomLevelId(levelId)
+      setLoading(false)
+    } else if (levelId.startsWith('level_')) {
+      fetchTemplateLevel(levelId).then((template) => {
+        setLevelData(template)
+        setCustomLevelId(levelId)
+        setLoading(false)
+      }).catch(() => {
+        setSaveError('Failed to load template level.')
+        setLoading(false)
+      })
+    } else {
+      setSaveError('Level not found.')
+      setLoading(false)
+    }
+  }, [levelId])
+
+  useEffect(() => {
+    if (saveError) {
+      const id = setTimeout(() => setSaveError(null), 6000)
+      return () => clearTimeout(id)
+    }
+  }, [saveError])
+
+  const handleNodeSelect = useCallback((node: GameMap['nodes'][0] | undefined) => {
+    setSelectedNode(node)
+  }, [])
+
+  const handleMapUpdate = useCallback((map: GameMap) => {
+    if (customLevelId && levelData) {
+      const updated: GameLevel = {
+        ...levelData,
+        nodes: map.nodes,
+        name: map.name,
+        kind: 'custom',
+        updatedAt: new Date().toISOString(),
+      }
+      const result = saveCustomLevel(updated)
+      if (result.success) {
+        setLevelData(updated)
+        setSaveError(null)
+      } else {
+        setSaveError(result.error)
+        setLevelData(updated)
+      }
+    } else {
+      const result = saveMap(map)
+      if (!result.success) {
+        setSaveError(result.error)
+      }
+    }
+  }, [customLevelId, levelData])
+
+  return (
+    <main className="w-full h-full flex flex-col">
+      <div className="flex items-center gap-3 px-4 py-2 bg-gray-900/90 flex-shrink-0 z-30">
+        <button
+          onClick={() => router.push('/')}
+          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-white text-sm"
+        >
+          ← Back
+        </button>
+        <span className="text-gray-300 text-sm truncate">
+          {levelData?.name || 'Editor'}
+        </span>
+      </div>
+      {saveError && (
+        <div className="px-4 py-2 bg-red-900/80 text-red-200 text-sm flex-shrink-0">
+          ⚠ Save failed: {saveError}
+        </div>
+      )}
+      {loading ? (
+        <div className="flex-1 flex items-center justify-center text-gray-400 text-sm">
+          Loading level...
+        </div>
+      ) : (
+        <div className="flex-1 h-full min-h-0 flex">
+          <div className="flex-1 h-full min-w-0" style={{ background: '#1a1a2e' }}>
+            <GameCanvas
+              key={`editor-${levelData?.id}-${levelData?.background}`}
+              mode="editor"
+              onNodeSelect={handleNodeSelect}
+              onMapChange={handleMapUpdate}
+              gameRef={gameRef}
+              levelData={levelData}
+            />
+          </div>
+          <EditorPanel
+            selectedNode={selectedNode}
+            gameRef={gameRef}
+            onMapUpdate={handleMapUpdate}
+            customLevelId={customLevelId}
+            levelData={levelData}
+          />
+        </div>
+      )}
+    </main>
+  )
+}
+
+export default function EditorPage() {
+  return (
+    <Suspense fallback={<div className="w-full h-full bg-[#1a1a2e] flex items-center justify-center text-white">Loading editor...</div>}>
+      <EditorPageInner />
+    </Suspense>
+  )
+}

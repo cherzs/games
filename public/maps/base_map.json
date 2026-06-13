@@ -1,0 +1,9 @@
+{
+  "id": "base_map_kota_raya",
+  "name": "Kota Raya",
+  "width": 2400,
+  "height": 1600,
+  "backgroundImage": "/maps/maps.png",
+  "spawnX": 46,
+  "spawnY": 48
+}

@@ -1,0 +1,50 @@
+{
+  "id": "level_3",
+  "name": "Level 3 – Industrial Zone",
+  "kind": "template",
+  "baseMapId": "base_map_kota_raya",
+  "background": "/maps/maps-lv3.png",
+  "mapWidth": 2400,
+  "mapHeight": 1600,
+  "spawn": { "x": 85, "y": 65 },
+  "missionOrder": [
+    "cake_01", "ind_01", "ind_02", "ind_03",
+    "auto_01", "gas_01", "car_01", "cars_01",
+    "apt_01", "mil_01", "army_01", "fact_01",
+    "mall_01", "black_01", "mosque_01", "mono_01"
+  ],
+  "nodes": [
+    { "id": "spawn",        "name": "Home",          "type": "residential",   "purpose": "spawn",   "x": 85,  "y": 65,  "radius": 3, "district": "INDUSTRY" },
+
+    { "id": "cake_01",     "name": "Cake Shop",     "type": "cafe",          "purpose": "eat",     "x": 80,  "y": 51,  "radius": 3, "district": "INDUSTRY" },
+    { "id": "ind_01",      "name": "Shop",          "type": "supermarket",   "purpose": "shop",    "x": 88,  "y": 52,  "radius": 3, "district": "INDUSTRY" },
+    { "id": "ind_02",      "name": "Workshop",      "type": "service",       "purpose": "deliver", "x": 96,  "y": 52,  "radius": 3, "district": "INDUSTRY" },
+    { "id": "ind_03",      "name": "Warehouse",     "type": "service",       "purpose": "deliver", "x": 92,  "y": 60,  "radius": 3, "district": "INDUSTRY" },
+    { "id": "auto_01",     "name": "Auto Repair",   "type": "auto",          "purpose": "service", "x": 77,  "y": 61,  "radius": 3, "district": "INDUSTRY" },
+
+    { "id": "gas_01",      "name": "Gas Station",   "type": "auto",          "purpose": "service", "x": 89,  "y": 70,  "radius": 3, "district": "AUTO" },
+    { "id": "car_01",      "name": "Car Dealer",    "type": "auto",          "purpose": "service", "x": 92,  "y": 77,  "radius": 3, "district": "AUTO" },
+    { "id": "cars_01",     "name": "Car Lot",       "type": "auto",          "purpose": "service", "x": 97,  "y": 73,  "radius": 3, "district": "AUTO" },
+
+    { "id": "apt_01",      "name": "Apartments",    "type": "residential",   "purpose": "rest",    "x": 57,  "y": 82,  "radius": 3, "district": "APARTMENTS" },
+    { "id": "bike_01",     "name": "Bike Rental",   "type": "service",       "purpose": "deliver", "x": 65,  "y": 88,  "radius": 3, "district": "APARTMENTS" },
+
+    { "id": "mil_01",      "name": "Military Base", "type": "military",      "purpose": "visit",   "x": 71,  "y": 82,  "radius": 3, "district": "MILITARY" },
+    { "id": "army_01",     "name": "Army Post",     "type": "military",      "purpose": "visit",   "x": 79,  "y": 87,  "radius": 3, "district": "MILITARY" },
+    { "id": "fact_01",     "name": "Factory",       "type": "service",       "purpose": "deliver", "x": 74,  "y": 90,  "radius": 3, "district": "MILITARY" },
+
+    { "id": "mall_01",     "name": "Mini Market",   "type": "supermarket",   "purpose": "shop",    "x": 27,  "y": 82,  "radius": 3, "district": "SHOPPING" },
+    { "id": "blue_01",     "name": "Blueprint Shop","type": "service",       "purpose": "deliver", "x": 33,  "y": 87,  "radius": 3, "district": "SHOPPING" },
+    { "id": "black_01",    "name": "Black Store",   "type": "supermarket",   "purpose": "shop",    "x": 40,  "y": 87,  "radius": 3, "district": "SHOPPING" },
+
+    { "id": "mosque_01",   "name": "Mosque",        "type": "church",        "purpose": "visit",   "x": 44,  "y": 82,  "radius": 3, "district": "TEMPLE" },
+    { "id": "mono_01",     "name": "Monument",      "type": "park",          "purpose": "rest",    "x": 50,  "y": 88,  "radius": 3, "district": "TEMPLE" },
+
+    { "id": "shop_01",     "name": "Mini Shop",     "type": "supermarket",   "purpose": "shop",    "x": 4,   "y": 66,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "mkt_01",      "name": "Market",        "type": "supermarket",   "purpose": "shop",    "x": 13,  "y": 66,  "radius": 3, "district": "BANK DISTRICT" },
+
+    { "id": "atm_01",      "name": "ATM Kiosk",     "type": "bank",          "purpose": "deliver", "x": 4,   "y": 76,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "museum_01",   "name": "Museum",        "type": "library",       "purpose": "visit",   "x": 13,  "y": 76,  "radius": 3, "district": "BANK DISTRICT" },
+    { "id": "pub_01",      "name": "Pub",           "type": "restaurant",    "purpose": "eat",     "x": 4,   "y": 84,  "radius": 3, "district": "BANK DISTRICT" }
+  ]
+}
