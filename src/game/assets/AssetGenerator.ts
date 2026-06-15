@@ -1,6 +1,6 @@
 import * as Phaser from 'phaser'
 
-const CHARS = 48
+const CHARS = 64
 const TILE = 64
 
 function roundRect(
