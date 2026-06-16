@@ -111,6 +111,8 @@ export class GameScene extends Phaser.Scene {
     }
 
     this.mapSystem = new MapSystem(this)
+    this.mapSystem.loadMap(this.mapData, false)
+
     this.missionSystem = new MissionSystem(this.mapSystem)
     this.characterSystem = new CharacterSystem(this)
     this.cameraSystem = new CameraSystem(this)
@@ -118,8 +120,6 @@ export class GameScene extends Phaser.Scene {
     if (this.sceneData.levelData?.missionOrder) {
       this.missionSystem.loadMissionOrder(this.sceneData.levelData.missionOrder)
     }
-
-    this.mapSystem.loadMap(this.mapData, false)
 
     this.roadSystem = new RoadSystem()
     this.roadSystem.loadNodes(this.mapData.nodes, this.mapData.width, this.mapData.height)
@@ -337,6 +337,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private drawOverlay(): void {
+    if (!this.overlayGfx || !this.overlayGfx.active) return
     this.overlayGfx.clear()
 
     const mission = this.missionSystem.getCurrentMission()

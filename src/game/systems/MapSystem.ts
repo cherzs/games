@@ -34,6 +34,7 @@ export class MapSystem {
   }
 
   getNodeWorldPos(node: MapNode): { x: number; y: number } {
+    if (!this.map) return { x: 0, y: 0 }
     return {
       x: pctToPixel(node.x, this.map.width),
       y: pctToPixel(node.y, this.map.height),
@@ -41,22 +42,27 @@ export class MapSystem {
   }
 
   getNodeWorldRadius(node: MapNode): number {
+    if (!this.map) return 0
     return pctToPixel(node.radius, Math.max(this.map.width, this.map.height))
   }
 
   getNodes(): MapNode[] {
+    if (!this.map) return []
     return this.map.nodes
   }
 
   getNodeById(id: string): MapNode | undefined {
+    if (!this.map) return undefined
     return this.map.nodes.find((n) => n.id === id)
   }
 
   getMapBounds(): { width: number; height: number } {
+    if (!this.map) return { width: 0, height: 0 }
     return { width: this.map.width, height: this.map.height }
   }
 
   private renderBackground(): void {
+    if (!this.map) return
     if (this.background) this.background.destroy()
     this.background = this.scene.add.image(0, 0, 'map_bg')
     this.background.setOrigin(0, 0)
@@ -66,7 +72,7 @@ export class MapSystem {
 
   private renderNodes(): void {
     this.clearNodes()
-    if (!this.showNodes) return
+    if (!this.showNodes || !this.map) return
 
     this.map.nodes.forEach((node) => {
       const pos = this.getNodeWorldPos(node)
@@ -134,6 +140,7 @@ export class MapSystem {
   }
 
   highlightNode(nodeId: string, color: number = 0xff4d4d): void {
+    if (!this.map) return
     const idx = this.map.nodes.findIndex((n) => n.id === nodeId)
     if (idx === -1) return
     const node = this.map.nodes[idx]

@@ -20,6 +20,8 @@ interface EditorPanelProps {
   onMapUpdate: (map: GameMap) => void
   customLevelId?: string | null
   levelData?: GameLevel
+  missionOrder: string[]
+  onMissionOrderChange: (order: string[]) => void
 }
 
 export default function EditorPanel({
@@ -28,12 +30,15 @@ export default function EditorPanel({
   onMapUpdate,
   customLevelId,
   levelData,
+  missionOrder,
+  onMissionOrderChange,
 }: EditorPanelProps) {
   const [editForm, setEditForm] = useState<MapNode | null>(null)
   const [notice, setNotice] = useState('')
   const [nodeList, setNodeList] = useState<MapNode[]>(levelData?.nodes || [])
   const [levelName, setLevelName] = useState(levelData?.name || '')
   const [bgUrl, setBgUrl] = useState(levelData?.background || '/maps/maps.png')
+  const [showAddMission, setShowAddMission] = useState(false)
 
   useEffect(() => {
     if (selectedNode) {
@@ -59,6 +64,37 @@ export default function EditorPanel({
     const map = gameRef.current?.getMapData()
     if (map) setNodeList(map.nodes)
   }
+
+  function handleMoveMissionUp(index: number): void {
+    if (index <= 0) return
+    const next = [...missionOrder]
+    ;[next[index - 1], next[index]] = [next[index], next[index - 1]]
+    onMissionOrderChange(next)
+  }
+
+  function handleMoveMissionDown(index: number): void {
+    if (index >= missionOrder.length - 1) return
+    const next = [...missionOrder]
+    ;[next[index], next[index + 1]] = [next[index + 1], next[index]]
+    onMissionOrderChange(next)
+  }
+
+  function handleRemoveMission(index: number): void {
+    const next = missionOrder.filter((_, i) => i !== index)
+    onMissionOrderChange(next)
+  }
+
+  function handleAddMission(nodeId: string): void {
+    const next = [...missionOrder, nodeId]
+    onMissionOrderChange(next)
+    setShowAddMission(false)
+  }
+
+  const missionNodeMap = new Map(nodeList.map((n) => [n.id, n]))
+  const orderedNodes = missionOrder.map((id) => missionNodeMap.get(id)).filter(Boolean) as MapNode[]
+  const availableForMission = nodeList.filter(
+    (n) => n.purpose !== 'spawn' && !missionOrder.includes(n.id),
+  )
 
   function handleEditSubmit(e: React.FormEvent): void {
     e.preventDefault()
@@ -317,6 +353,77 @@ export default function EditorPanel({
       {notice && (
         <div className="text-xs text-yellow-300 mb-2">{notice}</div>
       )}
+
+      {/* Mission Order */}
+      <div className="mb-4">
+        <div className="flex items-center justify-between mb-1">
+          <h4 className="text-sm font-semibold">Mission Order ({missionOrder.length})</h4>
+          <button
+            onClick={() => setShowAddMission(!showAddMission)}
+            className="px-2 py-0.5 bg-blue-700 hover:bg-blue-600 rounded text-xs"
+          >
+            {showAddMission ? 'Cancel' : '+ Add'}
+          </button>
+        </div>
+
+        {showAddMission && (
+          <div className="max-h-28 overflow-y-auto mb-2 space-y-0.5 bg-gray-800 rounded p-1">
+            {availableForMission.length === 0 ? (
+              <p className="text-xs text-gray-500 px-1">All nodes already in order.</p>
+            ) : (
+              availableForMission.map((n) => (
+                <button
+                  key={n.id}
+                  onClick={() => handleAddMission(n.id)}
+                  className="w-full text-left text-xs px-2 py-1 rounded hover:bg-white/10"
+                >
+                  + {n.name} <span className="text-gray-400">({n.purpose})</span>
+                </button>
+              ))
+            )}
+          </div>
+        )}
+
+        {orderedNodes.length === 0 ? (
+          <p className="text-xs text-gray-500">No mission order set. Random missions will be used.</p>
+        ) : (
+          <div className="max-h-40 overflow-y-auto space-y-0.5">
+            {orderedNodes.map((n, i) => (
+              <div
+                key={n.id}
+                className="flex items-center gap-1 text-xs bg-gray-800 rounded px-1.5 py-1"
+              >
+                <span className="text-gray-500 w-5 text-right shrink-0">{i + 1}.</span>
+                <span className="flex-1 truncate">{n.name}</span>
+                <span className="text-gray-400 shrink-0">({n.purpose})</span>
+                <button
+                  onClick={() => handleMoveMissionUp(i)}
+                  disabled={i === 0}
+                  className="px-1 text-gray-400 hover:text-white disabled:opacity-30 shrink-0"
+                  title="Move up"
+                >
+                  ▲
+                </button>
+                <button
+                  onClick={() => handleMoveMissionDown(i)}
+                  disabled={i === orderedNodes.length - 1}
+                  className="px-1 text-gray-400 hover:text-white disabled:opacity-30 shrink-0"
+                  title="Move down"
+                >
+                  ▼
+                </button>
+                <button
+                  onClick={() => handleRemoveMission(i)}
+                  className="px-1 text-red-400 hover:text-red-300 shrink-0"
+                  title="Remove"
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
       <div className="mb-4">
         <h4 className="text-sm font-semibold mb-1">Nodes ({nodeList.length})</h4>

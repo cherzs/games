@@ -1,50 +1,715 @@
 {
   "id": "level_3",
-  "name": "Level 3 – Industrial Zone",
+  "name": "Level 3 \u2013 Industrial Zone",
   "kind": "template",
   "baseMapId": "base_map_kota_raya",
   "background": "/maps/maps-lv3.png",
   "mapWidth": 2400,
   "mapHeight": 1600,
-  "spawn": { "x": 85, "y": 65 },
+  "spawn": {
+    "x": 48.3,
+    "y": 46.3
+  },
   "missionOrder": [
-    "cake_01", "ind_01", "ind_02", "ind_03",
-    "auto_01", "gas_01", "car_01", "cars_01",
-    "apt_01", "mil_01", "army_01", "fact_01",
-    "mall_01", "black_01", "mosque_01", "mono_01"
+    "lv3_nw_power_plant",
+    "lv3_ne_research_lab",
+    "lv3_sw_old_factory",
+    "lv3_se_radio_tower",
+    "lv3_nw_smokestack_factory",
+    "lv3_ne_factory_01",
+    "lv3_sw_fuel_storage",
+    "lv3_se_power_station",
+    "lv3_nw_warehouse_01",
+    "lv3_ne_container_yard",
+    "lv3_sw_lower_workshop",
+    "lv3_se_cooling_towers",
+    "lv3_nw_storage_yard",
+    "lv3_ne_crane_yard",
+    "lv3_sw_scrap_yard",
+    "lv3_se_water_treatment",
+    "lv3_nw_mining_base",
+    "lv3_ne_oil_tanks",
+    "lv3_sw_machine_shop",
+    "lv3_se_loading_dock",
+    "lv3_nw_equipment_depot",
+    "lv3_ne_port_refinery",
+    "lv3_sw_factory_block_01",
+    "lv3_se_crane_station",
+    "lv3_nw_crusher_site",
+    "lv3_ne_dock_warehouse",
+    "lv3_sw_factory_block_02",
+    "lv3_se_shipyard",
+    "lv3_nw_excavator_zone",
+    "lv3_ne_ship_pier",
+    "lv3_sw_admin_office",
+    "lv3_se_freight_terminal",
+    "lv3_nw_factory_block_01",
+    "lv3_ne_factory_block_01",
+    "lv3_sw_small_depot",
+    "lv3_se_container_depot",
+    "lv3_nw_factory_block_02",
+    "lv3_ne_factory_block_02",
+    "lv3_sw_maintenance_garage",
+    "lv3_se_utility_building",
+    "lv3_nw_workshop",
+    "lv3_ne_factory_block_03",
+    "lv3_sw_security_post",
+    "lv3_se_factory_block_01",
+    "lv3_nw_assembly_yard",
+    "lv3_ne_control_building",
+    "lv3_sw_gatehouse",
+    "lv3_se_factory_block_02"
   ],
   "nodes": [
-    { "id": "spawn",        "name": "Home",          "type": "residential",   "purpose": "spawn",   "x": 85,  "y": 65,  "radius": 3, "district": "INDUSTRY" },
-
-    { "id": "cake_01",     "name": "Cake Shop",     "type": "cafe",          "purpose": "eat",     "x": 80,  "y": 51,  "radius": 3, "district": "INDUSTRY" },
-    { "id": "ind_01",      "name": "Shop",          "type": "supermarket",   "purpose": "shop",    "x": 88,  "y": 52,  "radius": 3, "district": "INDUSTRY" },
-    { "id": "ind_02",      "name": "Workshop",      "type": "service",       "purpose": "deliver", "x": 96,  "y": 52,  "radius": 3, "district": "INDUSTRY" },
-    { "id": "ind_03",      "name": "Warehouse",     "type": "service",       "purpose": "deliver", "x": 92,  "y": 60,  "radius": 3, "district": "INDUSTRY" },
-    { "id": "auto_01",     "name": "Auto Repair",   "type": "auto",          "purpose": "service", "x": 77,  "y": 61,  "radius": 3, "district": "INDUSTRY" },
-
-    { "id": "gas_01",      "name": "Gas Station",   "type": "auto",          "purpose": "service", "x": 89,  "y": 70,  "radius": 3, "district": "AUTO" },
-    { "id": "car_01",      "name": "Car Dealer",    "type": "auto",          "purpose": "service", "x": 92,  "y": 77,  "radius": 3, "district": "AUTO" },
-    { "id": "cars_01",     "name": "Car Lot",       "type": "auto",          "purpose": "service", "x": 97,  "y": 73,  "radius": 3, "district": "AUTO" },
-
-    { "id": "apt_01",      "name": "Apartments",    "type": "residential",   "purpose": "rest",    "x": 57,  "y": 82,  "radius": 3, "district": "APARTMENTS" },
-    { "id": "bike_01",     "name": "Bike Rental",   "type": "service",       "purpose": "deliver", "x": 65,  "y": 88,  "radius": 3, "district": "APARTMENTS" },
-
-    { "id": "mil_01",      "name": "Military Base", "type": "military",      "purpose": "visit",   "x": 71,  "y": 82,  "radius": 3, "district": "MILITARY" },
-    { "id": "army_01",     "name": "Army Post",     "type": "military",      "purpose": "visit",   "x": 79,  "y": 87,  "radius": 3, "district": "MILITARY" },
-    { "id": "fact_01",     "name": "Factory",       "type": "service",       "purpose": "deliver", "x": 74,  "y": 90,  "radius": 3, "district": "MILITARY" },
-
-    { "id": "mall_01",     "name": "Mini Market",   "type": "supermarket",   "purpose": "shop",    "x": 27,  "y": 82,  "radius": 3, "district": "SHOPPING" },
-    { "id": "blue_01",     "name": "Blueprint Shop","type": "service",       "purpose": "deliver", "x": 33,  "y": 87,  "radius": 3, "district": "SHOPPING" },
-    { "id": "black_01",    "name": "Black Store",   "type": "supermarket",   "purpose": "shop",    "x": 40,  "y": 87,  "radius": 3, "district": "SHOPPING" },
-
-    { "id": "mosque_01",   "name": "Mosque",        "type": "church",        "purpose": "visit",   "x": 44,  "y": 82,  "radius": 3, "district": "TEMPLE" },
-    { "id": "mono_01",     "name": "Monument",      "type": "park",          "purpose": "rest",    "x": 50,  "y": 88,  "radius": 3, "district": "TEMPLE" },
-
-    { "id": "shop_01",     "name": "Mini Shop",     "type": "supermarket",   "purpose": "shop",    "x": 4,   "y": 66,  "radius": 3, "district": "BANK DISTRICT" },
-    { "id": "mkt_01",      "name": "Market",        "type": "supermarket",   "purpose": "shop",    "x": 13,  "y": 66,  "radius": 3, "district": "BANK DISTRICT" },
-
-    { "id": "atm_01",      "name": "ATM Kiosk",     "type": "bank",          "purpose": "deliver", "x": 4,   "y": 76,  "radius": 3, "district": "BANK DISTRICT" },
-    { "id": "museum_01",   "name": "Museum",        "type": "library",       "purpose": "visit",   "x": 13,  "y": 76,  "radius": 3, "district": "BANK DISTRICT" },
-    { "id": "pub_01",      "name": "Pub",           "type": "restaurant",    "purpose": "eat",     "x": 4,   "y": 84,  "radius": 3, "district": "BANK DISTRICT" }
+    {
+      "id": "lv3_center_admin_hub",
+      "name": "Central Admin Hub",
+      "type": "center",
+      "purpose": "road",
+      "x": 48.3,
+      "y": 48.3,
+      "radius": 5,
+      "district": "CITY CENTER"
+    },
+    {
+      "id": "lv3_nw_power_plant",
+      "name": "Power Plant",
+      "type": "poi",
+      "purpose": "work",
+      "x": 18.1,
+      "y": 8.7,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_smokestack_factory",
+      "name": "Smokestack Factory",
+      "type": "poi",
+      "purpose": "work",
+      "x": 19.8,
+      "y": 13.7,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_warehouse_01",
+      "name": "Northwest Warehouse 01",
+      "type": "poi",
+      "purpose": "work",
+      "x": 26.2,
+      "y": 11.2,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_storage_yard",
+      "name": "Storage Yard",
+      "type": "poi",
+      "purpose": "service",
+      "x": 35.9,
+      "y": 9.0,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_mining_base",
+      "name": "Mining Base",
+      "type": "poi",
+      "purpose": "work",
+      "x": 7.9,
+      "y": 24.2,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_equipment_depot",
+      "name": "Equipment Depot",
+      "type": "poi",
+      "purpose": "service",
+      "x": 14.4,
+      "y": 31.3,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_crusher_site",
+      "name": "Crusher Site",
+      "type": "poi",
+      "purpose": "work",
+      "x": 7.9,
+      "y": 40.8,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_excavator_zone",
+      "name": "Excavator Zone",
+      "type": "poi",
+      "purpose": "work",
+      "x": 16.4,
+      "y": 49.3,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_factory_block_01",
+      "name": "Factory Block 01",
+      "type": "poi",
+      "purpose": "work",
+      "x": 27.5,
+      "y": 24.6,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_factory_block_02",
+      "name": "Factory Block 02",
+      "type": "poi",
+      "purpose": "work",
+      "x": 36.2,
+      "y": 24.6,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_workshop",
+      "name": "Workshop",
+      "type": "poi",
+      "purpose": "service",
+      "x": 28.8,
+      "y": 35.5,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_assembly_yard",
+      "name": "Assembly Yard",
+      "type": "poi",
+      "purpose": "work",
+      "x": 37.6,
+      "y": 35.5,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_branch_hub",
+      "name": "Northwest Branch Hub",
+      "type": "connector",
+      "purpose": "road",
+      "x": 23.8,
+      "y": 39.8,
+      "radius": 4,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_road_01",
+      "name": "Northwest Road 01",
+      "type": "road",
+      "purpose": "road",
+      "x": 23.8,
+      "y": 19.4,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_road_02",
+      "name": "Northwest Road 02",
+      "type": "road",
+      "purpose": "road",
+      "x": 23.8,
+      "y": 31.3,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_nw_road_03",
+      "name": "Northwest Road 03",
+      "type": "road",
+      "purpose": "road",
+      "x": 34.9,
+      "y": 46.0,
+      "radius": 3,
+      "district": "NORTHWEST INDUSTRIAL"
+    },
+    {
+      "id": "lv3_ne_research_lab",
+      "name": "Research Lab",
+      "type": "poi",
+      "purpose": "work",
+      "x": 43.6,
+      "y": 8.5,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_factory_01",
+      "name": "Northeast Factory 01",
+      "type": "poi",
+      "purpose": "work",
+      "x": 52.6,
+      "y": 8.5,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_container_yard",
+      "name": "Container Yard",
+      "type": "poi",
+      "purpose": "work",
+      "x": 64.4,
+      "y": 10.4,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_crane_yard",
+      "name": "Crane Yard",
+      "type": "poi",
+      "purpose": "work",
+      "x": 69.1,
+      "y": 8.3,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_oil_tanks",
+      "name": "Oil Tanks",
+      "type": "poi",
+      "purpose": "service",
+      "x": 85.8,
+      "y": 8.5,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_port_refinery",
+      "name": "Port Refinery",
+      "type": "poi",
+      "purpose": "work",
+      "x": 83.5,
+      "y": 26.5,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_dock_warehouse",
+      "name": "Dock Warehouse",
+      "type": "poi",
+      "purpose": "work",
+      "x": 87.2,
+      "y": 36.0,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_ship_pier",
+      "name": "Ship Pier",
+      "type": "poi",
+      "purpose": "work",
+      "x": 93.2,
+      "y": 36.5,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_factory_block_01",
+      "name": "Northeast Factory Block 01",
+      "type": "poi",
+      "purpose": "work",
+      "x": 52.3,
+      "y": 24.2,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_factory_block_02",
+      "name": "Northeast Factory Block 02",
+      "type": "poi",
+      "purpose": "work",
+      "x": 61.0,
+      "y": 24.2,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_factory_block_03",
+      "name": "Northeast Factory Block 03",
+      "type": "poi",
+      "purpose": "work",
+      "x": 69.8,
+      "y": 24.2,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_control_building",
+      "name": "Control Building",
+      "type": "poi",
+      "purpose": "work",
+      "x": 68.1,
+      "y": 36.0,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_branch_hub",
+      "name": "Northeast Branch Hub",
+      "type": "connector",
+      "purpose": "road",
+      "x": 76.1,
+      "y": 40.8,
+      "radius": 4,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_road_01",
+      "name": "Northeast Road 01",
+      "type": "road",
+      "purpose": "road",
+      "x": 48.3,
+      "y": 19.4,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_road_02",
+      "name": "Northeast Road 02",
+      "type": "road",
+      "purpose": "road",
+      "x": 75.5,
+      "y": 19.4,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_ne_road_03",
+      "name": "Northeast Road 03",
+      "type": "road",
+      "purpose": "road",
+      "x": 76.1,
+      "y": 31.8,
+      "radius": 3,
+      "district": "NORTHEAST PORT"
+    },
+    {
+      "id": "lv3_sw_old_factory",
+      "name": "Old Factory",
+      "type": "poi",
+      "purpose": "work",
+      "x": 8.0,
+      "y": 72.5,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_fuel_storage",
+      "name": "Fuel Storage",
+      "type": "poi",
+      "purpose": "service",
+      "x": 19.1,
+      "y": 85.3,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_lower_workshop",
+      "name": "Lower Workshop",
+      "type": "poi",
+      "purpose": "work",
+      "x": 30.5,
+      "y": 90.5,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_scrap_yard",
+      "name": "Scrap Yard",
+      "type": "poi",
+      "purpose": "work",
+      "x": 37.6,
+      "y": 88.2,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_machine_shop",
+      "name": "Machine Shop",
+      "type": "poi",
+      "purpose": "service",
+      "x": 45.3,
+      "y": 90.0,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_factory_block_01",
+      "name": "Southwest Factory Block 01",
+      "type": "poi",
+      "purpose": "work",
+      "x": 28.8,
+      "y": 60.2,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_factory_block_02",
+      "name": "Southwest Factory Block 02",
+      "type": "poi",
+      "purpose": "work",
+      "x": 37.6,
+      "y": 62.1,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_admin_office",
+      "name": "Southwest Admin Office",
+      "type": "poi",
+      "purpose": "work",
+      "x": 46.9,
+      "y": 64.0,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_small_depot",
+      "name": "Small Depot",
+      "type": "poi",
+      "purpose": "work",
+      "x": 28.8,
+      "y": 71.6,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_maintenance_garage",
+      "name": "Maintenance Garage",
+      "type": "poi",
+      "purpose": "service",
+      "x": 37.9,
+      "y": 71.6,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_security_post",
+      "name": "Security Post",
+      "type": "poi",
+      "purpose": "service",
+      "x": 47.3,
+      "y": 71.6,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_gatehouse",
+      "name": "Gatehouse",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 40.9,
+      "y": 56.9,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_branch_hub",
+      "name": "Southwest Branch Hub",
+      "type": "connector",
+      "purpose": "road",
+      "x": 36.6,
+      "y": 57.8,
+      "radius": 4,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_road_01",
+      "name": "Southwest Road 01",
+      "type": "road",
+      "purpose": "road",
+      "x": 23.8,
+      "y": 57.8,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_road_02",
+      "name": "Southwest Road 02",
+      "type": "road",
+      "purpose": "road",
+      "x": 31.5,
+      "y": 77.7,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_sw_road_03",
+      "name": "Southwest Road 03",
+      "type": "road",
+      "purpose": "road",
+      "x": 46.3,
+      "y": 77.7,
+      "radius": 3,
+      "district": "SOUTHWEST FACTORY"
+    },
+    {
+      "id": "lv3_se_radio_tower",
+      "name": "Radio Tower",
+      "type": "poi",
+      "purpose": "service",
+      "x": 69.4,
+      "y": 60.2,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_power_station",
+      "name": "Power Station",
+      "type": "poi",
+      "purpose": "work",
+      "x": 84.2,
+      "y": 53.1,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_cooling_towers",
+      "name": "Cooling Towers",
+      "type": "poi",
+      "purpose": "work",
+      "x": 89.2,
+      "y": 55.9,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_water_treatment",
+      "name": "Water Treatment",
+      "type": "poi",
+      "purpose": "service",
+      "x": 90.5,
+      "y": 62.6,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_loading_dock",
+      "name": "Loading Dock",
+      "type": "poi",
+      "purpose": "work",
+      "x": 83.2,
+      "y": 73.5,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_crane_station",
+      "name": "Crane Station",
+      "type": "poi",
+      "purpose": "work",
+      "x": 88.9,
+      "y": 78.2,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_shipyard",
+      "name": "Shipyard",
+      "type": "poi",
+      "purpose": "work",
+      "x": 93.6,
+      "y": 82.0,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_freight_terminal",
+      "name": "Freight Terminal",
+      "type": "poi",
+      "purpose": "work",
+      "x": 74.4,
+      "y": 87.2,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_container_depot",
+      "name": "Container Depot",
+      "type": "poi",
+      "purpose": "work",
+      "x": 66.4,
+      "y": 87.7,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_utility_building",
+      "name": "Utility Building",
+      "type": "poi",
+      "purpose": "service",
+      "x": 58.4,
+      "y": 87.7,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_factory_block_01",
+      "name": "Southeast Factory Block 01",
+      "type": "poi",
+      "purpose": "work",
+      "x": 58.7,
+      "y": 63.0,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_factory_block_02",
+      "name": "Southeast Factory Block 02",
+      "type": "poi",
+      "purpose": "work",
+      "x": 64.4,
+      "y": 69.7,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_branch_hub",
+      "name": "Southeast Branch Hub",
+      "type": "connector",
+      "purpose": "road",
+      "x": 65.4,
+      "y": 57.8,
+      "radius": 4,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_road_01",
+      "name": "Southeast Road 01",
+      "type": "road",
+      "purpose": "road",
+      "x": 65.4,
+      "y": 73.9,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_road_02",
+      "name": "Southeast Road 02",
+      "type": "road",
+      "purpose": "road",
+      "x": 76.1,
+      "y": 74.4,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    },
+    {
+      "id": "lv3_se_road_03",
+      "name": "Southeast Road 03",
+      "type": "road",
+      "purpose": "road",
+      "x": 84.5,
+      "y": 82.9,
+      "radius": 3,
+      "district": "SOUTHEAST DOCKYARD"
+    }
   ]
 }

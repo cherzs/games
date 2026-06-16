@@ -21,6 +21,7 @@ function EditorPageInner() {
   const [selectedNode, setSelectedNode] = useState<GameMap['nodes'][0] | undefined>(undefined)
   const [customLevelId, setCustomLevelId] = useState<string | null>(levelId)
   const [levelData, setLevelData] = useState<GameLevel | undefined>(undefined)
+  const [missionOrder, setMissionOrder] = useState<string[]>([])
   const [saveError, setSaveError] = useState<string | null>(null)
   const [loading, setLoading] = useState(!!levelId)
 
@@ -33,11 +34,13 @@ function EditorPageInner() {
     const custom = loadCustomLevel(levelId)
     if (custom) {
       setLevelData(custom)
+      setMissionOrder(custom.missionOrder || [])
       setCustomLevelId(levelId)
       setLoading(false)
     } else if (levelId.startsWith('level_')) {
       fetchTemplateLevel(levelId).then((template) => {
         setLevelData(template)
+        setMissionOrder(template.missionOrder || [])
         setCustomLevelId(levelId)
         setLoading(false)
       }).catch(() => {
@@ -60,6 +63,26 @@ function EditorPageInner() {
   const handleNodeSelect = useCallback((node: GameMap['nodes'][0] | undefined) => {
     setSelectedNode(node)
   }, [])
+
+  const handleMissionOrderChange = useCallback((order: string[]) => {
+    setMissionOrder(order)
+    if (customLevelId && levelData) {
+      const updated: GameLevel = {
+        ...levelData,
+        missionOrder: order,
+        kind: 'custom',
+        updatedAt: new Date().toISOString(),
+      }
+      const result = saveCustomLevel(updated)
+      if (result.success) {
+        setLevelData(updated)
+        setSaveError(null)
+      } else {
+        setSaveError(result.error)
+        setLevelData(updated)
+      }
+    }
+  }, [customLevelId, levelData])
 
   const handleMapUpdate = useCallback((map: GameMap) => {
     if (customLevelId && levelData) {
@@ -126,6 +149,8 @@ function EditorPageInner() {
             onMapUpdate={handleMapUpdate}
             customLevelId={customLevelId}
             levelData={levelData}
+            missionOrder={missionOrder}
+            onMissionOrderChange={handleMissionOrderChange}
           />
         </div>
       )}

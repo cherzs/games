@@ -17,8 +17,14 @@ const PURPOSE_ICON: Record<string, string> = {
   visit: '📍', deliver: '📦', play: '🎮', social: '👥', service: '🔧',
 }
 
+const PURPOSE_LABEL: Record<string, string> = {
+  eat: 'Eat', shop: 'Shop', work: 'Work', rest: 'Rest',
+  visit: 'Visit', deliver: 'Deliver', play: 'Play', social: 'Social', service: 'Service',
+}
+
 export default function HUD({ mission, completedCount }: HUDProps) {
   const icon = mission ? (PURPOSE_ICON[mission.purpose] ?? '📍') : ''
+  const purposeLabel = mission ? (PURPOSE_LABEL[mission.purpose] ?? mission.purpose) : ''
 
   return (
     <div className="absolute top-0 left-0 right-0 p-3 pointer-events-none z-10">
@@ -41,7 +47,9 @@ export default function HUD({ mission, completedCount }: HUDProps) {
               <div className="text-white text-sm font-semibold">
                 {icon} {mission.nodeName}
               </div>
-              {/* Distance shown by Phaser overlay arrow text */}
+              <div className="text-gray-300 text-xs">
+                {purposeLabel}
+              </div>
             </div>
           ) : (
             <div className="text-gray-400 text-xs mt-1">No active mission</div>

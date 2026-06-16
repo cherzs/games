@@ -37,7 +37,14 @@ export class MissionSystem {
   }
 
   loadMissionOrder(nodeIds: string[]): void {
-    this.missionQueue = [...nodeIds]
+    const validIds = nodeIds.filter((id) => {
+      const node = this.mapSystem.getNodeById(id)
+      if (!node) return false
+      if (node.purpose === 'spawn') return false
+      if (node.type === 'road' || node.type === 'connector' || node.type === 'center') return false
+      return true
+    })
+    this.missionQueue = [...validIds]
     this.queueIndex = 0
     this.orderedMode = true
     this.completedCount = 0
@@ -89,7 +96,11 @@ export class MissionSystem {
     const allNodes = this.mapSystem.getNodes()
     if (allNodes.length === 0) return null
 
-    const validNodes = allNodes.filter((n) => n.purpose !== 'spawn')
+    const validNodes = allNodes.filter((n) => {
+      if (n.purpose === 'spawn') return false
+      if (n.type === 'road' || n.type === 'connector' || n.type === 'center') return false
+      return true
+    })
     if (validNodes.length === 0) return null
 
     const available = validNodes.filter((n) => !this.usedNodeIds.has(n.id))
@@ -117,10 +128,10 @@ export class MissionSystem {
       }
     }
 
-    for (let retry = 0; retry < 3; retry++) {
+    for (let retry = 0; retry < 5; retry++) {
       const district = node.district ?? ''
-      if (this.lastDistricts.length < 2) break
-      if (this.lastDistricts[0] !== district || this.lastDistricts[1] !== district) break
+      if (this.lastDistricts.length === 0) break
+      if (this.lastDistricts[this.lastDistricts.length - 1] !== district) break
 
       const alternatives = pool.filter((n) => n.id !== node.id && (n.district ?? '') !== district)
       if (alternatives.length === 0) break
@@ -129,7 +140,7 @@ export class MissionSystem {
 
     const district = node.district ?? ''
     this.lastDistricts.push(district)
-    if (this.lastDistricts.length > 2) this.lastDistricts.shift()
+    if (this.lastDistricts.length > 1) this.lastDistricts.shift()
 
     this.usedNodeIds.add(node.id)
 

@@ -1,45 +1,715 @@
 {
   "id": "level_2",
-  "name": "Level 2 – Suburbs",
+  "name": "Level 2 \u2013 Suburbs",
   "kind": "template",
   "baseMapId": "base_map_kota_raya",
   "background": "/maps/maps-lv2.png",
   "mapWidth": 2400,
   "mapHeight": 1600,
-  "spawn": { "x": 50, "y": 72 },
+  "spawn": {
+    "x": 50.6,
+    "y": 59.8
+  },
   "missionOrder": [
-    "school_01", "lib_01", "college_01", "camp_01",
-    "bldg_01", "police_01", "bank_01",
-    "hosp_01", "hotel_01", "stadium_01", "pool_01"
+    "lv2_nw_house_01",
+    "lv2_ne_soccer_field",
+    "lv2_sw_beach",
+    "lv2_se_fire_station",
+    "lv2_nw_house_02",
+    "lv2_ne_school",
+    "lv2_sw_beach_house",
+    "lv2_se_house_01",
+    "lv2_nw_house_03",
+    "lv2_ne_commercial_block",
+    "lv2_sw_shop_01",
+    "lv2_se_pool",
+    "lv2_nw_mansion",
+    "lv2_ne_hotel",
+    "lv2_sw_store_01",
+    "lv2_se_market",
+    "lv2_nw_farm",
+    "lv2_ne_tower",
+    "lv2_sw_house_01",
+    "lv2_se_gas_station",
+    "lv2_nw_villa",
+    "lv2_ne_store_01",
+    "lv2_sw_library",
+    "lv2_se_factory",
+    "lv2_nw_shop_block",
+    "lv2_ne_club",
+    "lv2_sw_mosque",
+    "lv2_se_car_dealer",
+    "lv2_nw_house_block",
+    "lv2_ne_store_02",
+    "lv2_sw_public_building",
+    "lv2_se_auto_repair",
+    "lv2_nw_construction_yard",
+    "lv2_ne_park_pavilion",
+    "lv2_sw_small_house_01",
+    "lv2_se_port_building",
+    "lv2_nw_warehouse",
+    "lv2_ne_clinic",
+    "lv2_sw_park_01",
+    "lv2_se_container_yard",
+    "lv2_nw_office_01",
+    "lv2_ne_sports_field",
+    "lv2_sw_office_01",
+    "lv2_se_coastal_office",
+    "lv2_nw_church",
+    "lv2_ne_apartment",
+    "lv2_sw_industrial_block",
+    "lv2_se_small_building"
   ],
   "nodes": [
-    { "id": "spawn",        "name": "Home",          "type": "residential",   "purpose": "spawn",   "x": 50,  "y": 72,  "radius": 3, "district": "EDUCATION" },
-
-    { "id": "school_01",   "name": "School",        "type": "school",        "purpose": "visit",   "x": 50,  "y": 57,  "radius": 4, "district": "EDUCATION" },
-    { "id": "lib_01",      "name": "Library",       "type": "library",       "purpose": "visit",   "x": 36,  "y": 67,  "radius": 3, "district": "EDUCATION" },
-    { "id": "chapel_01",   "name": "Church",        "type": "church",        "purpose": "visit",   "x": 47,  "y": 67,  "radius": 3, "district": "EDUCATION" },
-    { "id": "college_01",  "name": "College",       "type": "school",        "purpose": "visit",   "x": 57,  "y": 67,  "radius": 3, "district": "EDUCATION" },
-    { "id": "camp_01",     "name": "Scout Camp",    "type": "park",          "purpose": "rest",    "x": 68,  "y": 67,  "radius": 3, "district": "EDUCATION" },
-
-    { "id": "stadium_01",  "name": "Stadium",       "type": "park",          "purpose": "rest",    "x": 84,  "y": 37,  "radius": 4, "district": "SPORTS" },
-    { "id": "pool_01",     "name": "Swimming Pool", "type": "gym",           "purpose": "visit",   "x": 95,  "y": 46,  "radius": 3, "district": "SPORTS" },
-
-    { "id": "hosp_01",     "name": "Hospital",      "type": "hospital",      "purpose": "visit",   "x": 88,  "y": 20,  "radius": 3, "district": "HOSPITAL" },
-    { "id": "hotel_01",    "name": "Hotel",         "type": "residential",   "purpose": "visit",   "x": 96,  "y": 20,  "radius": 3, "district": "HOSPITAL" },
-    { "id": "heli_01",     "name": "Helipad",       "type": "service",       "purpose": "deliver", "x": 92,  "y": 28,  "radius": 3, "district": "HOSPITAL" },
-
-    { "id": "farm_01",     "name": "Farm",          "type": "park",          "purpose": "rest",    "x": 9,   "y": 27,  "radius": 3, "district": "FARM" },
-    { "id": "junk_01",     "name": "Junkyard",      "type": "service",       "purpose": "deliver", "x": 4,   "y": 33,  "radius": 3, "district": "FARM" },
-
-    { "id": "mech_01",     "name": "Mechanic",      "type": "auto",          "purpose": "service", "x": 4,   "y": 45,  "radius": 3, "district": "GARAGE" },
-    { "id": "park_lot_01", "name": "Parking",       "type": "parking",       "purpose": "service", "x": 10,  "y": 49,  "radius": 3, "district": "GARAGE" },
-    { "id": "wshop_01",    "name": "Workshop",      "type": "service",       "purpose": "deliver", "x": 17,  "y": 45,  "radius": 3, "district": "GARAGE" },
-
-    { "id": "bldg_01",     "name": "District HQ",   "type": "office",        "purpose": "work",    "x": 24,  "y": 36,  "radius": 3, "district": "DISTRICT" },
-    { "id": "police_01",   "name": "Police",        "type": "police",        "purpose": "visit",   "x": 23,  "y": 51,  "radius": 3, "district": "DISTRICT" },
-    { "id": "bank_01",     "name": "Bank",          "type": "bank",          "purpose": "deliver", "x": 22,  "y": 62,  "radius": 3, "district": "BANK DISTRICT" },
-
-    { "id": "post_01",     "name": "Post Office",   "type": "service",       "purpose": "deliver", "x": 4,   "y": 59,  "radius": 3, "district": "BANK DISTRICT" },
-    { "id": "bank_02",     "name": "Savings Bank",  "type": "bank",          "purpose": "deliver", "x": 12,  "y": 59,  "radius": 3, "district": "BANK DISTRICT" }
+    {
+      "id": "lv2_center_town_hall",
+      "name": "Town Hall",
+      "type": "center",
+      "purpose": "road",
+      "x": 48.6,
+      "y": 61.8,
+      "radius": 5,
+      "district": "CITY CENTER"
+    },
+    {
+      "id": "lv2_nw_house_01",
+      "name": "Northwest House 01",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 15.6,
+      "y": 8.3,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_house_02",
+      "name": "Northwest House 02",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 24.1,
+      "y": 9.0,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_house_03",
+      "name": "Northwest House 03",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 31.6,
+      "y": 8.3,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_mansion",
+      "name": "Northwest Mansion",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 39.7,
+      "y": 8.4,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_farm",
+      "name": "Farm",
+      "type": "poi",
+      "purpose": "rest",
+      "x": 10.3,
+      "y": 25.4,
+      "radius": 4,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_villa",
+      "name": "Villa",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 16.6,
+      "y": 28.5,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_shop_block",
+      "name": "Northwest Shop Block",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 31.2,
+      "y": 26.4,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_house_block",
+      "name": "Northwest House Block",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 40.7,
+      "y": 27.3,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_construction_yard",
+      "name": "Construction Yard",
+      "type": "poi",
+      "purpose": "work",
+      "x": 9.4,
+      "y": 45.4,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_warehouse",
+      "name": "Warehouse",
+      "type": "poi",
+      "purpose": "work",
+      "x": 13.3,
+      "y": 54.2,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_office_01",
+      "name": "Northwest Office 01",
+      "type": "poi",
+      "purpose": "work",
+      "x": 19.5,
+      "y": 47.4,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_church",
+      "name": "Church",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 39.7,
+      "y": 48.8,
+      "radius": 4,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_branch_hub",
+      "name": "Northwest Branch Hub",
+      "type": "connector",
+      "purpose": "road",
+      "x": 32.9,
+      "y": 42.5,
+      "radius": 4,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_road_01",
+      "name": "Northwest Road 01",
+      "type": "road",
+      "purpose": "road",
+      "x": 26.7,
+      "y": 20.0,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_road_02",
+      "name": "Northwest Road 02",
+      "type": "road",
+      "purpose": "road",
+      "x": 26.4,
+      "y": 41.5,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_nw_road_03",
+      "name": "Northwest Road 03",
+      "type": "road",
+      "purpose": "road",
+      "x": 33.9,
+      "y": 59.6,
+      "radius": 3,
+      "district": "NORTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_soccer_field",
+      "name": "Soccer Field",
+      "type": "poi",
+      "purpose": "play",
+      "x": 57.3,
+      "y": 9.3,
+      "radius": 4,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_school",
+      "name": "School",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 54.4,
+      "y": 8.3,
+      "radius": 4,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_commercial_block",
+      "name": "Commercial Block",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 71.0,
+      "y": 8.8,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_hotel",
+      "name": "Hotel",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 81.1,
+      "y": 16.1,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_tower",
+      "name": "Coastal Tower",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 88.5,
+      "y": 16.6,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_store_01",
+      "name": "Northeast Store 01",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 51.4,
+      "y": 23.9,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_club",
+      "name": "Club",
+      "type": "poi",
+      "purpose": "social",
+      "x": 61.2,
+      "y": 23.9,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_store_02",
+      "name": "Northeast Store 02",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 67.4,
+      "y": 24.4,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_park_pavilion",
+      "name": "Park Pavilion",
+      "type": "poi",
+      "purpose": "rest",
+      "x": 86.3,
+      "y": 37.6,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_clinic",
+      "name": "Clinic",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 78.8,
+      "y": 24.9,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_sports_field",
+      "name": "Sports Field",
+      "type": "poi",
+      "purpose": "play",
+      "x": 59.9,
+      "y": 37.1,
+      "radius": 4,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_apartment",
+      "name": "Northeast Apartment",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 67.4,
+      "y": 37.1,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_branch_hub",
+      "name": "Northeast Branch Hub",
+      "type": "connector",
+      "purpose": "road",
+      "x": 73.6,
+      "y": 41.5,
+      "radius": 4,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_road_01",
+      "name": "Northeast Road 01",
+      "type": "road",
+      "purpose": "road",
+      "x": 49.5,
+      "y": 20.0,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_road_02",
+      "name": "Northeast Road 02",
+      "type": "road",
+      "purpose": "road",
+      "x": 72.6,
+      "y": 20.0,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_ne_road_03",
+      "name": "Northeast Road 03",
+      "type": "road",
+      "purpose": "road",
+      "x": 76.5,
+      "y": 56.6,
+      "radius": 3,
+      "district": "NORTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_beach",
+      "name": "Beach",
+      "type": "poi",
+      "purpose": "play",
+      "x": 8.5,
+      "y": 83.0,
+      "radius": 4,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_beach_house",
+      "name": "Beach House",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 32.9,
+      "y": 81.5,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_shop_01",
+      "name": "Southwest Shop 01",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 39.7,
+      "y": 88.9,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_store_01",
+      "name": "Southwest Store 01",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 29.6,
+      "y": 88.9,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_house_01",
+      "name": "Southwest House 01",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 43.9,
+      "y": 83.0,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_library",
+      "name": "Library",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 35.5,
+      "y": 68.8,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_mosque",
+      "name": "Mosque",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 43.0,
+      "y": 85.0,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_public_building",
+      "name": "Public Building",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 47.9,
+      "y": 87.9,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_small_house_01",
+      "name": "Southwest Small House 01",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 39.7,
+      "y": 65.4,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_park_01",
+      "name": "Southwest Park 01",
+      "type": "poi",
+      "purpose": "rest",
+      "x": 40.0,
+      "y": 74.2,
+      "radius": 4,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_office_01",
+      "name": "Southwest Office 01",
+      "type": "poi",
+      "purpose": "work",
+      "x": 23.8,
+      "y": 64.9,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_industrial_block",
+      "name": "Southwest Industrial Block",
+      "type": "poi",
+      "purpose": "work",
+      "x": 12.0,
+      "y": 64.9,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_branch_hub",
+      "name": "Southwest Branch Hub",
+      "type": "connector",
+      "purpose": "road",
+      "x": 34.8,
+      "y": 62.0,
+      "radius": 4,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_road_01",
+      "name": "Southwest Road 01",
+      "type": "road",
+      "purpose": "road",
+      "x": 24.1,
+      "y": 61.0,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_road_02",
+      "name": "Southwest Road 02",
+      "type": "road",
+      "purpose": "road",
+      "x": 33.2,
+      "y": 78.1,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_sw_road_03",
+      "name": "Southwest Road 03",
+      "type": "road",
+      "purpose": "road",
+      "x": 46.5,
+      "y": 78.6,
+      "radius": 3,
+      "district": "SOUTHWEST DISTRICT"
+    },
+    {
+      "id": "lv2_se_fire_station",
+      "name": "Fire Station",
+      "type": "poi",
+      "purpose": "service",
+      "x": 56.0,
+      "y": 49.3,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_house_01",
+      "name": "Southeast House 01",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 67.1,
+      "y": 49.8,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_pool",
+      "name": "Swimming Pool",
+      "type": "poi",
+      "purpose": "play",
+      "x": 78.5,
+      "y": 49.3,
+      "radius": 4,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_market",
+      "name": "Market",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 87.6,
+      "y": 58.6,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_gas_station",
+      "name": "Gas Station",
+      "type": "poi",
+      "purpose": "service",
+      "x": 83.3,
+      "y": 75.7,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_factory",
+      "name": "Factory",
+      "type": "poi",
+      "purpose": "work",
+      "x": 89.8,
+      "y": 77.6,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_car_dealer",
+      "name": "Car Dealer",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 83.0,
+      "y": 87.9,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_auto_repair",
+      "name": "Auto Repair",
+      "type": "poi",
+      "purpose": "service",
+      "x": 89.5,
+      "y": 87.9,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_port_building",
+      "name": "Port Building",
+      "type": "poi",
+      "purpose": "work",
+      "x": 72.6,
+      "y": 85.9,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_container_yard",
+      "name": "Container Yard",
+      "type": "poi",
+      "purpose": "work",
+      "x": 67.1,
+      "y": 88.9,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_coastal_office",
+      "name": "Coastal Office",
+      "type": "poi",
+      "purpose": "work",
+      "x": 77.1,
+      "y": 63.5,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_small_building",
+      "name": "Southeast Small Building",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 67.4,
+      "y": 67.4,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_branch_hub",
+      "name": "Southeast Branch Hub",
+      "type": "connector",
+      "purpose": "road",
+      "x": 63.8,
+      "y": 62.0,
+      "radius": 4,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_road_01",
+      "name": "Southeast Road 01",
+      "type": "road",
+      "purpose": "road",
+      "x": 63.8,
+      "y": 71.8,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_road_02",
+      "name": "Southeast Road 02",
+      "type": "road",
+      "purpose": "road",
+      "x": 74.5,
+      "y": 73.7,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    },
+    {
+      "id": "lv2_se_road_03",
+      "name": "Southeast Road 03",
+      "type": "road",
+      "purpose": "road",
+      "x": 81.4,
+      "y": 81.5,
+      "radius": 3,
+      "district": "SOUTHEAST DISTRICT"
+    }
   ]
 }
