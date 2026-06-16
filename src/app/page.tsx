@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import HUD from '@/components/HUD'
+import Compass from '@/components/Compass'
 import VirtualJoystick from '@/components/VirtualJoystick'
 import LevelSelect from '@/components/LevelSelect'
 import { GameLevel, GameRef } from '@/game/types'
@@ -117,6 +118,7 @@ export default function HomePage() {
         Menu
       </button>
       <HUD mission={mission} completedCount={completedCount} />
+      <Compass />
       <VirtualJoystick
         onInput={(dx, dy) => {
           joystickRef.current?.setInput(dx, dy)

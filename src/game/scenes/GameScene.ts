@@ -392,35 +392,6 @@ export class GameScene extends Phaser.Scene {
       this.distText.setText('')
     }
 
-    const CR = 56
-    this.overlayGfx.fillStyle(0x000000, 0.55)
-    this.overlayGfx.fillCircle(px, py, CR)
-    this.overlayGfx.lineStyle(2, 0xFFFFFF, 0.35)
-    this.overlayGfx.strokeCircle(px, py, CR)
-
-    for (const cardinal of [0, Math.PI / 2, Math.PI, Math.PI * 1.5]) {
-      const tx = px + Math.cos(cardinal) * (CR - 4)
-      const ty = py + Math.sin(cardinal) * (CR - 4)
-      const tx2 = px + Math.cos(cardinal) * (CR - 14)
-      const ty2 = py + Math.sin(cardinal) * (CR - 14)
-      this.overlayGfx.lineStyle(2, cardinal === 0 ? 0xFF4444 : 0xFFFFFF, cardinal === 0 ? 0.8 : 0.3)
-      this.overlayGfx.beginPath()
-      this.overlayGfx.moveTo(tx, ty)
-      this.overlayGfx.lineTo(tx2, ty2)
-      this.overlayGfx.strokePath()
-    }
-
-    const arrLen = CR - 10
-    const ax = px + Math.cos(angle) * arrLen
-    const ay = py + Math.sin(angle) * arrLen
-    const aw = 12
-    this.overlayGfx.fillStyle(0xFFDD00, 0.95)
-    this.overlayGfx.fillTriangle(
-      ax + Math.cos(angle) * aw,               ay + Math.sin(angle) * aw,
-      ax + Math.cos(angle + 2.3) * aw * 0.75,  ay + Math.sin(angle + 2.3) * aw * 0.75,
-      ax + Math.cos(angle - 2.3) * aw * 0.75,  ay + Math.sin(angle - 2.3) * aw * 0.75,
-    )
-
     this.missionCountText.setText(`${this.missionSystem.getCompletedCount()}`)
 
     if (this.isDebugMode) {
