@@ -17,14 +17,21 @@ const PURPOSE_ICON: Record<string, string> = {
   visit: '📍', deliver: '📦', play: '🎮', social: '👥', service: '🔧',
 }
 
-const PURPOSE_LABEL: Record<string, string> = {
-  eat: 'Eat', shop: 'Shop', work: 'Work', rest: 'Rest',
-  visit: 'Visit', deliver: 'Deliver', play: 'Play', social: 'Social', service: 'Service',
+const PURPOSE_ACTIVITY: Record<string, string> = {
+  eat: 'Eat at',
+  shop: 'Shop at',
+  work: 'Work at',
+  rest: 'Relax at',
+  visit: 'Visit',
+  deliver: 'Deliver to',
+  play: 'Play at',
+  social: 'Meet at',
+  service: 'Service at',
 }
 
 export default function HUD({ mission, completedCount }: HUDProps) {
   const icon = mission ? (PURPOSE_ICON[mission.purpose] ?? '📍') : ''
-  const purposeLabel = mission ? (PURPOSE_LABEL[mission.purpose] ?? mission.purpose) : ''
+  const activity = mission ? (PURPOSE_ACTIVITY[mission.purpose] ?? mission.purpose) : ''
 
   return (
     <div className="absolute top-0 left-0 right-0 p-3 pointer-events-none z-10">
@@ -45,11 +52,9 @@ export default function HUD({ mission, completedCount }: HUDProps) {
                 </div>
               )}
               <div className="text-white text-sm font-semibold">
-                {icon} {mission.nodeName}
+                {icon} {activity} {mission.nodeName}
               </div>
-              <div className="text-gray-300 text-xs">
-                {purposeLabel}
-              </div>
+              <div className="h-1" />
             </div>
           ) : (
             <div className="text-gray-400 text-xs mt-1">No active mission</div>

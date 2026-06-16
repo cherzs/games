@@ -117,10 +117,6 @@ export class GameScene extends Phaser.Scene {
     this.characterSystem = new CharacterSystem(this)
     this.cameraSystem = new CameraSystem(this)
 
-    if (this.sceneData.levelData?.missionOrder) {
-      this.missionSystem.loadMissionOrder(this.sceneData.levelData.missionOrder)
-    }
-
     this.roadSystem = new RoadSystem()
     this.roadSystem.loadNodes(this.mapData.nodes, this.mapData.width, this.mapData.height)
 
@@ -245,10 +241,6 @@ export class GameScene extends Phaser.Scene {
         const state = this.characterSystem.getState()
         this.playtestTracker.recordEnd(mission, state.x, state.y)
       }
-    })
-
-    this.missionSystem.setOnAllComplete(() => {
-      this.showLevelComplete()
     })
 
     this.missionSystem.generateMission()
@@ -400,10 +392,7 @@ export class GameScene extends Phaser.Scene {
       this.distText.setText('')
     }
 
-    const total = this.missionSystem.getTotalCount()
-    if (total > 0) {
-      this.missionCountText.setText(`${this.missionSystem.getCompletedCount()}/${total}`)
-    }
+    this.missionCountText.setText(`${this.missionSystem.getCompletedCount()}`)
 
     if (this.isDebugMode) {
       const onRoad = this.roadSystem.isWalkable(px, py)
