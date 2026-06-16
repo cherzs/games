@@ -4,7 +4,7 @@ import { RoadSystem } from './RoadSystem'
 import { isTypingInFormElement } from '@/game/utils/keyboard'
 
 const FRAME_INTERVAL = 140
-const CHAR_SIZE = 128
+const CHAR_SIZE = 256
 const BASE_SPEED = 250
 const ON_ROAD_MULTIPLIER = 1.15
 const OFF_ROAD_MULTIPLIER = 0.90

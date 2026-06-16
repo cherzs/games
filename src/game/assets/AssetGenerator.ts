@@ -1,6 +1,6 @@
 import * as Phaser from 'phaser'
 
-const CHARS = 128
+const CHARS = 256
 const TILE = 64
 
 function roundRect(
@@ -63,57 +63,58 @@ export class AssetGenerator {
     frame: number,
     c: Record<string, string>,
   ): void {
+    const s = CHARS / 128
     const dx = CHARS / 2
-    const bob = Math.sin((frame / 4) * Math.PI * 2) * 1.5
-    const legAngle = [0, -6, 0, 6][frame]
-    const armAngle = [0, 6, 0, -6][frame]
+    const bob = Math.sin((frame / 4) * Math.PI * 2) * 1.5 * s
+    const legAngle = [0, -6, 0, 6][frame] * s
+    const armAngle = [0, 6, 0, -6][frame] * s
 
     ctx.fillStyle = 'rgba(0,0,0,0.2)'
     ctx.beginPath()
-    ctx.ellipse(dx, 42, 12, 4, 0, 0, Math.PI * 2)
+    ctx.ellipse(dx, 42 * s, 12 * s, 4 * s, 0, 0, Math.PI * 2)
     ctx.fill()
 
     ctx.fillStyle = c.pants
-    ctx.fillRect(dx - 7, 28 + bob, 5, 12 + legAngle / 2)
-    ctx.fillRect(dx + 2, 28 + bob, 5, 12 - legAngle / 2)
+    ctx.fillRect(dx - 7 * s, (28 + bob / s) * s, 5 * s, (12 + legAngle / (2 * s)) * s)
+    ctx.fillRect(dx + 2 * s, (28 + bob / s) * s, 5 * s, (12 - legAngle / (2 * s)) * s)
     ctx.fillStyle = c.shoe
-    ctx.fillRect(dx - 8, 38 + legAngle / 2 + bob, 7, 4)
-    ctx.fillRect(dx + 1, 38 - legAngle / 2 + bob, 7, 4)
+    ctx.fillRect(dx - 8 * s, 38 * s + legAngle / 2 + bob, 7 * s, 4 * s)
+    ctx.fillRect(dx + 1 * s, 38 * s - legAngle / 2 + bob, 7 * s, 4 * s)
 
     ctx.fillStyle = c.shirt
-    roundRect(ctx, dx - 8, 14 + bob, 16, 15, 3)
+    roundRect(ctx, dx - 8 * s, 14 * s + bob, 16 * s, 15 * s, 3 * s)
     ctx.fill()
 
     ctx.fillStyle = c.shirt
     ctx.save()
-    ctx.translate(dx - 8, 18 + bob)
-    ctx.rotate(-0.3 + (armAngle / 20))
-    ctx.fillRect(-3, 0, 7, 3)
+    ctx.translate(dx - 8 * s, 18 * s + bob)
+    ctx.rotate(-0.3 + (armAngle / (20 * s)))
+    ctx.fillRect(-3 * s, 0, 7 * s, 3 * s)
     ctx.restore()
     ctx.save()
-    ctx.translate(dx + 8, 18 + bob)
-    ctx.rotate(0.3 - (armAngle / 20))
-    ctx.fillRect(-4, 0, 7, 3)
+    ctx.translate(dx + 8 * s, 18 * s + bob)
+    ctx.rotate(0.3 - (armAngle / (20 * s)))
+    ctx.fillRect(-4 * s, 0, 7 * s, 3 * s)
     ctx.restore()
     ctx.fillStyle = c.skin
-    ctx.fillRect(dx - 15 - armAngle, 20 + bob, 5, 5)
-    ctx.fillRect(dx + 10 + armAngle, 20 + bob, 5, 5)
+    ctx.fillRect(dx - 15 * s - armAngle, 20 * s + bob, 5 * s, 5 * s)
+    ctx.fillRect(dx + 10 * s + armAngle, 20 * s + bob, 5 * s, 5 * s)
 
     ctx.fillStyle = c.skin
     ctx.beginPath()
-    ctx.arc(dx, 7 + bob, 8, 0, Math.PI * 2)
+    ctx.arc(dx, 7 * s + bob, 8 * s, 0, Math.PI * 2)
     ctx.fill()
 
     ctx.fillStyle = c.hair
     ctx.beginPath()
-    ctx.arc(dx, 4 + bob, 8, Math.PI, Math.PI * 2)
+    ctx.arc(dx, 4 * s + bob, 8 * s, Math.PI, Math.PI * 2)
     ctx.fill()
-    ctx.fillRect(dx - 8, 3 + bob, 4, 5)
-    ctx.fillRect(dx + 4, 3 + bob, 4, 5)
+    ctx.fillRect(dx - 8 * s, 3 * s + bob, 4 * s, 5 * s)
+    ctx.fillRect(dx + 4 * s, 3 * s + bob, 4 * s, 5 * s)
 
     ctx.fillStyle = '#111'
     ctx.beginPath()
-    ctx.arc(dx + 4, 5 + bob, 1.5, 0, Math.PI * 2)
+    ctx.arc(dx + 4 * s, 5 * s + bob, 1.5 * s, 0, Math.PI * 2)
     ctx.fill()
   }
 
