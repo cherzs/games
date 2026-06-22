@@ -21,6 +21,7 @@ interface EditorPanelProps {
   levelData?: GameLevel
   missionOrder: string[]
   onMissionOrderChange: (order: string[]) => void
+  onImportedMissionOrder?: (order: string[]) => void
   isTemplateLevel?: boolean
   isLocked?: boolean
   onSaveAndLockTemplate?: () => void
@@ -34,6 +35,7 @@ export default function EditorPanel({
   levelData,
   missionOrder,
   onMissionOrderChange,
+  onImportedMissionOrder,
   isTemplateLevel = false,
   isLocked = false,
   onSaveAndLockTemplate,
@@ -163,8 +165,8 @@ export default function EditorPanel({
   }
 
   function handleImport(): void {
-    if (isLocked || isTemplateLevel) {
-      setNotice(isLocked ? 'Template is locked.' : 'Import is disabled in template placement mode.')
+    if (isLocked) {
+      setNotice('Template is locked.')
       return
     }
     const input = document.createElement('input')
@@ -214,6 +216,9 @@ export default function EditorPanel({
               setNotice(`Save failed: ${result.error}`)
             }
           }
+          if (Array.isArray(rawLevel.missionOrder)) {
+            onImportedMissionOrder?.(rawLevel.missionOrder)
+          }
         } else if (data.nodes) {
           map = data as GameMap
         } else if (data.id && data.nodes) {
@@ -224,6 +229,9 @@ export default function EditorPanel({
             height: data.height || data.mapHeight || 1600,
             background: data.background || '/maps/maps.png',
             nodes: data.nodes,
+          }
+          if (Array.isArray(data.missionOrder)) {
+            onImportedMissionOrder?.(data.missionOrder)
           }
         } else {
           setNotice('Invalid format! Expected map or level JSON.')
@@ -332,7 +340,7 @@ export default function EditorPanel({
           <p className="text-xs text-gray-300">
             {isLocked
               ? 'This level placement has been saved and can no longer be edited.'
-              : 'Rename nodes, drag them, or set exact X/Y values. Add, delete, import, and mission edits are disabled.'}
+              : 'Rename nodes, drag them, set exact X/Y values, or import placement JSON. Add, delete, and mission edits are disabled.'}
           </p>
           {!isLocked && (
             <button
@@ -395,7 +403,7 @@ export default function EditorPanel({
         </button>
         <button
           onClick={handleImport}
-          disabled={isLocked || isTemplateLevel}
+          disabled={isLocked}
           className="flex-1 px-3 py-1 bg-blue-700 hover:bg-blue-600 disabled:opacity-40 disabled:hover:bg-blue-700 rounded text-sm"
         >
           Import
@@ -621,7 +629,7 @@ export default function EditorPanel({
 
       <div className="mt-4 text-xs text-gray-500">
         {!isTemplateLevel && !isLocked && <p>Click on map: add node</p>}
-        {isTemplateLevel && !isLocked && <p>Template: rename and move existing nodes only</p>}
+        {isTemplateLevel && !isLocked && <p>Template: rename, import, and move existing nodes only</p>}
         {isLocked && <p>Locked: inspect only</p>}
         {!isLocked && <p>Drag node to move</p>}
         {!isLocked && <p>Use X/Y fields for precise placement</p>}

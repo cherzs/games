@@ -103,6 +103,27 @@ function EditorPageInner() {
     }
   }, [customLevelId, levelData, isLocked, isTemplateLevel])
 
+  const handleImportedMissionOrder = useCallback((order: string[]) => {
+    if (isLocked) return
+    setMissionOrder(order)
+    if (!isTemplateLevel && customLevelId && levelData) {
+      const updated: GameLevel = {
+        ...levelData,
+        missionOrder: order,
+        kind: 'custom',
+        updatedAt: new Date().toISOString(),
+      }
+      const result = saveCustomLevel(updated)
+      if (result.success) {
+        setLevelData(updated)
+        setSaveError(null)
+      } else {
+        setSaveError(result.error)
+        setLevelData(updated)
+      }
+    }
+  }, [customLevelId, levelData, isLocked, isTemplateLevel])
+
   const handleMapUpdate = useCallback((map: GameMap) => {
     if (isLocked) return
     if (isTemplateLevel && levelData) {
@@ -205,6 +226,7 @@ function EditorPageInner() {
             levelData={levelData}
             missionOrder={missionOrder}
             onMissionOrderChange={handleMissionOrderChange}
+            onImportedMissionOrder={handleImportedMissionOrder}
             isTemplateLevel={isTemplateLevel}
             isLocked={isLocked}
             onSaveAndLockTemplate={handleSaveAndLockTemplate}
