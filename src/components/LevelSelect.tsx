@@ -11,9 +11,9 @@ interface LevelSelectProps {
 }
 
 const TEMPLATE_LABELS: Record<string, string> = {
-  level_1: 'Level 1 – Downtown',
-  level_2: 'Level 2 – Suburbs',
-  level_3: 'Level 3 – Industrial Zone',
+  level_1: 'Level 1 – Downtown City Services',
+  level_2: 'Level 2 – Tourism Island City',
+  level_3: 'Level 3 – Mountain Temple Complex',
 }
 
 export default function LevelSelect({ onSelectLevel }: LevelSelectProps) {

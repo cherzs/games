@@ -19,6 +19,8 @@ interface GameCanvasProps {
   onEditorNotice?: (msg: string) => void
   gameRef?: React.MutableRefObject<GameRef | null>
   joystickRef?: React.MutableRefObject<{ setInput: (dx: number, dy: number) => void } | null>
+  editorReadOnly?: boolean
+  editorPlacementOnly?: boolean
 }
 
 export default function GameCanvas({
@@ -32,6 +34,8 @@ export default function GameCanvas({
   onEditorNotice,
   gameRef,
   joystickRef,
+  editorReadOnly = false,
+  editorPlacementOnly = false,
 }: GameCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const gameInstanceRef = useRef<Phaser.Game | null>(null)
@@ -83,6 +87,8 @@ export default function GameCanvas({
         sharedData.onMapChange = onMapChange
         sharedData.onNodeSelect = onNodeSelect
         sharedData.onNotice = onEditorNotice
+        sharedData.readOnly = editorReadOnly
+        sharedData.placementOnly = editorPlacementOnly
       }
 
       game.scene.start(startSceneKey, sharedData)
@@ -119,7 +125,7 @@ export default function GameCanvas({
         },
       }
     }
-  }, [mode, mapData, levelData, onMissionUpdate, onMissionComplete, onMapChange, onNodeSelect, onEditorNotice, gameRef, joystickRef])
+  }, [mode, mapData, levelData, onMissionUpdate, onMissionComplete, onMapChange, onNodeSelect, onEditorNotice, gameRef, joystickRef, editorReadOnly, editorPlacementOnly])
 
   useEffect(() => {
     initGame()
@@ -151,6 +157,8 @@ export default function GameCanvas({
             data.onMapChange = onMapChange
             data.onNodeSelect = onNodeSelect
             data.onNotice = onEditorNotice
+            data.readOnly = editorReadOnly
+            data.placementOnly = editorPlacementOnly
           }
           game.scene.start(targetKey, data)
         }

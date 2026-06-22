@@ -79,9 +79,6 @@ export class GameScene extends Phaser.Scene {
 
     if (!this.textures.exists('map_bg')) {
       this.load.image('map_bg', bgPath)
-    } else {
-      this.textures.remove('map_bg')
-      this.load.image('map_bg', bgPath)
     }
 
     this.load.audio('bgm', '/music/backgroundmusic.mp3')
@@ -242,6 +239,10 @@ export class GameScene extends Phaser.Scene {
         this.playtestTracker.recordEnd(mission, state.x, state.y)
       }
     })
+
+    if (this.sceneData.levelData?.missionOrder?.length) {
+      this.missionSystem.loadMissionOrder(this.sceneData.levelData.missionOrder)
+    }
 
     this.missionSystem.generateMission()
 

@@ -50,6 +50,9 @@ export interface GameLevel {
   nodes: MapNode[]
   roads?: Road[]
   missionOrder?: string[]
+  locked?: boolean
+  lockedAt?: string
+  templateOverride?: boolean
   createdAt?: string
   updatedAt?: string
 }

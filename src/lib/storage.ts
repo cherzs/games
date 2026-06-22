@@ -4,6 +4,7 @@ import { normalizeLevel, TEMPLATE_LEVEL_IDS } from '@/game/levels/levelLoader'
 const STORAGE_KEY = 'city_mission_save'
 const CUSTOM_LEVELS_KEY = 'custom_levels'
 const LEVEL_META_KEY = 'level_meta'
+const TEMPLATE_OVERRIDES_KEY = 'template_level_overrides'
 
 export type StorageResult = { success: true } | { success: false; error: string }
 
@@ -113,6 +114,51 @@ export function loadCustomLevels(): Record<string, GameLevel> {
 
 export function loadCustomLevel(levelId: string): GameLevel | null {
   const levels = loadCustomLevels()
+  return levels[levelId] || null
+}
+
+export function saveLockedTemplateLevel(level: GameLevel): StorageResult {
+  if (typeof window === 'undefined') return { success: false, error: 'Storage not available (server-side)' }
+
+  const overrides = loadLockedTemplateLevels()
+  const now = new Date().toISOString()
+  const lockedLevel: GameLevel = {
+    ...level,
+    kind: 'template',
+    baseMap: undefined,
+    locked: true,
+    lockedAt: level.lockedAt || now,
+    templateOverride: true,
+    updatedAt: now,
+  }
+
+  overrides[level.id] = lockedLevel
+
+  try {
+    const json = JSON.stringify(overrides)
+    return safeSetLocalStorage(TEMPLATE_OVERRIDES_KEY, json)
+  } catch (error) {
+    return { success: false, error: `Failed to save locked template: ${getStorageErrorMessage(error)}` }
+  }
+}
+
+export function loadLockedTemplateLevels(): Record<string, GameLevel> {
+  if (typeof window === 'undefined') return {}
+  const data = localStorage.getItem(TEMPLATE_OVERRIDES_KEY)
+  if (!data) return {}
+  try {
+    const parsed = JSON.parse(data) as Record<string, GameLevel>
+    for (const key of Object.keys(parsed)) {
+      parsed[key] = normalizeLevel(parsed[key])
+    }
+    return parsed
+  } catch {
+    return {}
+  }
+}
+
+export function loadLockedTemplateLevel(levelId: string): GameLevel | null {
+  const levels = loadLockedTemplateLevels()
   return levels[levelId] || null
 }
 

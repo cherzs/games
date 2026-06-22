@@ -1,715 +1,1386 @@
 {
   "id": "level_3",
-  "name": "Level 3 \u2013 Industrial Zone",
+  "name": "Level 3 - Ancient Mountain Temple Complex Exploration",
   "kind": "template",
   "baseMapId": "base_map_kota_raya",
   "background": "/maps/maps-lv3.png",
   "mapWidth": 2400,
   "mapHeight": 1600,
   "spawn": {
-    "x": 48.3,
-    "y": 46.3
+    "x": 50,
+    "y": 50
   },
   "missionOrder": [
-    "lv3_nw_power_plant",
-    "lv3_ne_research_lab",
-    "lv3_sw_old_factory",
-    "lv3_se_radio_tower",
-    "lv3_nw_smokestack_factory",
-    "lv3_ne_factory_01",
-    "lv3_sw_fuel_storage",
-    "lv3_se_power_station",
-    "lv3_nw_warehouse_01",
-    "lv3_ne_container_yard",
-    "lv3_sw_lower_workshop",
-    "lv3_se_cooling_towers",
-    "lv3_nw_storage_yard",
-    "lv3_ne_crane_yard",
-    "lv3_sw_scrap_yard",
-    "lv3_se_water_treatment",
-    "lv3_nw_mining_base",
-    "lv3_ne_oil_tanks",
-    "lv3_sw_machine_shop",
-    "lv3_se_loading_dock",
-    "lv3_nw_equipment_depot",
-    "lv3_ne_port_refinery",
-    "lv3_sw_factory_block_01",
-    "lv3_se_crane_station",
-    "lv3_nw_crusher_site",
-    "lv3_ne_dock_warehouse",
-    "lv3_sw_factory_block_02",
-    "lv3_se_shipyard",
-    "lv3_nw_excavator_zone",
-    "lv3_ne_ship_pier",
-    "lv3_sw_admin_office",
-    "lv3_se_freight_terminal",
-    "lv3_nw_factory_block_01",
-    "lv3_ne_factory_block_01",
-    "lv3_sw_small_depot",
-    "lv3_se_container_depot",
-    "lv3_nw_factory_block_02",
-    "lv3_ne_factory_block_02",
-    "lv3_sw_maintenance_garage",
-    "lv3_se_utility_building",
-    "lv3_nw_workshop",
-    "lv3_ne_factory_block_03",
-    "lv3_sw_security_post",
-    "lv3_se_factory_block_01",
-    "lv3_nw_assembly_yard",
-    "lv3_ne_control_building",
-    "lv3_sw_gatehouse",
-    "lv3_se_factory_block_02"
+    "L1_TOP",
+    "L2_TOP_1",
+    "L3_TOP_1_1",
+    "L3_TOP_1_2",
+    "L3_TOP_1_3",
+    "L3_TOP_1_4",
+    "L2_TOP_2",
+    "L3_TOP_2_1",
+    "L3_TOP_2_2",
+    "L3_TOP_2_3",
+    "L3_TOP_2_4",
+    "L2_TOP_3",
+    "L3_TOP_3_1",
+    "L3_TOP_3_2",
+    "L3_TOP_3_3",
+    "L3_TOP_3_4",
+    "L2_TOP_4",
+    "L3_TOP_4_1",
+    "L3_TOP_4_2",
+    "L3_TOP_4_3",
+    "L3_TOP_4_4",
+    "L1_RIGHT",
+    "L2_RIGHT_1",
+    "L3_RIGHT_1_1",
+    "L3_RIGHT_1_2",
+    "L3_RIGHT_1_3",
+    "L3_RIGHT_1_4",
+    "L2_RIGHT_2",
+    "L3_RIGHT_2_1",
+    "L3_RIGHT_2_2",
+    "L3_RIGHT_2_3",
+    "L3_RIGHT_2_4",
+    "L2_RIGHT_3",
+    "L3_RIGHT_3_1",
+    "L3_RIGHT_3_2",
+    "L3_RIGHT_3_3",
+    "L3_RIGHT_3_4",
+    "L2_RIGHT_4",
+    "L3_RIGHT_4_1",
+    "L3_RIGHT_4_2",
+    "L3_RIGHT_4_3",
+    "L3_RIGHT_4_4",
+    "L1_BOTTOM",
+    "L2_BOTTOM_1",
+    "L3_BOTTOM_1_1",
+    "L3_BOTTOM_1_2",
+    "L3_BOTTOM_1_3",
+    "L3_BOTTOM_1_4",
+    "L2_BOTTOM_2",
+    "L3_BOTTOM_2_1",
+    "L3_BOTTOM_2_2",
+    "L3_BOTTOM_2_3",
+    "L3_BOTTOM_2_4",
+    "L2_BOTTOM_3",
+    "L3_BOTTOM_3_1",
+    "L3_BOTTOM_3_2",
+    "L3_BOTTOM_3_3",
+    "L3_BOTTOM_3_4",
+    "L2_BOTTOM_4",
+    "L3_BOTTOM_4_1",
+    "L3_BOTTOM_4_2",
+    "L3_BOTTOM_4_3",
+    "L3_BOTTOM_4_4",
+    "L1_LEFT",
+    "L2_LEFT_1",
+    "L3_LEFT_1_1",
+    "L3_LEFT_1_2",
+    "L3_LEFT_1_3",
+    "L3_LEFT_1_4",
+    "L2_LEFT_2",
+    "L3_LEFT_2_1",
+    "L3_LEFT_2_2",
+    "L3_LEFT_2_3",
+    "L3_LEFT_2_4",
+    "L2_LEFT_3",
+    "L3_LEFT_3_1",
+    "L3_LEFT_3_2",
+    "L3_LEFT_3_3",
+    "L3_LEFT_3_4",
+    "L2_LEFT_4",
+    "L3_LEFT_4_1",
+    "L3_LEFT_4_2",
+    "L3_LEFT_4_3",
+    "L3_LEFT_4_4"
+  ],
+  "roads": [
+    {
+      "from": "L0_CENTER",
+      "to": "L1_TOP"
+    },
+    {
+      "from": "L1_TOP",
+      "to": "L2_TOP_1"
+    },
+    {
+      "from": "L2_TOP_1",
+      "to": "L3_TOP_1_1"
+    },
+    {
+      "from": "L2_TOP_1",
+      "to": "L3_TOP_1_2"
+    },
+    {
+      "from": "L2_TOP_1",
+      "to": "L3_TOP_1_3"
+    },
+    {
+      "from": "L2_TOP_1",
+      "to": "L3_TOP_1_4"
+    },
+    {
+      "from": "L1_TOP",
+      "to": "L2_TOP_2"
+    },
+    {
+      "from": "L2_TOP_2",
+      "to": "L3_TOP_2_1"
+    },
+    {
+      "from": "L2_TOP_2",
+      "to": "L3_TOP_2_2"
+    },
+    {
+      "from": "L2_TOP_2",
+      "to": "L3_TOP_2_3"
+    },
+    {
+      "from": "L2_TOP_2",
+      "to": "L3_TOP_2_4"
+    },
+    {
+      "from": "L1_TOP",
+      "to": "L2_TOP_3"
+    },
+    {
+      "from": "L2_TOP_3",
+      "to": "L3_TOP_3_1"
+    },
+    {
+      "from": "L2_TOP_3",
+      "to": "L3_TOP_3_2"
+    },
+    {
+      "from": "L2_TOP_3",
+      "to": "L3_TOP_3_3"
+    },
+    {
+      "from": "L2_TOP_3",
+      "to": "L3_TOP_3_4"
+    },
+    {
+      "from": "L1_TOP",
+      "to": "L2_TOP_4"
+    },
+    {
+      "from": "L2_TOP_4",
+      "to": "L3_TOP_4_1"
+    },
+    {
+      "from": "L2_TOP_4",
+      "to": "L3_TOP_4_2"
+    },
+    {
+      "from": "L2_TOP_4",
+      "to": "L3_TOP_4_3"
+    },
+    {
+      "from": "L2_TOP_4",
+      "to": "L3_TOP_4_4"
+    },
+    {
+      "from": "L0_CENTER",
+      "to": "L1_RIGHT"
+    },
+    {
+      "from": "L1_RIGHT",
+      "to": "L2_RIGHT_1"
+    },
+    {
+      "from": "L2_RIGHT_1",
+      "to": "L3_RIGHT_1_1"
+    },
+    {
+      "from": "L2_RIGHT_1",
+      "to": "L3_RIGHT_1_2"
+    },
+    {
+      "from": "L2_RIGHT_1",
+      "to": "L3_RIGHT_1_3"
+    },
+    {
+      "from": "L2_RIGHT_1",
+      "to": "L3_RIGHT_1_4"
+    },
+    {
+      "from": "L1_RIGHT",
+      "to": "L2_RIGHT_2"
+    },
+    {
+      "from": "L2_RIGHT_2",
+      "to": "L3_RIGHT_2_1"
+    },
+    {
+      "from": "L2_RIGHT_2",
+      "to": "L3_RIGHT_2_2"
+    },
+    {
+      "from": "L2_RIGHT_2",
+      "to": "L3_RIGHT_2_3"
+    },
+    {
+      "from": "L2_RIGHT_2",
+      "to": "L3_RIGHT_2_4"
+    },
+    {
+      "from": "L1_RIGHT",
+      "to": "L2_RIGHT_3"
+    },
+    {
+      "from": "L2_RIGHT_3",
+      "to": "L3_RIGHT_3_1"
+    },
+    {
+      "from": "L2_RIGHT_3",
+      "to": "L3_RIGHT_3_2"
+    },
+    {
+      "from": "L2_RIGHT_3",
+      "to": "L3_RIGHT_3_3"
+    },
+    {
+      "from": "L2_RIGHT_3",
+      "to": "L3_RIGHT_3_4"
+    },
+    {
+      "from": "L1_RIGHT",
+      "to": "L2_RIGHT_4"
+    },
+    {
+      "from": "L2_RIGHT_4",
+      "to": "L3_RIGHT_4_1"
+    },
+    {
+      "from": "L2_RIGHT_4",
+      "to": "L3_RIGHT_4_2"
+    },
+    {
+      "from": "L2_RIGHT_4",
+      "to": "L3_RIGHT_4_3"
+    },
+    {
+      "from": "L2_RIGHT_4",
+      "to": "L3_RIGHT_4_4"
+    },
+    {
+      "from": "L0_CENTER",
+      "to": "L1_BOTTOM"
+    },
+    {
+      "from": "L1_BOTTOM",
+      "to": "L2_BOTTOM_1"
+    },
+    {
+      "from": "L2_BOTTOM_1",
+      "to": "L3_BOTTOM_1_1"
+    },
+    {
+      "from": "L2_BOTTOM_1",
+      "to": "L3_BOTTOM_1_2"
+    },
+    {
+      "from": "L2_BOTTOM_1",
+      "to": "L3_BOTTOM_1_3"
+    },
+    {
+      "from": "L2_BOTTOM_1",
+      "to": "L3_BOTTOM_1_4"
+    },
+    {
+      "from": "L1_BOTTOM",
+      "to": "L2_BOTTOM_2"
+    },
+    {
+      "from": "L2_BOTTOM_2",
+      "to": "L3_BOTTOM_2_1"
+    },
+    {
+      "from": "L2_BOTTOM_2",
+      "to": "L3_BOTTOM_2_2"
+    },
+    {
+      "from": "L2_BOTTOM_2",
+      "to": "L3_BOTTOM_2_3"
+    },
+    {
+      "from": "L2_BOTTOM_2",
+      "to": "L3_BOTTOM_2_4"
+    },
+    {
+      "from": "L1_BOTTOM",
+      "to": "L2_BOTTOM_3"
+    },
+    {
+      "from": "L2_BOTTOM_3",
+      "to": "L3_BOTTOM_3_1"
+    },
+    {
+      "from": "L2_BOTTOM_3",
+      "to": "L3_BOTTOM_3_2"
+    },
+    {
+      "from": "L2_BOTTOM_3",
+      "to": "L3_BOTTOM_3_3"
+    },
+    {
+      "from": "L2_BOTTOM_3",
+      "to": "L3_BOTTOM_3_4"
+    },
+    {
+      "from": "L1_BOTTOM",
+      "to": "L2_BOTTOM_4"
+    },
+    {
+      "from": "L2_BOTTOM_4",
+      "to": "L3_BOTTOM_4_1"
+    },
+    {
+      "from": "L2_BOTTOM_4",
+      "to": "L3_BOTTOM_4_2"
+    },
+    {
+      "from": "L2_BOTTOM_4",
+      "to": "L3_BOTTOM_4_3"
+    },
+    {
+      "from": "L2_BOTTOM_4",
+      "to": "L3_BOTTOM_4_4"
+    },
+    {
+      "from": "L0_CENTER",
+      "to": "L1_LEFT"
+    },
+    {
+      "from": "L1_LEFT",
+      "to": "L2_LEFT_1"
+    },
+    {
+      "from": "L2_LEFT_1",
+      "to": "L3_LEFT_1_1"
+    },
+    {
+      "from": "L2_LEFT_1",
+      "to": "L3_LEFT_1_2"
+    },
+    {
+      "from": "L2_LEFT_1",
+      "to": "L3_LEFT_1_3"
+    },
+    {
+      "from": "L2_LEFT_1",
+      "to": "L3_LEFT_1_4"
+    },
+    {
+      "from": "L1_LEFT",
+      "to": "L2_LEFT_2"
+    },
+    {
+      "from": "L2_LEFT_2",
+      "to": "L3_LEFT_2_1"
+    },
+    {
+      "from": "L2_LEFT_2",
+      "to": "L3_LEFT_2_2"
+    },
+    {
+      "from": "L2_LEFT_2",
+      "to": "L3_LEFT_2_3"
+    },
+    {
+      "from": "L2_LEFT_2",
+      "to": "L3_LEFT_2_4"
+    },
+    {
+      "from": "L1_LEFT",
+      "to": "L2_LEFT_3"
+    },
+    {
+      "from": "L2_LEFT_3",
+      "to": "L3_LEFT_3_1"
+    },
+    {
+      "from": "L2_LEFT_3",
+      "to": "L3_LEFT_3_2"
+    },
+    {
+      "from": "L2_LEFT_3",
+      "to": "L3_LEFT_3_3"
+    },
+    {
+      "from": "L2_LEFT_3",
+      "to": "L3_LEFT_3_4"
+    },
+    {
+      "from": "L1_LEFT",
+      "to": "L2_LEFT_4"
+    },
+    {
+      "from": "L2_LEFT_4",
+      "to": "L3_LEFT_4_1"
+    },
+    {
+      "from": "L2_LEFT_4",
+      "to": "L3_LEFT_4_2"
+    },
+    {
+      "from": "L2_LEFT_4",
+      "to": "L3_LEFT_4_3"
+    },
+    {
+      "from": "L2_LEFT_4",
+      "to": "L3_LEFT_4_4"
+    }
   ],
   "nodes": [
     {
-      "id": "lv3_center_admin_hub",
-      "name": "Central Admin Hub",
+      "id": "L0_CENTER",
+      "name": "Grand Palace of Jade",
       "type": "center",
       "purpose": "road",
-      "x": 48.3,
-      "y": 48.3,
+      "x": 50,
+      "y": 50,
       "radius": 5,
-      "district": "CITY CENTER"
+      "district": "CENTER",
+      "notes": "layer=0; category=temple; parent=none; children=L1_TOP,L1_RIGHT,L1_BOTTOM,L1_LEFT"
     },
     {
-      "id": "lv3_nw_power_plant",
-      "name": "Power Plant",
-      "type": "poi",
-      "purpose": "work",
-      "x": 18.1,
-      "y": 8.7,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_smokestack_factory",
-      "name": "Smokestack Factory",
-      "type": "poi",
-      "purpose": "work",
-      "x": 19.8,
-      "y": 13.7,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_warehouse_01",
-      "name": "Northwest Warehouse 01",
-      "type": "poi",
-      "purpose": "work",
-      "x": 26.2,
-      "y": 11.2,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_storage_yard",
-      "name": "Storage Yard",
-      "type": "poi",
-      "purpose": "service",
-      "x": 35.9,
-      "y": 9.0,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_mining_base",
-      "name": "Mining Base",
-      "type": "poi",
-      "purpose": "work",
-      "x": 7.9,
-      "y": 24.2,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_equipment_depot",
-      "name": "Equipment Depot",
-      "type": "poi",
-      "purpose": "service",
-      "x": 14.4,
-      "y": 31.3,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_crusher_site",
-      "name": "Crusher Site",
-      "type": "poi",
-      "purpose": "work",
-      "x": 7.9,
-      "y": 40.8,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_excavator_zone",
-      "name": "Excavator Zone",
-      "type": "poi",
-      "purpose": "work",
-      "x": 16.4,
-      "y": 49.3,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_factory_block_01",
-      "name": "Factory Block 01",
-      "type": "poi",
-      "purpose": "work",
-      "x": 27.5,
-      "y": 24.6,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_factory_block_02",
-      "name": "Factory Block 02",
-      "type": "poi",
-      "purpose": "work",
-      "x": 36.2,
-      "y": 24.6,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_workshop",
-      "name": "Workshop",
-      "type": "poi",
-      "purpose": "service",
-      "x": 28.8,
-      "y": 35.5,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_assembly_yard",
-      "name": "Assembly Yard",
-      "type": "poi",
-      "purpose": "work",
-      "x": 37.6,
-      "y": 35.5,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_branch_hub",
-      "name": "Northwest Branch Hub",
-      "type": "connector",
-      "purpose": "road",
-      "x": 23.8,
-      "y": 39.8,
-      "radius": 4,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_road_01",
-      "name": "Northwest Road 01",
-      "type": "road",
-      "purpose": "road",
-      "x": 23.8,
-      "y": 19.4,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_road_02",
-      "name": "Northwest Road 02",
-      "type": "road",
-      "purpose": "road",
-      "x": 23.8,
-      "y": 31.3,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_nw_road_03",
-      "name": "Northwest Road 03",
-      "type": "road",
-      "purpose": "road",
-      "x": 34.9,
-      "y": 46.0,
-      "radius": 3,
-      "district": "NORTHWEST INDUSTRIAL"
-    },
-    {
-      "id": "lv3_ne_research_lab",
-      "name": "Research Lab",
-      "type": "poi",
-      "purpose": "work",
-      "x": 43.6,
-      "y": 8.5,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_factory_01",
-      "name": "Northeast Factory 01",
-      "type": "poi",
-      "purpose": "work",
-      "x": 52.6,
-      "y": 8.5,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_container_yard",
-      "name": "Container Yard",
-      "type": "poi",
-      "purpose": "work",
-      "x": 64.4,
-      "y": 10.4,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_crane_yard",
-      "name": "Crane Yard",
-      "type": "poi",
-      "purpose": "work",
-      "x": 69.1,
-      "y": 8.3,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_oil_tanks",
-      "name": "Oil Tanks",
-      "type": "poi",
-      "purpose": "service",
-      "x": 85.8,
-      "y": 8.5,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_port_refinery",
-      "name": "Port Refinery",
-      "type": "poi",
-      "purpose": "work",
-      "x": 83.5,
-      "y": 26.5,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_dock_warehouse",
-      "name": "Dock Warehouse",
-      "type": "poi",
-      "purpose": "work",
-      "x": 87.2,
-      "y": 36.0,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_ship_pier",
-      "name": "Ship Pier",
-      "type": "poi",
-      "purpose": "work",
-      "x": 93.2,
-      "y": 36.5,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_factory_block_01",
-      "name": "Northeast Factory Block 01",
-      "type": "poi",
-      "purpose": "work",
-      "x": 52.3,
-      "y": 24.2,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_factory_block_02",
-      "name": "Northeast Factory Block 02",
-      "type": "poi",
-      "purpose": "work",
-      "x": 61.0,
-      "y": 24.2,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_factory_block_03",
-      "name": "Northeast Factory Block 03",
-      "type": "poi",
-      "purpose": "work",
-      "x": 69.8,
-      "y": 24.2,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_control_building",
-      "name": "Control Building",
-      "type": "poi",
-      "purpose": "work",
-      "x": 68.1,
-      "y": 36.0,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_branch_hub",
-      "name": "Northeast Branch Hub",
-      "type": "connector",
-      "purpose": "road",
-      "x": 76.1,
-      "y": 40.8,
-      "radius": 4,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_road_01",
-      "name": "Northeast Road 01",
-      "type": "road",
-      "purpose": "road",
-      "x": 48.3,
-      "y": 19.4,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_road_02",
-      "name": "Northeast Road 02",
-      "type": "road",
-      "purpose": "road",
-      "x": 75.5,
-      "y": 19.4,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_ne_road_03",
-      "name": "Northeast Road 03",
-      "type": "road",
-      "purpose": "road",
-      "x": 76.1,
-      "y": 31.8,
-      "radius": 3,
-      "district": "NORTHEAST PORT"
-    },
-    {
-      "id": "lv3_sw_old_factory",
-      "name": "Old Factory",
-      "type": "poi",
-      "purpose": "work",
-      "x": 8.0,
-      "y": 72.5,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_fuel_storage",
-      "name": "Fuel Storage",
-      "type": "poi",
-      "purpose": "service",
-      "x": 19.1,
-      "y": 85.3,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_lower_workshop",
-      "name": "Lower Workshop",
-      "type": "poi",
-      "purpose": "work",
-      "x": 30.5,
-      "y": 90.5,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_scrap_yard",
-      "name": "Scrap Yard",
-      "type": "poi",
-      "purpose": "work",
-      "x": 37.6,
-      "y": 88.2,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_machine_shop",
-      "name": "Machine Shop",
-      "type": "poi",
-      "purpose": "service",
-      "x": 45.3,
-      "y": 90.0,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_factory_block_01",
-      "name": "Southwest Factory Block 01",
-      "type": "poi",
-      "purpose": "work",
-      "x": 28.8,
-      "y": 60.2,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_factory_block_02",
-      "name": "Southwest Factory Block 02",
-      "type": "poi",
-      "purpose": "work",
-      "x": 37.6,
-      "y": 62.1,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_admin_office",
-      "name": "Southwest Admin Office",
-      "type": "poi",
-      "purpose": "work",
-      "x": 46.9,
-      "y": 64.0,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_small_depot",
-      "name": "Small Depot",
-      "type": "poi",
-      "purpose": "work",
-      "x": 28.8,
-      "y": 71.6,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_maintenance_garage",
-      "name": "Maintenance Garage",
-      "type": "poi",
-      "purpose": "service",
-      "x": 37.9,
-      "y": 71.6,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_security_post",
-      "name": "Security Post",
-      "type": "poi",
-      "purpose": "service",
-      "x": 47.3,
-      "y": 71.6,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_gatehouse",
-      "name": "Gatehouse",
+      "id": "L1_TOP",
+      "name": "High Temple Sanctuary",
       "type": "poi",
       "purpose": "visit",
-      "x": 40.9,
-      "y": 56.9,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_branch_hub",
-      "name": "Southwest Branch Hub",
-      "type": "connector",
-      "purpose": "road",
-      "x": 36.6,
-      "y": 57.8,
+      "x": 50,
+      "y": 30,
       "radius": 4,
-      "district": "SOUTHWEST FACTORY"
+      "district": "TOP - TEMPLE",
+      "notes": "layer=1; category=temple; parent=L0_CENTER; children=L2_TOP_1,L2_TOP_2,L2_TOP_3,L2_TOP_4"
     },
     {
-      "id": "lv3_sw_road_01",
-      "name": "Southwest Road 01",
-      "type": "road",
-      "purpose": "road",
-      "x": 23.8,
-      "y": 57.8,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_road_02",
-      "name": "Southwest Road 02",
-      "type": "road",
-      "purpose": "road",
-      "x": 31.5,
-      "y": 77.7,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_sw_road_03",
-      "name": "Southwest Road 03",
-      "type": "road",
-      "purpose": "road",
-      "x": 46.3,
-      "y": 77.7,
-      "radius": 3,
-      "district": "SOUTHWEST FACTORY"
-    },
-    {
-      "id": "lv3_se_radio_tower",
-      "name": "Radio Tower",
+      "id": "L2_TOP_1",
+      "name": "Pagoda District",
       "type": "poi",
-      "purpose": "service",
-      "x": 69.4,
-      "y": 60.2,
+      "purpose": "visit",
+      "x": 36,
+      "y": 18,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - PAGODA",
+      "notes": "layer=2; category=pagoda; parent=L1_TOP; children=L3_TOP_1_1,L3_TOP_1_2,L3_TOP_1_3,L3_TOP_1_4"
     },
     {
-      "id": "lv3_se_power_station",
-      "name": "Power Station",
+      "id": "L3_TOP_1_1",
+      "name": "Seven Bells Pagoda",
       "type": "poi",
-      "purpose": "work",
-      "x": 84.2,
-      "y": 53.1,
+      "purpose": "visit",
+      "x": 32,
+      "y": 13,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - PAGODA",
+      "notes": "layer=3; category=pagoda; parent=L2_TOP_1; children=none"
     },
     {
-      "id": "lv3_se_cooling_towers",
-      "name": "Cooling Towers",
+      "id": "L3_TOP_1_2",
+      "name": "Moon Lantern Pagoda",
       "type": "poi",
-      "purpose": "work",
-      "x": 89.2,
-      "y": 55.9,
+      "purpose": "visit",
+      "x": 40,
+      "y": 13,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - PAGODA",
+      "notes": "layer=3; category=pagoda; parent=L2_TOP_1; children=none"
     },
     {
-      "id": "lv3_se_water_treatment",
-      "name": "Water Treatment",
+      "id": "L3_TOP_1_3",
+      "name": "Incense Gate Shrine",
       "type": "poi",
-      "purpose": "service",
-      "x": 90.5,
-      "y": 62.6,
+      "purpose": "visit",
+      "x": 33,
+      "y": 23,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - SHRINE",
+      "notes": "layer=3; category=shrine; parent=L2_TOP_1; children=none"
     },
     {
-      "id": "lv3_se_loading_dock",
-      "name": "Loading Dock",
+      "id": "L3_TOP_1_4",
+      "name": "Bell Keeper Tower",
       "type": "poi",
-      "purpose": "work",
-      "x": 83.2,
-      "y": 73.5,
+      "purpose": "visit",
+      "x": 40,
+      "y": 23,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - TOWER",
+      "notes": "layer=3; category=tower; parent=L2_TOP_1; children=none"
     },
     {
-      "id": "lv3_se_crane_station",
-      "name": "Crane Station",
+      "id": "L2_TOP_2",
+      "name": "Celestial Observatory",
       "type": "poi",
-      "purpose": "work",
-      "x": 88.9,
-      "y": 78.2,
+      "purpose": "visit",
+      "x": 50,
+      "y": 12,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - OBSERVATORY",
+      "notes": "layer=2; category=observatory; parent=L1_TOP; children=L3_TOP_2_1,L3_TOP_2_2,L3_TOP_2_3,L3_TOP_2_4"
     },
     {
-      "id": "lv3_se_shipyard",
-      "name": "Shipyard",
+      "id": "L3_TOP_2_1",
+      "name": "Star Chart Dome",
       "type": "poi",
-      "purpose": "work",
-      "x": 93.6,
-      "y": 82.0,
+      "purpose": "visit",
+      "x": 46,
+      "y": 7,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - OBSERVATORY",
+      "notes": "layer=3; category=observatory; parent=L2_TOP_2; children=none"
     },
     {
-      "id": "lv3_se_freight_terminal",
-      "name": "Freight Terminal",
+      "id": "L3_TOP_2_2",
+      "name": "Astral Lens Tower",
       "type": "poi",
-      "purpose": "work",
-      "x": 74.4,
-      "y": 87.2,
+      "purpose": "visit",
+      "x": 54,
+      "y": 7,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - TOWER",
+      "notes": "layer=3; category=tower; parent=L2_TOP_2; children=none"
     },
     {
-      "id": "lv3_se_container_depot",
-      "name": "Container Depot",
+      "id": "L3_TOP_2_3",
+      "name": "Sky Calendar Terrace",
       "type": "poi",
-      "purpose": "work",
-      "x": 66.4,
-      "y": 87.7,
+      "purpose": "visit",
+      "x": 46,
+      "y": 17,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - RITUAL PLATFORM",
+      "notes": "layer=3; category=ritual_platform; parent=L2_TOP_2; children=none"
     },
     {
-      "id": "lv3_se_utility_building",
-      "name": "Utility Building",
+      "id": "L3_TOP_2_4",
+      "name": "Cloudwatch Lookout",
       "type": "poi",
-      "purpose": "service",
-      "x": 58.4,
-      "y": 87.7,
+      "purpose": "visit",
+      "x": 54,
+      "y": 17,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - CLIFF LOOKOUT",
+      "notes": "layer=3; category=cliff_lookout; parent=L2_TOP_2; children=none"
     },
     {
-      "id": "lv3_se_factory_block_01",
-      "name": "Southeast Factory Block 01",
+      "id": "L2_TOP_3",
+      "name": "Monastic Shrine",
       "type": "poi",
-      "purpose": "work",
-      "x": 58.7,
-      "y": 63.0,
+      "purpose": "visit",
+      "x": 64,
+      "y": 18,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - SHRINE",
+      "notes": "layer=2; category=shrine; parent=L1_TOP; children=L3_TOP_3_1,L3_TOP_3_2,L3_TOP_3_3,L3_TOP_3_4"
     },
     {
-      "id": "lv3_se_factory_block_02",
-      "name": "Southeast Factory Block 02",
+      "id": "L3_TOP_3_1",
+      "name": "Jade Relic Chapel",
       "type": "poi",
-      "purpose": "work",
-      "x": 64.4,
-      "y": 69.7,
+      "purpose": "visit",
+      "x": 60,
+      "y": 13,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "TOP - RELIC HALL",
+      "notes": "layer=3; category=relic_hall; parent=L2_TOP_3; children=none"
     },
     {
-      "id": "lv3_se_branch_hub",
-      "name": "Southeast Branch Hub",
-      "type": "connector",
-      "purpose": "road",
-      "x": 65.4,
-      "y": 57.8,
+      "id": "L3_TOP_3_2",
+      "name": "Ancestor Prayer Hall",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 68,
+      "y": 13,
+      "radius": 3,
+      "district": "TOP - PRAYER SITE",
+      "notes": "layer=3; category=prayer_site; parent=L2_TOP_3; children=none"
+    },
+    {
+      "id": "L3_TOP_3_3",
+      "name": "Votive Candle Shrine",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 60,
+      "y": 23,
+      "radius": 3,
+      "district": "TOP - SHRINE",
+      "notes": "layer=3; category=shrine; parent=L2_TOP_3; children=none"
+    },
+    {
+      "id": "L3_TOP_3_4",
+      "name": "Silent Offering Court",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 68,
+      "y": 23,
+      "radius": 3,
+      "district": "TOP - RITUAL PLATFORM",
+      "notes": "layer=3; category=ritual_platform; parent=L2_TOP_3; children=none"
+    },
+    {
+      "id": "L2_TOP_4",
+      "name": "Prayer Terrace",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 50,
+      "y": 27,
+      "radius": 3,
+      "district": "TOP - PRAYER SITE",
+      "notes": "layer=2; category=prayer_site; parent=L1_TOP; children=L3_TOP_4_1,L3_TOP_4_2,L3_TOP_4_3,L3_TOP_4_4"
+    },
+    {
+      "id": "L3_TOP_4_1",
+      "name": "Sunrise Ritual Platform",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 46,
+      "y": 24,
+      "radius": 3,
+      "district": "TOP - RITUAL PLATFORM",
+      "notes": "layer=3; category=ritual_platform; parent=L2_TOP_4; children=none"
+    },
+    {
+      "id": "L3_TOP_4_2",
+      "name": "Wind Chime Prayer Site",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 54,
+      "y": 24,
+      "radius": 3,
+      "district": "TOP - PRAYER SITE",
+      "notes": "layer=3; category=prayer_site; parent=L2_TOP_4; children=none"
+    },
+    {
+      "id": "L3_TOP_4_3",
+      "name": "Pilgrim Kneeling Hall",
+      "type": "poi",
+      "purpose": "play",
+      "x": 46,
+      "y": 31,
+      "radius": 3,
+      "district": "TOP - MEDITATION HALL",
+      "notes": "layer=3; category=meditation_hall; parent=L2_TOP_4; children=none"
+    },
+    {
+      "id": "L3_TOP_4_4",
+      "name": "Sacred Basin Sanctuary",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 54,
+      "y": 31,
+      "radius": 3,
+      "district": "TOP - STONE SANCTUARY",
+      "notes": "layer=3; category=stone_sanctuary; parent=L2_TOP_4; children=none"
+    },
+    {
+      "id": "L1_RIGHT",
+      "name": "Mountain Bazaar",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 70,
+      "y": 50,
       "radius": 4,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "RIGHT - BAZAAR",
+      "notes": "layer=1; category=bazaar; parent=L0_CENTER; children=L2_RIGHT_1,L2_RIGHT_2,L2_RIGHT_3,L2_RIGHT_4"
     },
     {
-      "id": "lv3_se_road_01",
-      "name": "Southeast Road 01",
-      "type": "road",
-      "purpose": "road",
-      "x": 65.4,
-      "y": 73.9,
+      "id": "L2_RIGHT_1",
+      "name": "Tea House Terrace",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 82,
+      "y": 36,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "RIGHT - TEA HOUSE",
+      "notes": "layer=2; category=tea_house; parent=L1_RIGHT; children=L3_RIGHT_1_1,L3_RIGHT_1_2,L3_RIGHT_1_3,L3_RIGHT_1_4"
     },
     {
-      "id": "lv3_se_road_02",
-      "name": "Southeast Road 02",
-      "type": "road",
-      "purpose": "road",
-      "x": 76.1,
-      "y": 74.4,
+      "id": "L3_RIGHT_1_1",
+      "name": "Cloud Pine Tea House",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 78,
+      "y": 31,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "RIGHT - TEA HOUSE",
+      "notes": "layer=3; category=tea_house; parent=L2_RIGHT_1; children=none"
     },
     {
-      "id": "lv3_se_road_03",
-      "name": "Southeast Road 03",
-      "type": "road",
-      "purpose": "road",
-      "x": 84.5,
-      "y": 82.9,
+      "id": "L3_RIGHT_1_2",
+      "name": "Steamed Bun Tea Stall",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 86,
+      "y": 31,
       "radius": 3,
-      "district": "SOUTHEAST DOCKYARD"
+      "district": "RIGHT - MARKET",
+      "notes": "layer=3; category=market; parent=L2_RIGHT_1; children=none"
+    },
+    {
+      "id": "L3_RIGHT_1_3",
+      "name": "Tea Ceremony Room",
+      "type": "poi",
+      "purpose": "play",
+      "x": 78,
+      "y": 41,
+      "radius": 3,
+      "district": "RIGHT - MEDITATION HALL",
+      "notes": "layer=3; category=meditation_hall; parent=L2_RIGHT_1; children=none"
+    },
+    {
+      "id": "L3_RIGHT_1_4",
+      "name": "Herbal Tea Garden",
+      "type": "poi",
+      "purpose": "play",
+      "x": 86,
+      "y": 41,
+      "radius": 3,
+      "district": "RIGHT - GARDEN",
+      "notes": "layer=3; category=garden; parent=L2_RIGHT_1; children=none"
+    },
+    {
+      "id": "L2_RIGHT_2",
+      "name": "Merchant Quarter",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 88,
+      "y": 50,
+      "radius": 3,
+      "district": "RIGHT - BAZAAR",
+      "notes": "layer=2; category=bazaar; parent=L1_RIGHT; children=L3_RIGHT_2_1,L3_RIGHT_2_2,L3_RIGHT_2_3,L3_RIGHT_2_4"
+    },
+    {
+      "id": "L3_RIGHT_2_1",
+      "name": "Prayer Bead Market",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 84,
+      "y": 45,
+      "radius": 3,
+      "district": "RIGHT - MARKET",
+      "notes": "layer=3; category=market; parent=L2_RIGHT_2; children=none"
+    },
+    {
+      "id": "L3_RIGHT_2_2",
+      "name": "Silk Banner Stall",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 92,
+      "y": 45,
+      "radius": 3,
+      "district": "RIGHT - ARTISAN STALL",
+      "notes": "layer=3; category=artisan_stall; parent=L2_RIGHT_2; children=none"
+    },
+    {
+      "id": "L3_RIGHT_2_3",
+      "name": "Spice Basket Arcade",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 84,
+      "y": 55,
+      "radius": 3,
+      "district": "RIGHT - MARKET",
+      "notes": "layer=3; category=market; parent=L2_RIGHT_2; children=none"
+    },
+    {
+      "id": "L3_RIGHT_2_4",
+      "name": "Coin Exchange Kiosk",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 92,
+      "y": 55,
+      "radius": 3,
+      "district": "RIGHT - BAZAAR",
+      "notes": "layer=3; category=bazaar; parent=L2_RIGHT_2; children=none"
+    },
+    {
+      "id": "L2_RIGHT_3",
+      "name": "Healing Monastery",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 82,
+      "y": 64,
+      "radius": 3,
+      "district": "RIGHT - MONASTERY",
+      "notes": "layer=2; category=monastery; parent=L1_RIGHT; children=L3_RIGHT_3_1,L3_RIGHT_3_2,L3_RIGHT_3_3,L3_RIGHT_3_4"
+    },
+    {
+      "id": "L3_RIGHT_3_1",
+      "name": "Herbal Healing Hut",
+      "type": "poi",
+      "purpose": "service",
+      "x": 78,
+      "y": 59,
+      "radius": 3,
+      "district": "RIGHT - HEALING HUT",
+      "notes": "layer=3; category=healing_hut; parent=L2_RIGHT_3; children=none"
+    },
+    {
+      "id": "L3_RIGHT_3_2",
+      "name": "Monk Physician Hall",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 86,
+      "y": 59,
+      "radius": 3,
+      "district": "RIGHT - MONASTERY",
+      "notes": "layer=3; category=monastery; parent=L2_RIGHT_3; children=none"
+    },
+    {
+      "id": "L3_RIGHT_3_3",
+      "name": "Steam Bath Garden",
+      "type": "poi",
+      "purpose": "play",
+      "x": 78,
+      "y": 69,
+      "radius": 3,
+      "district": "RIGHT - GARDEN",
+      "notes": "layer=3; category=garden; parent=L2_RIGHT_3; children=none"
+    },
+    {
+      "id": "L3_RIGHT_3_4",
+      "name": "Recovery Meditation Hall",
+      "type": "poi",
+      "purpose": "play",
+      "x": 86,
+      "y": 69,
+      "radius": 3,
+      "district": "RIGHT - MEDITATION HALL",
+      "notes": "layer=3; category=meditation_hall; parent=L2_RIGHT_3; children=none"
+    },
+    {
+      "id": "L2_RIGHT_4",
+      "name": "Artisan Market",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 70,
+      "y": 62,
+      "radius": 3,
+      "district": "RIGHT - MARKET",
+      "notes": "layer=2; category=market; parent=L1_RIGHT; children=L3_RIGHT_4_1,L3_RIGHT_4_2,L3_RIGHT_4_3,L3_RIGHT_4_4"
+    },
+    {
+      "id": "L3_RIGHT_4_1",
+      "name": "Stone Carver Stall",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 66,
+      "y": 57,
+      "radius": 3,
+      "district": "RIGHT - ARTISAN STALL",
+      "notes": "layer=3; category=artisan_stall; parent=L2_RIGHT_4; children=none"
+    },
+    {
+      "id": "L3_RIGHT_4_2",
+      "name": "Bronze Bell Workshop",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 74,
+      "y": 57,
+      "radius": 3,
+      "district": "RIGHT - ARTISAN STALL",
+      "notes": "layer=3; category=artisan_stall; parent=L2_RIGHT_4; children=none"
+    },
+    {
+      "id": "L3_RIGHT_4_3",
+      "name": "Lantern Painter Booth",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 66,
+      "y": 67,
+      "radius": 3,
+      "district": "RIGHT - ARTISAN STALL",
+      "notes": "layer=3; category=artisan_stall; parent=L2_RIGHT_4; children=none"
+    },
+    {
+      "id": "L3_RIGHT_4_4",
+      "name": "Mask Maker Pavilion",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 74,
+      "y": 67,
+      "radius": 3,
+      "district": "RIGHT - ARTISAN STALL",
+      "notes": "layer=3; category=artisan_stall; parent=L2_RIGHT_4; children=none"
+    },
+    {
+      "id": "L1_BOTTOM",
+      "name": "Monastic Retreat",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 50,
+      "y": 72,
+      "radius": 4,
+      "district": "BOTTOM - RETREAT",
+      "notes": "layer=1; category=retreat; parent=L0_CENTER; children=L2_BOTTOM_1,L2_BOTTOM_2,L2_BOTTOM_3,L2_BOTTOM_4"
+    },
+    {
+      "id": "L2_BOTTOM_1",
+      "name": "Tea Gardens",
+      "type": "poi",
+      "purpose": "play",
+      "x": 36,
+      "y": 82,
+      "radius": 3,
+      "district": "BOTTOM - GARDEN",
+      "notes": "layer=2; category=garden; parent=L1_BOTTOM; children=L3_BOTTOM_1_1,L3_BOTTOM_1_2,L3_BOTTOM_1_3,L3_BOTTOM_1_4"
+    },
+    {
+      "id": "L3_BOTTOM_1_1",
+      "name": "Mist Lotus Garden",
+      "type": "poi",
+      "purpose": "play",
+      "x": 32,
+      "y": 77,
+      "radius": 3,
+      "district": "BOTTOM - GARDEN",
+      "notes": "layer=3; category=garden; parent=L2_BOTTOM_1; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_1_2",
+      "name": "Bamboo Tea Grove",
+      "type": "poi",
+      "purpose": "play",
+      "x": 40,
+      "y": 77,
+      "radius": 3,
+      "district": "BOTTOM - GARDEN",
+      "notes": "layer=3; category=garden; parent=L2_BOTTOM_1; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_1_3",
+      "name": "Stone Path Tea Pavilion",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 32,
+      "y": 87,
+      "radius": 3,
+      "district": "BOTTOM - TEA HOUSE",
+      "notes": "layer=3; category=tea_house; parent=L2_BOTTOM_1; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_1_4",
+      "name": "Garden Keeper Hut",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 40,
+      "y": 87,
+      "radius": 3,
+      "district": "BOTTOM - RETREAT",
+      "notes": "layer=3; category=retreat; parent=L2_BOTTOM_1; children=none"
+    },
+    {
+      "id": "L2_BOTTOM_2",
+      "name": "Mountain Inn",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 50,
+      "y": 88,
+      "radius": 3,
+      "district": "BOTTOM - MOUNTAIN INN",
+      "notes": "layer=2; category=mountain_inn; parent=L1_BOTTOM; children=L3_BOTTOM_2_1,L3_BOTTOM_2_2,L3_BOTTOM_2_3,L3_BOTTOM_2_4"
+    },
+    {
+      "id": "L3_BOTTOM_2_1",
+      "name": "Pilgrim Guest Inn",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 46,
+      "y": 84,
+      "radius": 3,
+      "district": "BOTTOM - MOUNTAIN INN",
+      "notes": "layer=3; category=mountain_inn; parent=L2_BOTTOM_2; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_2_2",
+      "name": "Warm Hearth Dining Room",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 54,
+      "y": 84,
+      "radius": 3,
+      "district": "BOTTOM - MOUNTAIN INN",
+      "notes": "layer=3; category=mountain_inn; parent=L2_BOTTOM_2; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_2_3",
+      "name": "Traveler Bath House",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 46,
+      "y": 94,
+      "radius": 3,
+      "district": "BOTTOM - RETREAT",
+      "notes": "layer=3; category=retreat; parent=L2_BOTTOM_2; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_2_4",
+      "name": "Pack Mule Courtyard",
+      "type": "poi",
+      "purpose": "play",
+      "x": 54,
+      "y": 94,
+      "radius": 3,
+      "district": "BOTTOM - TRAINING COURT",
+      "notes": "layer=3; category=training_court; parent=L2_BOTTOM_2; children=none"
+    },
+    {
+      "id": "L2_BOTTOM_3",
+      "name": "Meditation Court",
+      "type": "poi",
+      "purpose": "play",
+      "x": 64,
+      "y": 82,
+      "radius": 3,
+      "district": "BOTTOM - MEDITATION HALL",
+      "notes": "layer=2; category=meditation_hall; parent=L1_BOTTOM; children=L3_BOTTOM_3_1,L3_BOTTOM_3_2,L3_BOTTOM_3_3,L3_BOTTOM_3_4"
+    },
+    {
+      "id": "L3_BOTTOM_3_1",
+      "name": "Silent Sitting Hall",
+      "type": "poi",
+      "purpose": "play",
+      "x": 60,
+      "y": 77,
+      "radius": 3,
+      "district": "BOTTOM - MEDITATION HALL",
+      "notes": "layer=3; category=meditation_hall; parent=L2_BOTTOM_3; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_3_2",
+      "name": "Breathing Practice Terrace",
+      "type": "poi",
+      "purpose": "play",
+      "x": 68,
+      "y": 77,
+      "radius": 3,
+      "district": "BOTTOM - MEDITATION HALL",
+      "notes": "layer=3; category=meditation_hall; parent=L2_BOTTOM_3; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_3_3",
+      "name": "Koan Study Nook",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 60,
+      "y": 87,
+      "radius": 3,
+      "district": "BOTTOM - LIBRARY",
+      "notes": "layer=3; category=library; parent=L2_BOTTOM_3; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_3_4",
+      "name": "Stone Rake Garden",
+      "type": "poi",
+      "purpose": "play",
+      "x": 68,
+      "y": 87,
+      "radius": 3,
+      "district": "BOTTOM - GARDEN",
+      "notes": "layer=3; category=garden; parent=L2_BOTTOM_3; children=none"
+    },
+    {
+      "id": "L2_BOTTOM_4",
+      "name": "Residence Terrace",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 50,
+      "y": 74,
+      "radius": 3,
+      "district": "BOTTOM - RETREAT",
+      "notes": "layer=2; category=retreat; parent=L1_BOTTOM; children=L3_BOTTOM_4_1,L3_BOTTOM_4_2,L3_BOTTOM_4_3,L3_BOTTOM_4_4"
+    },
+    {
+      "id": "L3_BOTTOM_4_1",
+      "name": "Novice Dormitory",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 46,
+      "y": 70,
+      "radius": 3,
+      "district": "BOTTOM - MONASTERY",
+      "notes": "layer=3; category=monastery; parent=L2_BOTTOM_4; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_4_2",
+      "name": "Elder Monk Residence",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 54,
+      "y": 70,
+      "radius": 3,
+      "district": "BOTTOM - RETREAT",
+      "notes": "layer=3; category=retreat; parent=L2_BOTTOM_4; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_4_3",
+      "name": "Laundry Courtyard",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 46,
+      "y": 78,
+      "radius": 3,
+      "district": "BOTTOM - RETREAT",
+      "notes": "layer=3; category=retreat; parent=L2_BOTTOM_4; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_4_4",
+      "name": "Terrace Guard Post",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 54,
+      "y": 78,
+      "radius": 3,
+      "district": "BOTTOM - GUARD POST",
+      "notes": "layer=3; category=guard_post; parent=L2_BOTTOM_4; children=none"
+    },
+    {
+      "id": "L1_LEFT",
+      "name": "Airship Docking Station",
+      "type": "poi",
+      "purpose": "work",
+      "x": 30,
+      "y": 50,
+      "radius": 4,
+      "district": "LEFT - AIRSHIP DOCK",
+      "notes": "layer=1; category=airship_dock; parent=L0_CENTER; children=L2_LEFT_1,L2_LEFT_2,L2_LEFT_3,L2_LEFT_4"
+    },
+    {
+      "id": "L2_LEFT_1",
+      "name": "Archive of Scrolls",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 18,
+      "y": 36,
+      "radius": 3,
+      "district": "LEFT - ARCHIVE",
+      "notes": "layer=2; category=archive; parent=L1_LEFT; children=L3_LEFT_1_1,L3_LEFT_1_2,L3_LEFT_1_3,L3_LEFT_1_4"
+    },
+    {
+      "id": "L3_LEFT_1_1",
+      "name": "Imperial Scroll Vault",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 14,
+      "y": 31,
+      "radius": 3,
+      "district": "LEFT - ARCHIVE",
+      "notes": "layer=3; category=archive; parent=L2_LEFT_1; children=none"
+    },
+    {
+      "id": "L3_LEFT_1_2",
+      "name": "Map Catalog Room",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 22,
+      "y": 31,
+      "radius": 3,
+      "district": "LEFT - ARCHIVE",
+      "notes": "layer=3; category=archive; parent=L2_LEFT_1; children=none"
+    },
+    {
+      "id": "L3_LEFT_1_3",
+      "name": "Scribe Copying Hall",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 14,
+      "y": 41,
+      "radius": 3,
+      "district": "LEFT - LIBRARY",
+      "notes": "layer=3; category=library; parent=L2_LEFT_1; children=none"
+    },
+    {
+      "id": "L3_LEFT_1_4",
+      "name": "Sealed Relic Archive",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 22,
+      "y": 41,
+      "radius": 3,
+      "district": "LEFT - RELIC HALL",
+      "notes": "layer=3; category=relic_hall; parent=L2_LEFT_1; children=none"
+    },
+    {
+      "id": "L2_LEFT_2",
+      "name": "Sky Pier",
+      "type": "poi",
+      "purpose": "work",
+      "x": 12,
+      "y": 50,
+      "radius": 3,
+      "district": "LEFT - SKY PIER",
+      "notes": "layer=2; category=sky_pier; parent=L1_LEFT; children=L3_LEFT_2_1,L3_LEFT_2_2,L3_LEFT_2_3,L3_LEFT_2_4"
+    },
+    {
+      "id": "L3_LEFT_2_1",
+      "name": "Cloudpier Boarding Gate",
+      "type": "poi",
+      "purpose": "work",
+      "x": 8,
+      "y": 45,
+      "radius": 3,
+      "district": "LEFT - SKY PIER",
+      "notes": "layer=3; category=sky_pier; parent=L2_LEFT_2; children=none"
+    },
+    {
+      "id": "L3_LEFT_2_2",
+      "name": "Airship Mooring Mast",
+      "type": "poi",
+      "purpose": "work",
+      "x": 16,
+      "y": 45,
+      "radius": 3,
+      "district": "LEFT - AIRSHIP DOCK",
+      "notes": "layer=3; category=airship_dock; parent=L2_LEFT_2; children=none"
+    },
+    {
+      "id": "L3_LEFT_2_3",
+      "name": "Wind Signal Tower",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 8,
+      "y": 55,
+      "radius": 3,
+      "district": "LEFT - TOWER",
+      "notes": "layer=3; category=tower; parent=L2_LEFT_2; children=none"
+    },
+    {
+      "id": "L3_LEFT_2_4",
+      "name": "Pier Guard Checkpoint",
+      "type": "poi",
+      "purpose": "work",
+      "x": 16,
+      "y": 55,
+      "radius": 3,
+      "district": "LEFT - BRIDGE CHECKPOINT",
+      "notes": "layer=3; category=bridge_checkpoint; parent=L2_LEFT_2; children=none"
+    },
+    {
+      "id": "L2_LEFT_3",
+      "name": "Supply Depot",
+      "type": "poi",
+      "purpose": "work",
+      "x": 18,
+      "y": 64,
+      "radius": 3,
+      "district": "LEFT - SUPPLY DEPOT",
+      "notes": "layer=2; category=supply_depot; parent=L1_LEFT; children=L3_LEFT_3_1,L3_LEFT_3_2,L3_LEFT_3_3,L3_LEFT_3_4"
+    },
+    {
+      "id": "L3_LEFT_3_1",
+      "name": "Rice Storehouse",
+      "type": "poi",
+      "purpose": "work",
+      "x": 14,
+      "y": 59,
+      "radius": 3,
+      "district": "LEFT - SUPPLY DEPOT",
+      "notes": "layer=3; category=supply_depot; parent=L2_LEFT_3; children=none"
+    },
+    {
+      "id": "L3_LEFT_3_2",
+      "name": "Lantern Oil Depot",
+      "type": "poi",
+      "purpose": "work",
+      "x": 22,
+      "y": 59,
+      "radius": 3,
+      "district": "LEFT - SUPPLY DEPOT",
+      "notes": "layer=3; category=supply_depot; parent=L2_LEFT_3; children=none"
+    },
+    {
+      "id": "L3_LEFT_3_3",
+      "name": "Pack Crate Yard",
+      "type": "poi",
+      "purpose": "work",
+      "x": 14,
+      "y": 69,
+      "radius": 3,
+      "district": "LEFT - SUPPLY DEPOT",
+      "notes": "layer=3; category=supply_depot; parent=L2_LEFT_3; children=none"
+    },
+    {
+      "id": "L3_LEFT_3_4",
+      "name": "Depot Guard Post",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 22,
+      "y": 69,
+      "radius": 3,
+      "district": "LEFT - GUARD POST",
+      "notes": "layer=3; category=guard_post; parent=L2_LEFT_3; children=none"
+    },
+    {
+      "id": "L2_LEFT_4",
+      "name": "Cliffside Library",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 30,
+      "y": 62,
+      "radius": 3,
+      "district": "LEFT - LIBRARY",
+      "notes": "layer=2; category=library; parent=L1_LEFT; children=L3_LEFT_4_1,L3_LEFT_4_2,L3_LEFT_4_3,L3_LEFT_4_4"
+    },
+    {
+      "id": "L3_LEFT_4_1",
+      "name": "Hanging Reading Room",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 26,
+      "y": 57,
+      "radius": 3,
+      "district": "LEFT - LIBRARY",
+      "notes": "layer=3; category=library; parent=L2_LEFT_4; children=none"
+    },
+    {
+      "id": "L3_LEFT_4_2",
+      "name": "Cliff Manuscript Shelf",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 34,
+      "y": 57,
+      "radius": 3,
+      "district": "LEFT - ARCHIVE",
+      "notes": "layer=3; category=archive; parent=L2_LEFT_4; children=none"
+    },
+    {
+      "id": "L3_LEFT_4_3",
+      "name": "Scholar Bridge Checkpoint",
+      "type": "poi",
+      "purpose": "work",
+      "x": 26,
+      "y": 67,
+      "radius": 3,
+      "district": "LEFT - BRIDGE CHECKPOINT",
+      "notes": "layer=3; category=bridge_checkpoint; parent=L2_LEFT_4; children=none"
+    },
+    {
+      "id": "L3_LEFT_4_4",
+      "name": "Raven Peak Lookout",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 34,
+      "y": 67,
+      "radius": 3,
+      "district": "LEFT - CLIFF LOOKOUT",
+      "notes": "layer=3; category=cliff_lookout; parent=L2_LEFT_4; children=none"
     }
-  ]
+  ],
+  "metadata": {
+    "theme": "Ancient Mountain Temple Complex",
+    "total_nodes": 85,
+    "layer_counts": {
+      "layer_0": 1,
+      "layer_1": 4,
+      "layer_2": 16,
+      "layer_3": 64
+    },
+    "edge_count": 84,
+    "mapping_validated": true
+  }
 }

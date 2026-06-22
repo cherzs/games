@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { GameMap, MapNode, GameLevel, GameRef } from '@/game/types'
 import { saveCustomLevel } from '@/lib/storage'
-import type { StorageResult } from '@/lib/storage'
 
 const MAX_BG_UPLOAD_BYTES = 1 * 1024 * 1024
 
@@ -22,6 +21,9 @@ interface EditorPanelProps {
   levelData?: GameLevel
   missionOrder: string[]
   onMissionOrderChange: (order: string[]) => void
+  isTemplateLevel?: boolean
+  isLocked?: boolean
+  onSaveAndLockTemplate?: () => void
 }
 
 export default function EditorPanel({
@@ -32,6 +34,9 @@ export default function EditorPanel({
   levelData,
   missionOrder,
   onMissionOrderChange,
+  isTemplateLevel = false,
+  isLocked = false,
+  onSaveAndLockTemplate,
 }: EditorPanelProps) {
   const [editForm, setEditForm] = useState<MapNode | null>(null)
   const [notice, setNotice] = useState('')
@@ -66,6 +71,7 @@ export default function EditorPanel({
   }
 
   function handleMoveMissionUp(index: number): void {
+    if (isLocked || isTemplateLevel) return
     if (index <= 0) return
     const next = [...missionOrder]
     ;[next[index - 1], next[index]] = [next[index], next[index - 1]]
@@ -73,6 +79,7 @@ export default function EditorPanel({
   }
 
   function handleMoveMissionDown(index: number): void {
+    if (isLocked || isTemplateLevel) return
     if (index >= missionOrder.length - 1) return
     const next = [...missionOrder]
     ;[next[index], next[index + 1]] = [next[index + 1], next[index]]
@@ -80,11 +87,13 @@ export default function EditorPanel({
   }
 
   function handleRemoveMission(index: number): void {
+    if (isLocked || isTemplateLevel) return
     const next = missionOrder.filter((_, i) => i !== index)
     onMissionOrderChange(next)
   }
 
   function handleAddMission(nodeId: string): void {
+    if (isLocked || isTemplateLevel) return
     const next = [...missionOrder, nodeId]
     onMissionOrderChange(next)
     setShowAddMission(false)
@@ -98,14 +107,24 @@ export default function EditorPanel({
 
   function handleEditSubmit(e: React.FormEvent): void {
     e.preventDefault()
+    if (isLocked) return
     if (!editForm) return
-    gameRef.current?.editNode(editForm.id, {
-      name: editForm.name,
-      type: editForm.type,
-      purpose: editForm.purpose,
-      radius: Number(editForm.radius),
-      district: editForm.district || undefined,
-    })
+    const updates = isTemplateLevel
+      ? {
+          name: editForm.name,
+          x: Number(editForm.x),
+          y: Number(editForm.y),
+        }
+      : {
+          name: editForm.name,
+          type: editForm.type,
+          purpose: editForm.purpose,
+          radius: Number(editForm.radius),
+          district: editForm.district || undefined,
+          x: Number(editForm.x),
+          y: Number(editForm.y),
+        }
+    gameRef.current?.editNode(editForm.id, updates)
     const map = gameRef.current?.getMapData()
     if (map) onMapUpdate(map)
     setNotice('Node updated!')
@@ -113,6 +132,7 @@ export default function EditorPanel({
   }
 
   function handleDelete(): void {
+    if (isLocked || isTemplateLevel) return
     if (!selectedNode) return
     gameRef.current?.deleteNode(selectedNode.id)
     const map = gameRef.current?.getMapData()
@@ -143,6 +163,10 @@ export default function EditorPanel({
   }
 
   function handleImport(): void {
+    if (isLocked || isTemplateLevel) {
+      setNotice(isLocked ? 'Template is locked.' : 'Import is disabled in template placement mode.')
+      return
+    }
     const input = document.createElement('input')
     input.type = 'file'
     input.accept = '.json'
@@ -218,6 +242,10 @@ export default function EditorPanel({
   }
 
   function handleBackgroundUpload(): void {
+    if (isLocked || isTemplateLevel) {
+      setNotice(isLocked ? 'Template is locked.' : 'Background changes are disabled in template placement mode.')
+      return
+    }
     const input = document.createElement('input')
     input.type = 'file'
     input.accept = 'image/*'
@@ -264,6 +292,7 @@ export default function EditorPanel({
   }
 
   function handleSaveLevelMeta(): void {
+    if (isLocked || isTemplateLevel) return
     if (!customLevelId || !levelData) return
     const updated: GameLevel = {
       ...levelData,
@@ -288,11 +317,33 @@ export default function EditorPanel({
     }
   }
 
-  const isCustomLevel = !!customLevelId
+  const isCustomLevel = !!customLevelId && !isTemplateLevel
+  const canEditPlacement = !isLocked
 
   return (
     <div className="w-80 bg-gray-900/95 p-4 overflow-y-auto z-20 text-white flex-shrink-0 h-full">
       <h3 className="text-lg font-bold mb-2">Editor Panel</h3>
+
+      {isTemplateLevel && (
+        <div className={`mb-4 p-3 rounded space-y-2 ${isLocked ? 'bg-red-950/70' : 'bg-yellow-950/60'}`}>
+          <h4 className={`text-sm font-semibold ${isLocked ? 'text-red-200' : 'text-yellow-200'}`}>
+            {isLocked ? 'Template Locked' : 'Template Placement Mode'}
+          </h4>
+          <p className="text-xs text-gray-300">
+            {isLocked
+              ? 'This level placement has been saved and can no longer be edited.'
+              : 'Rename nodes, drag them, or set exact X/Y values. Add, delete, import, and mission edits are disabled.'}
+          </p>
+          {!isLocked && (
+            <button
+              onClick={onSaveAndLockTemplate}
+              className="w-full px-3 py-1.5 bg-yellow-600 hover:bg-yellow-500 rounded text-sm font-medium text-black"
+            >
+              Save & Lock Placement
+            </button>
+          )}
+        </div>
+      )}
 
       {isCustomLevel && (
         <div className="mb-4 p-3 bg-gray-800 rounded space-y-2">
@@ -344,7 +395,8 @@ export default function EditorPanel({
         </button>
         <button
           onClick={handleImport}
-          className="flex-1 px-3 py-1 bg-blue-700 hover:bg-blue-600 rounded text-sm"
+          disabled={isLocked || isTemplateLevel}
+          className="flex-1 px-3 py-1 bg-blue-700 hover:bg-blue-600 disabled:opacity-40 disabled:hover:bg-blue-700 rounded text-sm"
         >
           Import
         </button>
@@ -360,7 +412,8 @@ export default function EditorPanel({
           <h4 className="text-sm font-semibold">Mission Order ({missionOrder.length})</h4>
           <button
             onClick={() => setShowAddMission(!showAddMission)}
-            className="px-2 py-0.5 bg-blue-700 hover:bg-blue-600 rounded text-xs"
+            disabled={isLocked || isTemplateLevel}
+            className="px-2 py-0.5 bg-blue-700 hover:bg-blue-600 disabled:opacity-40 disabled:hover:bg-blue-700 rounded text-xs"
           >
             {showAddMission ? 'Cancel' : '+ Add'}
           </button>
@@ -398,7 +451,7 @@ export default function EditorPanel({
                 <span className="text-gray-400 shrink-0">({n.purpose})</span>
                 <button
                   onClick={() => handleMoveMissionUp(i)}
-                  disabled={i === 0}
+                  disabled={i === 0 || isLocked || isTemplateLevel}
                   className="px-1 text-gray-400 hover:text-white disabled:opacity-30 shrink-0"
                   title="Move up"
                 >
@@ -406,7 +459,7 @@ export default function EditorPanel({
                 </button>
                 <button
                   onClick={() => handleMoveMissionDown(i)}
-                  disabled={i === orderedNodes.length - 1}
+                  disabled={i === orderedNodes.length - 1 || isLocked || isTemplateLevel}
                   className="px-1 text-gray-400 hover:text-white disabled:opacity-30 shrink-0"
                   title="Move down"
                 >
@@ -414,7 +467,8 @@ export default function EditorPanel({
                 </button>
                 <button
                   onClick={() => handleRemoveMission(i)}
-                  className="px-1 text-red-400 hover:text-red-300 shrink-0"
+                  disabled={isLocked || isTemplateLevel}
+                  className="px-1 text-red-400 hover:text-red-300 disabled:opacity-30 shrink-0"
                   title="Remove"
                 >
                   ✕
@@ -451,6 +505,7 @@ export default function EditorPanel({
             <input
               value={editForm.name}
               onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
+              disabled={isLocked}
               className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
             />
           </div>
@@ -460,6 +515,7 @@ export default function EditorPanel({
             <select
               value={editForm.type}
               onChange={(e) => setEditForm({ ...editForm, type: e.target.value })}
+              disabled={isLocked || isTemplateLevel}
               className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
             >
               {NODE_TYPES.map((t) => (
@@ -473,6 +529,7 @@ export default function EditorPanel({
             <select
               value={editForm.purpose}
               onChange={(e) => setEditForm({ ...editForm, purpose: e.target.value })}
+              disabled={isLocked || isTemplateLevel}
               className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
             >
               <option value="eat">Eat</option>
@@ -497,6 +554,7 @@ export default function EditorPanel({
               step={0.5}
               value={editForm.radius}
               onChange={(e) => setEditForm({ ...editForm, radius: Number(e.target.value) })}
+              disabled={isLocked || isTemplateLevel}
               className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
             />
           </div>
@@ -506,28 +564,54 @@ export default function EditorPanel({
             <input
               value={editForm.district ?? ''}
               onChange={(e) => setEditForm({ ...editForm, district: e.target.value || undefined })}
+              disabled={isLocked || isTemplateLevel}
               placeholder="e.g. CITY CENTER"
               className="w-full px-2 py-1 bg-gray-800 rounded text-sm placeholder-gray-600"
             />
           </div>
 
-          <div>
-            <label className="text-xs text-gray-400">
-              Position: {editForm.x.toFixed(1)}%, {editForm.y.toFixed(1)}%
-            </label>
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <label className="text-xs text-gray-400">X (%)</label>
+              <input
+                type="number"
+                min={0}
+                max={100}
+                step={0.1}
+                value={editForm.x}
+                onChange={(e) => setEditForm({ ...editForm, x: Number(e.target.value) })}
+                disabled={!canEditPlacement}
+                className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
+              />
+            </div>
+            <div>
+              <label className="text-xs text-gray-400">Y (%)</label>
+              <input
+                type="number"
+                min={0}
+                max={100}
+                step={0.1}
+                value={editForm.y}
+                onChange={(e) => setEditForm({ ...editForm, y: Number(e.target.value) })}
+                disabled={!canEditPlacement}
+                className="w-full px-2 py-1 bg-gray-800 rounded text-sm"
+              />
+            </div>
           </div>
 
           <div className="flex gap-2 pt-2">
             <button
               type="submit"
-              className="flex-1 px-3 py-1 bg-green-700 hover:bg-green-600 rounded text-sm"
+              disabled={!canEditPlacement}
+              className="flex-1 px-3 py-1 bg-green-700 hover:bg-green-600 disabled:opacity-40 disabled:hover:bg-green-700 rounded text-sm"
             >
-              Save
+              {isTemplateLevel ? 'Apply Position' : 'Save'}
             </button>
             <button
               type="button"
               onClick={handleDelete}
-              className="flex-1 px-3 py-1 bg-red-700 hover:bg-red-600 rounded text-sm"
+              disabled={isLocked || isTemplateLevel}
+              className="flex-1 px-3 py-1 bg-red-700 hover:bg-red-600 disabled:opacity-40 disabled:hover:bg-red-700 rounded text-sm"
             >
               Delete
             </button>
@@ -536,8 +620,11 @@ export default function EditorPanel({
       )}
 
       <div className="mt-4 text-xs text-gray-500">
-        <p>Click on map: add node</p>
-        <p>Drag node to move</p>
+        {!isTemplateLevel && !isLocked && <p>Click on map: add node</p>}
+        {isTemplateLevel && !isLocked && <p>Template: rename and move existing nodes only</p>}
+        {isLocked && <p>Locked: inspect only</p>}
+        {!isLocked && <p>Drag node to move</p>}
+        {!isLocked && <p>Use X/Y fields for precise placement</p>}
         <p>Right-drag: pan camera</p>
         <p>Q/E: zoom</p>
       </div>

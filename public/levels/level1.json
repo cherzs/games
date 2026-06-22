@@ -1,717 +1,1387 @@
 {
   "id": "level_1",
-  "name": "Level 1 \u2013 Downtown",
+  "name": "Level 1 - Downtown City Services Exploration",
   "kind": "template",
   "baseMapId": "base_map_kota_raya",
   "background": "/maps/maps.png",
   "mapWidth": 2400,
   "mapHeight": 1600,
   "spawn": {
-    "x": 50.0,
-    "y": 45.7
+    "x": 50,
+    "y": 60
   },
   "missionOrder": [
-    "lv1_nw_customer_service",
-    "lv1_ne_club",
-    "lv1_sw_mobile_shop",
-    "lv1_se_school",
-    "lv1_nw_beauty_salon",
-    "lv1_ne_arcade",
-    "lv1_sw_green_house",
-    "lv1_se_library",
-    "lv1_nw_barbershop",
-    "lv1_ne_beach_bar",
-    "lv1_sw_recycling_point",
-    "lv1_se_chapel",
-    "lv1_nw_market_hall",
-    "lv1_ne_gas_station_north",
-    "lv1_sw_gazebo",
-    "lv1_se_college",
-    "lv1_nw_butcher_shop",
-    "lv1_ne_pharmacy",
-    "lv1_sw_left_house",
-    "lv1_se_mosque",
-    "lv1_nw_cafe",
-    "lv1_ne_helipad",
-    "lv1_sw_home_icon",
-    "lv1_se_temple",
-    "lv1_nw_supermarket",
-    "lv1_ne_lab",
-    "lv1_sw_service_kiosk",
-    "lv1_se_office_building",
-    "lv1_nw_game_store",
-    "lv1_ne_hospital",
-    "lv1_sw_fuel_station",
-    "lv1_se_canteen",
-    "lv1_nw_arcade_machine",
-    "lv1_ne_football_field",
-    "lv1_sw_post_office",
-    "lv1_se_tower",
-    "lv1_nw_pool_hall",
-    "lv1_ne_traffic_light",
-    "lv1_sw_court_house",
-    "lv1_se_petrol_station",
-    "lv1_nw_restaurant",
-    "lv1_ne_swimming_pool",
-    "lv1_sw_jail",
-    "lv1_se_car_dealer",
-    "lv1_nw_farm_barn",
-    "lv1_ne_poolside_seating",
-    "lv1_sw_civic_hall",
-    "lv1_se_auto_repair",
-    "lv1_sw_ambulance_center",
-    "lv1_sw_atm"
+    "L1_TOP",
+    "L2_TOP_1",
+    "L3_TOP_1_1",
+    "L3_TOP_1_2",
+    "L3_TOP_1_3",
+    "L3_TOP_1_4",
+    "L2_TOP_2",
+    "L3_TOP_2_1",
+    "L3_TOP_2_2",
+    "L3_TOP_2_3",
+    "L3_TOP_2_4",
+    "L2_TOP_3",
+    "L3_TOP_3_1",
+    "L3_TOP_3_2",
+    "L3_TOP_3_3",
+    "L3_TOP_3_4",
+    "L2_TOP_4",
+    "L3_TOP_4_1",
+    "L3_TOP_4_2",
+    "L3_TOP_4_3",
+    "L3_TOP_4_4",
+    "L1_RIGHT",
+    "L2_RIGHT_1",
+    "L3_RIGHT_1_1",
+    "L3_RIGHT_1_2",
+    "L3_RIGHT_1_3",
+    "L3_RIGHT_1_4",
+    "L2_RIGHT_2",
+    "L3_RIGHT_2_1",
+    "L3_RIGHT_2_2",
+    "L3_RIGHT_2_3",
+    "L3_RIGHT_2_4",
+    "L2_RIGHT_3",
+    "L3_RIGHT_3_1",
+    "L3_RIGHT_3_2",
+    "L3_RIGHT_3_3",
+    "L3_RIGHT_3_4",
+    "L2_RIGHT_4",
+    "L3_RIGHT_4_1",
+    "L3_RIGHT_4_2",
+    "L3_RIGHT_4_3",
+    "L3_RIGHT_4_4",
+    "L1_BOTTOM",
+    "L2_BOTTOM_1",
+    "L3_BOTTOM_1_1",
+    "L3_BOTTOM_1_2",
+    "L3_BOTTOM_1_3",
+    "L3_BOTTOM_1_4",
+    "L2_BOTTOM_2",
+    "L3_BOTTOM_2_1",
+    "L3_BOTTOM_2_2",
+    "L3_BOTTOM_2_3",
+    "L3_BOTTOM_2_4",
+    "L2_BOTTOM_3",
+    "L3_BOTTOM_3_1",
+    "L3_BOTTOM_3_2",
+    "L3_BOTTOM_3_3",
+    "L3_BOTTOM_3_4",
+    "L2_BOTTOM_4",
+    "L3_BOTTOM_4_1",
+    "L3_BOTTOM_4_2",
+    "L3_BOTTOM_4_3",
+    "L3_BOTTOM_4_4",
+    "L1_LEFT",
+    "L2_LEFT_1",
+    "L3_LEFT_1_1",
+    "L3_LEFT_1_2",
+    "L3_LEFT_1_3",
+    "L3_LEFT_1_4",
+    "L2_LEFT_2",
+    "L3_LEFT_2_1",
+    "L3_LEFT_2_2",
+    "L3_LEFT_2_3",
+    "L3_LEFT_2_4",
+    "L2_LEFT_3",
+    "L3_LEFT_3_1",
+    "L3_LEFT_3_2",
+    "L3_LEFT_3_3",
+    "L3_LEFT_3_4",
+    "L2_LEFT_4",
+    "L3_LEFT_4_1",
+    "L3_LEFT_4_2",
+    "L3_LEFT_4_3",
+    "L3_LEFT_4_4"
+  ],
+  "roads": [
+    {
+      "from": "L0_CENTER",
+      "to": "L1_TOP"
+    },
+    {
+      "from": "L1_TOP",
+      "to": "L2_TOP_1"
+    },
+    {
+      "from": "L2_TOP_1",
+      "to": "L3_TOP_1_1"
+    },
+    {
+      "from": "L2_TOP_1",
+      "to": "L3_TOP_1_2"
+    },
+    {
+      "from": "L2_TOP_1",
+      "to": "L3_TOP_1_3"
+    },
+    {
+      "from": "L2_TOP_1",
+      "to": "L3_TOP_1_4"
+    },
+    {
+      "from": "L1_TOP",
+      "to": "L2_TOP_2"
+    },
+    {
+      "from": "L2_TOP_2",
+      "to": "L3_TOP_2_1"
+    },
+    {
+      "from": "L2_TOP_2",
+      "to": "L3_TOP_2_2"
+    },
+    {
+      "from": "L2_TOP_2",
+      "to": "L3_TOP_2_3"
+    },
+    {
+      "from": "L2_TOP_2",
+      "to": "L3_TOP_2_4"
+    },
+    {
+      "from": "L1_TOP",
+      "to": "L2_TOP_3"
+    },
+    {
+      "from": "L2_TOP_3",
+      "to": "L3_TOP_3_1"
+    },
+    {
+      "from": "L2_TOP_3",
+      "to": "L3_TOP_3_2"
+    },
+    {
+      "from": "L2_TOP_3",
+      "to": "L3_TOP_3_3"
+    },
+    {
+      "from": "L2_TOP_3",
+      "to": "L3_TOP_3_4"
+    },
+    {
+      "from": "L1_TOP",
+      "to": "L2_TOP_4"
+    },
+    {
+      "from": "L2_TOP_4",
+      "to": "L3_TOP_4_1"
+    },
+    {
+      "from": "L2_TOP_4",
+      "to": "L3_TOP_4_2"
+    },
+    {
+      "from": "L2_TOP_4",
+      "to": "L3_TOP_4_3"
+    },
+    {
+      "from": "L2_TOP_4",
+      "to": "L3_TOP_4_4"
+    },
+    {
+      "from": "L0_CENTER",
+      "to": "L1_RIGHT"
+    },
+    {
+      "from": "L1_RIGHT",
+      "to": "L2_RIGHT_1"
+    },
+    {
+      "from": "L2_RIGHT_1",
+      "to": "L3_RIGHT_1_1"
+    },
+    {
+      "from": "L2_RIGHT_1",
+      "to": "L3_RIGHT_1_2"
+    },
+    {
+      "from": "L2_RIGHT_1",
+      "to": "L3_RIGHT_1_3"
+    },
+    {
+      "from": "L2_RIGHT_1",
+      "to": "L3_RIGHT_1_4"
+    },
+    {
+      "from": "L1_RIGHT",
+      "to": "L2_RIGHT_2"
+    },
+    {
+      "from": "L2_RIGHT_2",
+      "to": "L3_RIGHT_2_1"
+    },
+    {
+      "from": "L2_RIGHT_2",
+      "to": "L3_RIGHT_2_2"
+    },
+    {
+      "from": "L2_RIGHT_2",
+      "to": "L3_RIGHT_2_3"
+    },
+    {
+      "from": "L2_RIGHT_2",
+      "to": "L3_RIGHT_2_4"
+    },
+    {
+      "from": "L1_RIGHT",
+      "to": "L2_RIGHT_3"
+    },
+    {
+      "from": "L2_RIGHT_3",
+      "to": "L3_RIGHT_3_1"
+    },
+    {
+      "from": "L2_RIGHT_3",
+      "to": "L3_RIGHT_3_2"
+    },
+    {
+      "from": "L2_RIGHT_3",
+      "to": "L3_RIGHT_3_3"
+    },
+    {
+      "from": "L2_RIGHT_3",
+      "to": "L3_RIGHT_3_4"
+    },
+    {
+      "from": "L1_RIGHT",
+      "to": "L2_RIGHT_4"
+    },
+    {
+      "from": "L2_RIGHT_4",
+      "to": "L3_RIGHT_4_1"
+    },
+    {
+      "from": "L2_RIGHT_4",
+      "to": "L3_RIGHT_4_2"
+    },
+    {
+      "from": "L2_RIGHT_4",
+      "to": "L3_RIGHT_4_3"
+    },
+    {
+      "from": "L2_RIGHT_4",
+      "to": "L3_RIGHT_4_4"
+    },
+    {
+      "from": "L0_CENTER",
+      "to": "L1_BOTTOM"
+    },
+    {
+      "from": "L1_BOTTOM",
+      "to": "L2_BOTTOM_1"
+    },
+    {
+      "from": "L2_BOTTOM_1",
+      "to": "L3_BOTTOM_1_1"
+    },
+    {
+      "from": "L2_BOTTOM_1",
+      "to": "L3_BOTTOM_1_2"
+    },
+    {
+      "from": "L2_BOTTOM_1",
+      "to": "L3_BOTTOM_1_3"
+    },
+    {
+      "from": "L2_BOTTOM_1",
+      "to": "L3_BOTTOM_1_4"
+    },
+    {
+      "from": "L1_BOTTOM",
+      "to": "L2_BOTTOM_2"
+    },
+    {
+      "from": "L2_BOTTOM_2",
+      "to": "L3_BOTTOM_2_1"
+    },
+    {
+      "from": "L2_BOTTOM_2",
+      "to": "L3_BOTTOM_2_2"
+    },
+    {
+      "from": "L2_BOTTOM_2",
+      "to": "L3_BOTTOM_2_3"
+    },
+    {
+      "from": "L2_BOTTOM_2",
+      "to": "L3_BOTTOM_2_4"
+    },
+    {
+      "from": "L1_BOTTOM",
+      "to": "L2_BOTTOM_3"
+    },
+    {
+      "from": "L2_BOTTOM_3",
+      "to": "L3_BOTTOM_3_1"
+    },
+    {
+      "from": "L2_BOTTOM_3",
+      "to": "L3_BOTTOM_3_2"
+    },
+    {
+      "from": "L2_BOTTOM_3",
+      "to": "L3_BOTTOM_3_3"
+    },
+    {
+      "from": "L2_BOTTOM_3",
+      "to": "L3_BOTTOM_3_4"
+    },
+    {
+      "from": "L1_BOTTOM",
+      "to": "L2_BOTTOM_4"
+    },
+    {
+      "from": "L2_BOTTOM_4",
+      "to": "L3_BOTTOM_4_1"
+    },
+    {
+      "from": "L2_BOTTOM_4",
+      "to": "L3_BOTTOM_4_2"
+    },
+    {
+      "from": "L2_BOTTOM_4",
+      "to": "L3_BOTTOM_4_3"
+    },
+    {
+      "from": "L2_BOTTOM_4",
+      "to": "L3_BOTTOM_4_4"
+    },
+    {
+      "from": "L0_CENTER",
+      "to": "L1_LEFT"
+    },
+    {
+      "from": "L1_LEFT",
+      "to": "L2_LEFT_1"
+    },
+    {
+      "from": "L2_LEFT_1",
+      "to": "L3_LEFT_1_1"
+    },
+    {
+      "from": "L2_LEFT_1",
+      "to": "L3_LEFT_1_2"
+    },
+    {
+      "from": "L2_LEFT_1",
+      "to": "L3_LEFT_1_3"
+    },
+    {
+      "from": "L2_LEFT_1",
+      "to": "L3_LEFT_1_4"
+    },
+    {
+      "from": "L1_LEFT",
+      "to": "L2_LEFT_2"
+    },
+    {
+      "from": "L2_LEFT_2",
+      "to": "L3_LEFT_2_1"
+    },
+    {
+      "from": "L2_LEFT_2",
+      "to": "L3_LEFT_2_2"
+    },
+    {
+      "from": "L2_LEFT_2",
+      "to": "L3_LEFT_2_3"
+    },
+    {
+      "from": "L2_LEFT_2",
+      "to": "L3_LEFT_2_4"
+    },
+    {
+      "from": "L1_LEFT",
+      "to": "L2_LEFT_3"
+    },
+    {
+      "from": "L2_LEFT_3",
+      "to": "L3_LEFT_3_1"
+    },
+    {
+      "from": "L2_LEFT_3",
+      "to": "L3_LEFT_3_2"
+    },
+    {
+      "from": "L2_LEFT_3",
+      "to": "L3_LEFT_3_3"
+    },
+    {
+      "from": "L2_LEFT_3",
+      "to": "L3_LEFT_3_4"
+    },
+    {
+      "from": "L1_LEFT",
+      "to": "L2_LEFT_4"
+    },
+    {
+      "from": "L2_LEFT_4",
+      "to": "L3_LEFT_4_1"
+    },
+    {
+      "from": "L2_LEFT_4",
+      "to": "L3_LEFT_4_2"
+    },
+    {
+      "from": "L2_LEFT_4",
+      "to": "L3_LEFT_4_3"
+    },
+    {
+      "from": "L2_LEFT_4",
+      "to": "L3_LEFT_4_4"
+    }
   ],
   "nodes": [
     {
-      "id": "lv1_center_church_hub",
-      "name": "Central Church Hub",
+      "id": "L0_CENTER",
+      "name": "Central School & City Hall",
       "type": "center",
       "purpose": "road",
-      "x": 50.0,
-      "y": 47.8,
+      "x": 50,
+      "y": 60,
       "radius": 5,
-      "district": "CITY CENTER"
+      "district": "CITY CENTER",
+      "notes": "layer=0; category=civic; parent=none; children=L1_TOP,L1_RIGHT,L1_BOTTOM,L1_LEFT"
     },
     {
-      "id": "lv1_nw_customer_service",
-      "name": "Customer Service",
+      "id": "L1_TOP",
+      "name": "Northern Market Promenade",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 50,
+      "y": 20,
+      "radius": 4,
+      "district": "TOP - MARKET",
+      "notes": "layer=1; category=market; parent=L0_CENTER; children=L2_TOP_1,L2_TOP_2,L2_TOP_3,L2_TOP_4"
+    },
+    {
+      "id": "L2_TOP_1",
+      "name": "Beauty & Personal Care Row",
       "type": "poi",
       "purpose": "service",
-      "x": 6.4,
-      "y": 7.5,
+      "x": 18,
+      "y": 7,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - SERVICE",
+      "notes": "layer=2; category=service; parent=L1_TOP; children=L3_TOP_1_1,L3_TOP_1_2,L3_TOP_1_3,L3_TOP_1_4"
     },
     {
-      "id": "lv1_nw_beauty_salon",
+      "id": "L3_TOP_1_1",
+      "name": "Customer Service Desk",
+      "type": "poi",
+      "purpose": "service",
+      "x": 9,
+      "y": 7,
+      "radius": 3,
+      "district": "TOP - SERVICE",
+      "notes": "layer=3; category=service; parent=L2_TOP_1; children=none"
+    },
+    {
+      "id": "L3_TOP_1_2",
       "name": "Beauty Salon",
       "type": "poi",
       "purpose": "service",
-      "x": 15.8,
-      "y": 4.5,
+      "x": 15,
+      "y": 4,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - SERVICE",
+      "notes": "layer=3; category=service; parent=L2_TOP_1; children=none"
     },
     {
-      "id": "lv1_nw_barbershop",
+      "id": "L3_TOP_1_3",
       "name": "Barbershop",
       "type": "poi",
       "purpose": "service",
-      "x": 23.6,
-      "y": 5.2,
+      "x": 23,
+      "y": 5,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - SERVICE",
+      "notes": "layer=3; category=service; parent=L2_TOP_1; children=none"
     },
     {
-      "id": "lv1_nw_market_hall",
-      "name": "Market Hall",
+      "id": "L3_TOP_1_4",
+      "name": "Welcome Counter",
+      "type": "poi",
+      "purpose": "service",
+      "x": 12,
+      "y": 13,
+      "radius": 3,
+      "district": "TOP - SERVICE",
+      "notes": "layer=3; category=service; parent=L2_TOP_1; children=none"
+    },
+    {
+      "id": "L2_TOP_2",
+      "name": "Fresh Market Arcade",
       "type": "poi",
       "purpose": "shop",
-      "x": 33.9,
-      "y": 9.8,
+      "x": 39,
+      "y": 10,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - MARKET",
+      "notes": "layer=2; category=market; parent=L1_TOP; children=L3_TOP_2_1,L3_TOP_2_2,L3_TOP_2_3,L3_TOP_2_4"
     },
     {
-      "id": "lv1_nw_butcher_shop",
-      "name": "Butcher Shop",
-      "type": "poi",
-      "purpose": "shop",
-      "x": 44.4,
-      "y": 4.2,
-      "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
-    },
-    {
-      "id": "lv1_nw_cafe",
-      "name": "Cafe",
-      "type": "poi",
-      "purpose": "eat",
-      "x": 43.7,
-      "y": 10.6,
-      "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
-    },
-    {
-      "id": "lv1_nw_supermarket",
+      "id": "L3_TOP_2_1",
       "name": "Supermarket",
       "type": "poi",
       "purpose": "shop",
-      "x": 56.2,
-      "y": 3.8,
+      "x": 35,
+      "y": 4,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - MARKET",
+      "notes": "layer=3; category=market; parent=L2_TOP_2; children=none"
     },
     {
-      "id": "lv1_nw_game_store",
-      "name": "Game Store",
+      "id": "L3_TOP_2_2",
+      "name": "Street Produce Stall",
       "type": "poi",
       "purpose": "shop",
-      "x": 61.2,
-      "y": 4.9,
+      "x": 34,
+      "y": 11,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - MARKET",
+      "notes": "layer=3; category=market; parent=L2_TOP_2; children=none"
     },
     {
-      "id": "lv1_nw_arcade_machine",
-      "name": "Arcade Machine",
+      "id": "L3_TOP_2_3",
+      "name": "Butcher Shop",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 43,
+      "y": 4,
+      "radius": 3,
+      "district": "TOP - MARKET",
+      "notes": "layer=3; category=market; parent=L2_TOP_2; children=none"
+    },
+    {
+      "id": "L3_TOP_2_4",
+      "name": "Cafe Corner",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 43,
+      "y": 10,
+      "radius": 3,
+      "district": "TOP - FOOD",
+      "notes": "layer=3; category=food; parent=L2_TOP_2; children=none"
+    },
+    {
+      "id": "L2_TOP_3",
+      "name": "Restaurant & Play Plaza",
       "type": "poi",
       "purpose": "play",
-      "x": 54.9,
-      "y": 12.2,
+      "x": 51,
+      "y": 17,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - ENTERTAINMENT",
+      "notes": "layer=2; category=entertainment; parent=L1_TOP; children=L3_TOP_3_1,L3_TOP_3_2,L3_TOP_3_3,L3_TOP_3_4"
     },
     {
-      "id": "lv1_nw_pool_hall",
-      "name": "Pool Hall",
+      "id": "L3_TOP_3_1",
+      "name": "Lottery Shop",
       "type": "poi",
-      "purpose": "play",
-      "x": 60.4,
-      "y": 12.2,
+      "purpose": "shop",
+      "x": 34,
+      "y": 20,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - SHOPPING",
+      "notes": "layer=3; category=shopping; parent=L2_TOP_3; children=none"
     },
     {
-      "id": "lv1_nw_restaurant",
+      "id": "L3_TOP_3_2",
       "name": "Restaurant",
       "type": "poi",
-      "purpose": "eat",
-      "x": 48.9,
-      "y": 20.4,
+      "purpose": "shop",
+      "x": 47,
+      "y": 20,
       "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
+      "district": "TOP - FOOD",
+      "notes": "layer=3; category=food; parent=L2_TOP_3; children=none"
     },
     {
-      "id": "lv1_nw_farm_barn",
-      "name": "Farm Barn",
-      "type": "poi",
-      "purpose": "rest",
-      "x": 27.1,
-      "y": 26.9,
-      "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
-    },
-    {
-      "id": "lv1_nw_branch_hub",
-      "name": "Northwest Branch Hub",
-      "type": "connector",
-      "purpose": "road",
-      "x": 43.1,
-      "y": 22.7,
-      "radius": 4,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
-    },
-    {
-      "id": "lv1_nw_road_01",
-      "name": "Northwest Road 01",
-      "type": "road",
-      "purpose": "road",
-      "x": 17.6,
-      "y": 22.0,
-      "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
-    },
-    {
-      "id": "lv1_nw_road_02",
-      "name": "Northwest Road 02",
-      "type": "road",
-      "purpose": "road",
-      "x": 32.9,
-      "y": 21.9,
-      "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
-    },
-    {
-      "id": "lv1_nw_road_03",
-      "name": "Northwest Road 03",
-      "type": "road",
-      "purpose": "road",
-      "x": 53.7,
-      "y": 22.1,
-      "radius": 3,
-      "district": "NORTHWEST SOCIAL COMMERCIAL"
-    },
-    {
-      "id": "lv1_ne_club",
-      "name": "Club",
-      "type": "poi",
-      "purpose": "social",
-      "x": 73.3,
-      "y": 5.0,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_arcade",
-      "name": "Arcade",
+      "id": "L3_TOP_3_3",
+      "name": "Playground Slide",
       "type": "poi",
       "purpose": "play",
-      "x": 80.6,
-      "y": 5.6,
+      "x": 57,
+      "y": 19,
       "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
+      "district": "TOP - PARK",
+      "notes": "layer=3; category=park; parent=L2_TOP_3; children=none"
     },
     {
-      "id": "lv1_ne_beach_bar",
-      "name": "Beach Bar",
-      "type": "poi",
-      "purpose": "social",
-      "x": 89.3,
-      "y": 5.5,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_gas_station_north",
-      "name": "North Gas Station",
-      "type": "poi",
-      "purpose": "service",
-      "x": 89.6,
-      "y": 17.7,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_pharmacy",
-      "name": "Pharmacy",
+      "id": "L3_TOP_3_4",
+      "name": "Dairy Stand",
       "type": "poi",
       "purpose": "shop",
-      "x": 97.1,
-      "y": 17.9,
+      "x": 69,
+      "y": 21,
       "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
+      "district": "TOP - FOOD",
+      "notes": "layer=3; category=food; parent=L2_TOP_3; children=none"
     },
     {
-      "id": "lv1_ne_helipad",
-      "name": "Helipad",
-      "type": "poi",
-      "purpose": "service",
-      "x": 84.9,
-      "y": 27.6,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_lab",
-      "name": "Lab",
-      "type": "poi",
-      "purpose": "work",
-      "x": 97.1,
-      "y": 27.9,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_hospital",
-      "name": "Hospital",
-      "type": "poi",
-      "purpose": "visit",
-      "x": 77.5,
-      "y": 34.5,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_football_field",
-      "name": "Football Field",
+      "id": "L2_TOP_4",
+      "name": "Neon Entertainment Strip",
       "type": "poi",
       "purpose": "play",
-      "x": 77.1,
-      "y": 43.0,
+      "x": 77,
+      "y": 7,
       "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
+      "district": "TOP - ENTERTAINMENT",
+      "notes": "layer=2; category=entertainment; parent=L1_TOP; children=L3_TOP_4_1,L3_TOP_4_2,L3_TOP_4_3,L3_TOP_4_4"
     },
     {
-      "id": "lv1_ne_traffic_light",
-      "name": "Traffic Light",
+      "id": "L3_TOP_4_1",
+      "name": "Mini Mart",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 55,
+      "y": 5,
+      "radius": 3,
+      "district": "TOP - SHOPPING",
+      "notes": "layer=3; category=shopping; parent=L2_TOP_4; children=none"
+    },
+    {
+      "id": "L3_TOP_4_2",
+      "name": "Game Time Arcade",
+      "type": "poi",
+      "purpose": "play",
+      "x": 60,
+      "y": 5,
+      "radius": 3,
+      "district": "TOP - ENTERTAINMENT",
+      "notes": "layer=3; category=entertainment; parent=L2_TOP_4; children=none"
+    },
+    {
+      "id": "L3_TOP_4_3",
+      "name": "Bingo Hall",
+      "type": "poi",
+      "purpose": "play",
+      "x": 69,
+      "y": 5,
+      "radius": 3,
+      "district": "TOP - ENTERTAINMENT",
+      "notes": "layer=3; category=entertainment; parent=L2_TOP_4; children=none"
+    },
+    {
+      "id": "L3_TOP_4_4",
+      "name": "Night Club",
+      "type": "poi",
+      "purpose": "play",
+      "x": 77,
+      "y": 5,
+      "radius": 3,
+      "district": "TOP - ENTERTAINMENT",
+      "notes": "layer=3; category=entertainment; parent=L2_TOP_4; children=none"
+    },
+    {
+      "id": "L1_RIGHT",
+      "name": "Eastern Civic & Leisure District",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 76,
+      "y": 52,
+      "radius": 4,
+      "district": "RIGHT - CIVIC",
+      "notes": "layer=1; category=civic; parent=L0_CENTER; children=L2_RIGHT_1,L2_RIGHT_2,L2_RIGHT_3,L2_RIGHT_4"
+    },
+    {
+      "id": "L2_RIGHT_1",
+      "name": "Health Services Campus",
       "type": "poi",
       "purpose": "service",
-      "x": 84.9,
-      "y": 41.1,
+      "x": 84,
+      "y": 24,
       "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
+      "district": "RIGHT - HEALTH",
+      "notes": "layer=2; category=health; parent=L1_RIGHT; children=L3_RIGHT_1_1,L3_RIGHT_1_2,L3_RIGHT_1_3,L3_RIGHT_1_4"
     },
     {
-      "id": "lv1_ne_swimming_pool",
+      "id": "L3_RIGHT_1_1",
+      "name": "Gas Station North",
+      "type": "poi",
+      "purpose": "work",
+      "x": 86,
+      "y": 19,
+      "radius": 3,
+      "district": "RIGHT - TRANSPORT",
+      "notes": "layer=3; category=transport; parent=L2_RIGHT_1; children=none"
+    },
+    {
+      "id": "L3_RIGHT_1_2",
+      "name": "Pharmacy",
+      "type": "poi",
+      "purpose": "service",
+      "x": 93,
+      "y": 18,
+      "radius": 3,
+      "district": "RIGHT - HEALTH",
+      "notes": "layer=3; category=health; parent=L2_RIGHT_1; children=none"
+    },
+    {
+      "id": "L3_RIGHT_1_3",
+      "name": "Hospital",
+      "type": "poi",
+      "purpose": "service",
+      "x": 74,
+      "y": 32,
+      "radius": 3,
+      "district": "RIGHT - HEALTH",
+      "notes": "layer=3; category=health; parent=L2_RIGHT_1; children=none"
+    },
+    {
+      "id": "L3_RIGHT_1_4",
+      "name": "Medical Lab",
+      "type": "poi",
+      "purpose": "service",
+      "x": 94,
+      "y": 28,
+      "radius": 3,
+      "district": "RIGHT - HEALTH",
+      "notes": "layer=3; category=health; parent=L2_RIGHT_1; children=none"
+    },
+    {
+      "id": "L2_RIGHT_2",
+      "name": "Sports Park",
+      "type": "poi",
+      "purpose": "play",
+      "x": 84,
+      "y": 41,
+      "radius": 3,
+      "district": "RIGHT - PARK",
+      "notes": "layer=2; category=park; parent=L1_RIGHT; children=L3_RIGHT_2_1,L3_RIGHT_2_2,L3_RIGHT_2_3,L3_RIGHT_2_4"
+    },
+    {
+      "id": "L3_RIGHT_2_1",
+      "name": "Helipad",
+      "type": "poi",
+      "purpose": "work",
+      "x": 86,
+      "y": 28,
+      "radius": 3,
+      "district": "RIGHT - TRANSPORT",
+      "notes": "layer=3; category=transport; parent=L2_RIGHT_2; children=none"
+    },
+    {
+      "id": "L3_RIGHT_2_2",
+      "name": "Football Pitch",
+      "type": "poi",
+      "purpose": "play",
+      "x": 76,
+      "y": 39,
+      "radius": 3,
+      "district": "RIGHT - PARK",
+      "notes": "layer=3; category=park; parent=L2_RIGHT_2; children=none"
+    },
+    {
+      "id": "L3_RIGHT_2_3",
       "name": "Swimming Pool",
       "type": "poi",
       "purpose": "play",
-      "x": 92.4,
-      "y": 41.0,
+      "x": 90,
+      "y": 40,
       "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
+      "district": "RIGHT - PARK",
+      "notes": "layer=3; category=park; parent=L2_RIGHT_2; children=none"
     },
     {
-      "id": "lv1_ne_poolside_seating",
-      "name": "Poolside Seating",
+      "id": "L3_RIGHT_2_4",
+      "name": "Picnic Seating Area",
       "type": "poi",
-      "purpose": "rest",
-      "x": 90.2,
-      "y": 49.6,
+      "purpose": "play",
+      "x": 91,
+      "y": 48,
       "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
+      "district": "RIGHT - PARK",
+      "notes": "layer=3; category=park; parent=L2_RIGHT_2; children=none"
     },
     {
-      "id": "lv1_ne_branch_hub",
-      "name": "Northeast Branch Hub",
-      "type": "connector",
-      "purpose": "road",
-      "x": 75.6,
-      "y": 22.6,
-      "radius": 4,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_road_01",
-      "name": "Northeast Road 01",
-      "type": "road",
-      "purpose": "road",
-      "x": 85.4,
-      "y": 22.5,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_road_02",
-      "name": "Northeast Road 02",
-      "type": "road",
-      "purpose": "road",
-      "x": 79.3,
-      "y": 28.8,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_ne_road_03",
-      "name": "Northeast Road 03",
-      "type": "road",
-      "purpose": "road",
-      "x": 84.9,
-      "y": 55.1,
-      "radius": 3,
-      "district": "NORTHEAST HEALTH ENTERTAINMENT"
-    },
-    {
-      "id": "lv1_sw_mobile_shop",
-      "name": "Mobile Shop",
+      "id": "L2_RIGHT_3",
+      "name": "Shopping & Repair Loop",
       "type": "poi",
       "purpose": "shop",
-      "x": 5.9,
-      "y": 26.6,
+      "x": 87,
+      "y": 62,
       "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
+      "district": "RIGHT - SHOPPING",
+      "notes": "layer=2; category=shopping; parent=L1_RIGHT; children=L3_RIGHT_3_1,L3_RIGHT_3_2,L3_RIGHT_3_3,L3_RIGHT_3_4"
     },
     {
-      "id": "lv1_sw_green_house",
-      "name": "Green House",
+      "id": "L3_RIGHT_3_1",
+      "name": "Clothing Shop",
       "type": "poi",
-      "purpose": "visit",
-      "x": 12.9,
-      "y": 26.6,
+      "purpose": "shop",
+      "x": 76,
+      "y": 55,
       "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
+      "district": "RIGHT - SHOPPING",
+      "notes": "layer=3; category=shopping; parent=L2_RIGHT_3; children=none"
     },
     {
-      "id": "lv1_sw_recycling_point",
-      "name": "Recycling Point",
-      "type": "poi",
-      "purpose": "service",
-      "x": 5.9,
-      "y": 35.0,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_gazebo",
-      "name": "Gazebo",
-      "type": "poi",
-      "purpose": "rest",
-      "x": 12.9,
-      "y": 34.9,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_left_house",
-      "name": "Left House",
-      "type": "poi",
-      "purpose": "visit",
-      "x": 6.0,
-      "y": 47.4,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_home_icon",
-      "name": "Home",
-      "type": "poi",
-      "purpose": "visit",
-      "x": 12.8,
-      "y": 47.3,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_service_kiosk",
-      "name": "Service Kiosk",
+      "id": "L3_RIGHT_3_2",
+      "name": "Public Restroom",
       "type": "poi",
       "purpose": "service",
-      "x": 3.4,
-      "y": 52.4,
+      "x": 84,
+      "y": 58,
       "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
+      "district": "RIGHT - SERVICE",
+      "notes": "layer=3; category=service; parent=L2_RIGHT_3; children=none"
     },
     {
-      "id": "lv1_sw_fuel_station",
-      "name": "Fuel Station",
+      "id": "L3_RIGHT_3_3",
+      "name": "Fantasy Store",
       "type": "poi",
-      "purpose": "service",
-      "x": 12.9,
-      "y": 52.6,
+      "purpose": "shop",
+      "x": 94,
+      "y": 58,
       "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
+      "district": "RIGHT - SHOPPING",
+      "notes": "layer=3; category=shopping; parent=L2_RIGHT_3; children=none"
     },
     {
-      "id": "lv1_sw_post_office",
-      "name": "Post Office",
+      "id": "L3_RIGHT_3_4",
+      "name": "Storage Warehouse",
       "type": "poi",
-      "purpose": "deliver",
-      "x": 3.4,
-      "y": 65.0,
+      "purpose": "work",
+      "x": 86,
+      "y": 64,
       "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
+      "district": "RIGHT - LOGISTICS",
+      "notes": "layer=3; category=logistics; parent=L2_RIGHT_3; children=none"
     },
     {
-      "id": "lv1_sw_court_house",
-      "name": "Court House",
+      "id": "L2_RIGHT_4",
+      "name": "Auto & Industry Zone",
+      "type": "poi",
+      "purpose": "work",
+      "x": 88,
+      "y": 81,
+      "radius": 3,
+      "district": "RIGHT - TRANSPORT",
+      "notes": "layer=2; category=transport; parent=L1_RIGHT; children=L3_RIGHT_4_1,L3_RIGHT_4_2,L3_RIGHT_4_3,L3_RIGHT_4_4"
+    },
+    {
+      "id": "L3_RIGHT_4_1",
+      "name": "Petrol Station",
+      "type": "poi",
+      "purpose": "work",
+      "x": 87,
+      "y": 74,
+      "radius": 3,
+      "district": "RIGHT - TRANSPORT",
+      "notes": "layer=3; category=transport; parent=L2_RIGHT_4; children=none"
+    },
+    {
+      "id": "L3_RIGHT_4_2",
+      "name": "Factory Gate",
+      "type": "poi",
+      "purpose": "work",
+      "x": 94,
+      "y": 75,
+      "radius": 3,
+      "district": "RIGHT - INDUSTRY",
+      "notes": "layer=3; category=industry; parent=L2_RIGHT_4; children=none"
+    },
+    {
+      "id": "L3_RIGHT_4_3",
+      "name": "Car Dealer",
+      "type": "poi",
+      "purpose": "work",
+      "x": 86,
+      "y": 84,
+      "radius": 3,
+      "district": "RIGHT - TRANSPORT",
+      "notes": "layer=3; category=transport; parent=L2_RIGHT_4; children=none"
+    },
+    {
+      "id": "L3_RIGHT_4_4",
+      "name": "Auto Repair Garage",
+      "type": "poi",
+      "purpose": "work",
+      "x": 94,
+      "y": 84,
+      "radius": 3,
+      "district": "RIGHT - TRANSPORT",
+      "notes": "layer=3; category=transport; parent=L2_RIGHT_4; children=none"
+    },
+    {
+      "id": "L1_BOTTOM",
+      "name": "Southern Education & Faith Corridor",
       "type": "poi",
       "purpose": "visit",
-      "x": 12.9,
-      "y": 65.0,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_jail",
-      "name": "Jail",
-      "type": "poi",
-      "purpose": "visit",
-      "x": 3.4,
-      "y": 77.6,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_civic_hall",
-      "name": "Civic Hall",
-      "type": "poi",
-      "purpose": "visit",
-      "x": 12.9,
-      "y": 77.6,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_ambulance_center",
-      "name": "Ambulance Center",
-      "type": "poi",
-      "purpose": "service",
-      "x": 3.4,
-      "y": 87.4,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_atm",
-      "name": "ATM",
-      "type": "poi",
-      "purpose": "service",
-      "x": 12.9,
-      "y": 94.4,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_sw_branch_hub",
-      "name": "Southwest Branch Hub",
-      "type": "connector",
-      "purpose": "road",
-      "x": 25.1,
-      "y": 62.6,
+      "x": 50,
+      "y": 72,
       "radius": 4,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
+      "district": "BOTTOM - EDUCATION",
+      "notes": "layer=1; category=education; parent=L0_CENTER; children=L2_BOTTOM_1,L2_BOTTOM_2,L2_BOTTOM_3,L2_BOTTOM_4"
     },
     {
-      "id": "lv1_sw_road_01",
-      "name": "Southwest Road 01",
-      "type": "road",
-      "purpose": "road",
-      "x": 19.7,
-      "y": 49.4,
-      "radius": 3,
-      "district": "SOUTHWEST RESIDENTIAL CIVIC"
-    },
-    {
-      "id": "lv1_se_school",
-      "name": "School",
+      "id": "L2_BOTTOM_1",
+      "name": "Library & Study Street",
       "type": "poi",
       "purpose": "visit",
-      "x": 49.9,
-      "y": 60.4,
+      "x": 34,
+      "y": 84,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - EDUCATION",
+      "notes": "layer=2; category=education; parent=L1_BOTTOM; children=L3_BOTTOM_1_1,L3_BOTTOM_1_2,L3_BOTTOM_1_3,L3_BOTTOM_1_4"
     },
     {
-      "id": "lv1_se_library",
+      "id": "L3_BOTTOM_1_1",
       "name": "Library",
       "type": "poi",
       "purpose": "visit",
-      "x": 35.5,
-      "y": 77.5,
+      "x": 36,
+      "y": 75,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - EDUCATION",
+      "notes": "layer=3; category=education; parent=L2_BOTTOM_1; children=none"
     },
     {
-      "id": "lv1_se_chapel",
-      "name": "Chapel",
+      "id": "L3_BOTTOM_1_2",
+      "name": "Stationery Shop",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 27,
+      "y": 83,
+      "radius": 3,
+      "district": "BOTTOM - SHOPPING",
+      "notes": "layer=3; category=shopping; parent=L2_BOTTOM_1; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_1_3",
+      "name": "Classroom Sketch Hall",
       "type": "poi",
       "purpose": "visit",
-      "x": 45.2,
-      "y": 78.0,
+      "x": 28,
+      "y": 92,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - EDUCATION",
+      "notes": "layer=3; category=education; parent=L2_BOTTOM_1; children=none"
     },
     {
-      "id": "lv1_se_college",
+      "id": "L3_BOTTOM_1_4",
+      "name": "Blue Shopfront",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 34,
+      "y": 92,
+      "radius": 3,
+      "district": "BOTTOM - SHOPPING",
+      "notes": "layer=3; category=shopping; parent=L2_BOTTOM_1; children=none"
+    },
+    {
+      "id": "L2_BOTTOM_2",
+      "name": "Faith Plaza",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 46,
+      "y": 91,
+      "radius": 3,
+      "district": "BOTTOM - RELIGION",
+      "notes": "layer=2; category=religion; parent=L1_BOTTOM; children=L3_BOTTOM_2_1,L3_BOTTOM_2_2,L3_BOTTOM_2_3,L3_BOTTOM_2_4"
+    },
+    {
+      "id": "L3_BOTTOM_2_1",
+      "name": "Church",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 45,
+      "y": 76,
+      "radius": 3,
+      "district": "BOTTOM - RELIGION",
+      "notes": "layer=3; category=religion; parent=L2_BOTTOM_2; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_2_2",
+      "name": "Mosque Community Center",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 43,
+      "y": 90,
+      "radius": 3,
+      "district": "BOTTOM - RELIGION",
+      "notes": "layer=3; category=religion; parent=L2_BOTTOM_2; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_2_3",
+      "name": "Grand Mosque",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 49,
+      "y": 91,
+      "radius": 3,
+      "district": "BOTTOM - RELIGION",
+      "notes": "layer=3; category=religion; parent=L2_BOTTOM_2; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_2_4",
+      "name": "Temple Shrine",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 43,
+      "y": 97,
+      "radius": 3,
+      "district": "BOTTOM - RELIGION",
+      "notes": "layer=3; category=religion; parent=L2_BOTTOM_2; children=none"
+    },
+    {
+      "id": "L2_BOTTOM_3",
+      "name": "College & Office Lane",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 57,
+      "y": 85,
+      "radius": 3,
+      "district": "BOTTOM - EDUCATION",
+      "notes": "layer=2; category=education; parent=L1_BOTTOM; children=L3_BOTTOM_3_1,L3_BOTTOM_3_2,L3_BOTTOM_3_3,L3_BOTTOM_3_4"
+    },
+    {
+      "id": "L3_BOTTOM_3_1",
       "name": "College",
       "type": "poi",
       "purpose": "visit",
-      "x": 56.3,
-      "y": 77.9,
+      "x": 57,
+      "y": 76,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - EDUCATION",
+      "notes": "layer=3; category=education; parent=L2_BOTTOM_3; children=none"
     },
     {
-      "id": "lv1_se_mosque",
-      "name": "Mosque",
+      "id": "L3_BOTTOM_3_2",
+      "name": "Apartment Block",
       "type": "poi",
       "purpose": "visit",
-      "x": 45.2,
-      "y": 93.0,
+      "x": 56,
+      "y": 88,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - RESIDENTIAL",
+      "notes": "layer=3; category=residential; parent=L2_BOTTOM_3; children=none"
     },
     {
-      "id": "lv1_se_temple",
-      "name": "Temple",
+      "id": "L3_BOTTOM_3_3",
+      "name": "Canteen",
       "type": "poi",
-      "purpose": "visit",
-      "x": 52.3,
-      "y": 93.0,
+      "purpose": "shop",
+      "x": 62,
+      "y": 88,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - FOOD",
+      "notes": "layer=3; category=food; parent=L2_BOTTOM_3; children=none"
     },
     {
-      "id": "lv1_se_office_building",
+      "id": "L3_BOTTOM_3_4",
       "name": "Office Building",
       "type": "poi",
       "purpose": "work",
-      "x": 57.9,
-      "y": 94.9,
+      "x": 57,
+      "y": 96,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - OFFICE",
+      "notes": "layer=3; category=office; parent=L2_BOTTOM_3; children=none"
     },
     {
-      "id": "lv1_se_canteen",
-      "name": "Canteen",
-      "type": "poi",
-      "purpose": "eat",
-      "x": 63.7,
-      "y": 92.7,
-      "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
-    },
-    {
-      "id": "lv1_se_tower",
-      "name": "Tower",
+      "id": "L2_BOTTOM_4",
+      "name": "Civic Green & Utility Yard",
       "type": "poi",
       "purpose": "visit",
-      "x": 81.6,
-      "y": 93.4,
+      "x": 73,
+      "y": 89,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - CIVIC",
+      "notes": "layer=2; category=civic; parent=L1_BOTTOM; children=L3_BOTTOM_4_1,L3_BOTTOM_4_2,L3_BOTTOM_4_3,L3_BOTTOM_4_4"
     },
     {
-      "id": "lv1_se_petrol_station",
-      "name": "Petrol Station",
+      "id": "L3_BOTTOM_4_1",
+      "name": "Town Gate Hall",
       "type": "poi",
-      "purpose": "service",
-      "x": 89.1,
-      "y": 77.9,
+      "purpose": "visit",
+      "x": 68,
+      "y": 77,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "BOTTOM - CIVIC",
+      "notes": "layer=3; category=civic; parent=L2_BOTTOM_4; children=none"
     },
     {
-      "id": "lv1_se_car_dealer",
-      "name": "Car Dealer",
+      "id": "L3_BOTTOM_4_2",
+      "name": "Countryside Notice Board",
+      "type": "poi",
+      "purpose": "play",
+      "x": 70,
+      "y": 89,
+      "radius": 3,
+      "district": "BOTTOM - PARK",
+      "notes": "layer=3; category=park; parent=L2_BOTTOM_4; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_4_3",
+      "name": "Industrial Plant",
+      "type": "poi",
+      "purpose": "work",
+      "x": 71,
+      "y": 96,
+      "radius": 3,
+      "district": "BOTTOM - INDUSTRY",
+      "notes": "layer=3; category=industry; parent=L2_BOTTOM_4; children=none"
+    },
+    {
+      "id": "L3_BOTTOM_4_4",
+      "name": "Water Tower Field",
+      "type": "poi",
+      "purpose": "work",
+      "x": 78,
+      "y": 93,
+      "radius": 3,
+      "district": "BOTTOM - UTILITY",
+      "notes": "layer=3; category=utility; parent=L2_BOTTOM_4; children=none"
+    },
+    {
+      "id": "L1_LEFT",
+      "name": "Western Neighborhood Services",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 27,
+      "y": 52,
+      "radius": 4,
+      "district": "LEFT - RESIDENTIAL",
+      "notes": "layer=1; category=residential; parent=L0_CENTER; children=L2_LEFT_1,L2_LEFT_2,L2_LEFT_3,L2_LEFT_4"
+    },
+    {
+      "id": "L2_LEFT_1",
+      "name": "Green Community Park",
+      "type": "poi",
+      "purpose": "play",
+      "x": 12,
+      "y": 31,
+      "radius": 3,
+      "district": "LEFT - PARK",
+      "notes": "layer=2; category=park; parent=L1_LEFT; children=L3_LEFT_1_1,L3_LEFT_1_2,L3_LEFT_1_3,L3_LEFT_1_4"
+    },
+    {
+      "id": "L3_LEFT_1_1",
+      "name": "Market Shed",
       "type": "poi",
       "purpose": "shop",
-      "x": 89.1,
-      "y": 86.7,
+      "x": 7,
+      "y": 28,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "LEFT - MARKET",
+      "notes": "layer=3; category=market; parent=L2_LEFT_1; children=none"
     },
     {
-      "id": "lv1_se_auto_repair",
-      "name": "Auto Repair",
+      "id": "L3_LEFT_1_2",
+      "name": "Picnic Pavilion",
+      "type": "poi",
+      "purpose": "play",
+      "x": 11,
+      "y": 31,
+      "radius": 3,
+      "district": "LEFT - PARK",
+      "notes": "layer=3; category=park; parent=L2_LEFT_1; children=none"
+    },
+    {
+      "id": "L3_LEFT_1_3",
+      "name": "Garden Barn",
+      "type": "poi",
+      "purpose": "play",
+      "x": 26,
+      "y": 29,
+      "radius": 3,
+      "district": "LEFT - PARK",
+      "notes": "layer=3; category=park; parent=L2_LEFT_1; children=none"
+    },
+    {
+      "id": "L3_LEFT_1_4",
+      "name": "Recycling Corner",
       "type": "poi",
       "purpose": "service",
-      "x": 96.7,
-      "y": 86.7,
+      "x": 8,
+      "y": 34,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "LEFT - SERVICE",
+      "notes": "layer=3; category=service; parent=L2_LEFT_1; children=none"
     },
     {
-      "id": "lv1_se_branch_hub",
-      "name": "Southeast Branch Hub",
-      "type": "connector",
-      "purpose": "road",
-      "x": 67.9,
-      "y": 77.8,
-      "radius": 4,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "id": "L2_LEFT_2",
+      "name": "Residential Block",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 13,
+      "y": 51,
+      "radius": 3,
+      "district": "LEFT - RESIDENTIAL",
+      "notes": "layer=2; category=residential; parent=L1_LEFT; children=L3_LEFT_2_1,L3_LEFT_2_2,L3_LEFT_2_3,L3_LEFT_2_4"
     },
     {
-      "id": "lv1_se_road_01",
-      "name": "Southeast Road 01",
-      "type": "road",
-      "purpose": "road",
-      "x": 50.0,
-      "y": 77.9,
+      "id": "L3_LEFT_2_1",
+      "name": "Large Residence",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 4,
+      "y": 46,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "LEFT - RESIDENTIAL",
+      "notes": "layer=3; category=residential; parent=L2_LEFT_2; children=none"
     },
     {
-      "id": "lv1_se_road_02",
-      "name": "Southeast Road 02",
-      "type": "road",
-      "purpose": "road",
-      "x": 74.9,
-      "y": 77.9,
+      "id": "L3_LEFT_2_2",
+      "name": "Family House",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 10,
+      "y": 46,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "LEFT - RESIDENTIAL",
+      "notes": "layer=3; category=residential; parent=L2_LEFT_2; children=none"
     },
     {
-      "id": "lv1_se_road_03",
-      "name": "Southeast Road 03",
-      "type": "road",
-      "purpose": "road",
-      "x": 89.2,
-      "y": 86.6,
+      "id": "L3_LEFT_2_3",
+      "name": "Camera Shop",
+      "type": "poi",
+      "purpose": "shop",
+      "x": 4,
+      "y": 52,
       "radius": 3,
-      "district": "SOUTHEAST EDUCATION INDUSTRY"
+      "district": "LEFT - SHOPPING",
+      "notes": "layer=3; category=shopping; parent=L2_LEFT_2; children=none"
+    },
+    {
+      "id": "L3_LEFT_2_4",
+      "name": "Parking Lot",
+      "type": "poi",
+      "purpose": "work",
+      "x": 11,
+      "y": 53,
+      "radius": 3,
+      "district": "LEFT - TRANSPORT",
+      "notes": "layer=3; category=transport; parent=L2_LEFT_2; children=none"
+    },
+    {
+      "id": "L2_LEFT_3",
+      "name": "Justice & Finance Square",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 12,
+      "y": 70,
+      "radius": 3,
+      "district": "LEFT - CIVIC",
+      "notes": "layer=2; category=civic; parent=L1_LEFT; children=L3_LEFT_3_1,L3_LEFT_3_2,L3_LEFT_3_3,L3_LEFT_3_4"
+    },
+    {
+      "id": "L3_LEFT_3_1",
+      "name": "Post Office",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 4,
+      "y": 65,
+      "radius": 3,
+      "district": "LEFT - CIVIC",
+      "notes": "layer=3; category=civic; parent=L2_LEFT_3; children=none"
+    },
+    {
+      "id": "L3_LEFT_3_2",
+      "name": "Museum Courthouse",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 11,
+      "y": 66,
+      "radius": 3,
+      "district": "LEFT - CIVIC",
+      "notes": "layer=3; category=civic; parent=L2_LEFT_3; children=none"
+    },
+    {
+      "id": "L3_LEFT_3_3",
+      "name": "Jail",
+      "type": "poi",
+      "purpose": "visit",
+      "x": 5,
+      "y": 75,
+      "radius": 3,
+      "district": "LEFT - CIVIC",
+      "notes": "layer=3; category=civic; parent=L2_LEFT_3; children=none"
+    },
+    {
+      "id": "L3_LEFT_3_4",
+      "name": "Bank",
+      "type": "poi",
+      "purpose": "service",
+      "x": 27,
+      "y": 68,
+      "radius": 3,
+      "district": "LEFT - FINANCE",
+      "notes": "layer=3; category=finance; parent=L2_LEFT_3; children=none"
+    },
+    {
+      "id": "L2_LEFT_4",
+      "name": "Community Services Corner",
+      "type": "poi",
+      "purpose": "service",
+      "x": 8,
+      "y": 88,
+      "radius": 3,
+      "district": "LEFT - SERVICE",
+      "notes": "layer=2; category=service; parent=L1_LEFT; children=L3_LEFT_4_1,L3_LEFT_4_2,L3_LEFT_4_3,L3_LEFT_4_4"
+    },
+    {
+      "id": "L3_LEFT_4_1",
+      "name": "Dentist Clinic",
+      "type": "poi",
+      "purpose": "service",
+      "x": 4,
+      "y": 86,
+      "radius": 3,
+      "district": "LEFT - HEALTH",
+      "notes": "layer=3; category=health; parent=L2_LEFT_4; children=none"
+    },
+    {
+      "id": "L3_LEFT_4_2",
+      "name": "Small Clinic",
+      "type": "poi",
+      "purpose": "service",
+      "x": 12,
+      "y": 84,
+      "radius": 3,
+      "district": "LEFT - HEALTH",
+      "notes": "layer=3; category=health; parent=L2_LEFT_4; children=none"
+    },
+    {
+      "id": "L3_LEFT_4_3",
+      "name": "Community Help Desk",
+      "type": "poi",
+      "purpose": "service",
+      "x": 5,
+      "y": 93,
+      "radius": 3,
+      "district": "LEFT - SERVICE",
+      "notes": "layer=3; category=service; parent=L2_LEFT_4; children=none"
+    },
+    {
+      "id": "L3_LEFT_4_4",
+      "name": "ATM Kiosk",
+      "type": "poi",
+      "purpose": "service",
+      "x": 12,
+      "y": 94,
+      "radius": 3,
+      "district": "LEFT - FINANCE",
+      "notes": "layer=3; category=finance; parent=L2_LEFT_4; children=none"
     }
-  ]
+  ],
+  "metadata": {
+    "theme": "Downtown City Services",
+    "source_image": "/maps/maps.png",
+    "total_nodes": 85,
+    "layer_counts": {
+      "layer_0": 1,
+      "layer_1": 4,
+      "layer_2": 16,
+      "layer_3": 64
+    },
+    "edge_count": 84,
+    "mapping_validated": true
+  }
 }

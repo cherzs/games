@@ -5,8 +5,8 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import EditorPanel from '@/components/EditorPanel'
 import { GameMap, GameLevel, GameRef } from '@/game/types'
-import { saveMap, saveCustomLevel, loadCustomLevel } from '@/lib/storage'
-import { levelToGameMap, fetchTemplateLevel } from '@/game/levels/levelLoader'
+import { saveMap, saveCustomLevel, loadCustomLevel, loadLockedTemplateLevel, saveLockedTemplateLevel } from '@/lib/storage'
+import { fetchTemplateLevel, TEMPLATE_LEVEL_IDS } from '@/game/levels/levelLoader'
 
 const GameCanvas = dynamic(() => import('@/components/GameCanvas'), {
   ssr: false,
@@ -24,6 +24,8 @@ function EditorPageInner() {
   const [missionOrder, setMissionOrder] = useState<string[]>([])
   const [saveError, setSaveError] = useState<string | null>(null)
   const [loading, setLoading] = useState(!!levelId)
+  const [isTemplateLevel, setIsTemplateLevel] = useState(false)
+  const [isLocked, setIsLocked] = useState(false)
 
   useEffect(() => {
     if (!levelId) {
@@ -31,25 +33,41 @@ function EditorPageInner() {
       return
     }
     setLoading(true)
-    const custom = loadCustomLevel(levelId)
-    if (custom) {
-      setLevelData(custom)
-      setMissionOrder(custom.missionOrder || [])
-      setCustomLevelId(levelId)
-      setLoading(false)
-    } else if (levelId.startsWith('level_')) {
-      fetchTemplateLevel(levelId).then((template) => {
-        setLevelData(template)
-        setMissionOrder(template.missionOrder || [])
-        setCustomLevelId(levelId)
+    if (TEMPLATE_LEVEL_IDS.includes(levelId)) {
+      const lockedTemplate = loadLockedTemplateLevel(levelId)
+      if (lockedTemplate) {
+        setLevelData(lockedTemplate)
+        setMissionOrder(lockedTemplate.missionOrder || [])
+        setCustomLevelId(null)
+        setIsTemplateLevel(true)
+        setIsLocked(true)
         setLoading(false)
-      }).catch(() => {
-        setSaveError('Failed to load template level.')
-        setLoading(false)
-      })
+      } else {
+        fetchTemplateLevel(levelId).then((template) => {
+          setLevelData(template)
+          setMissionOrder(template.missionOrder || [])
+          setCustomLevelId(null)
+          setIsTemplateLevel(true)
+          setIsLocked(false)
+          setLoading(false)
+        }).catch(() => {
+          setSaveError('Failed to load template level.')
+          setLoading(false)
+        })
+      }
     } else {
-      setSaveError('Level not found.')
-      setLoading(false)
+      const custom = loadCustomLevel(levelId)
+      if (custom) {
+        setLevelData(custom)
+        setMissionOrder(custom.missionOrder || [])
+        setCustomLevelId(levelId)
+        setIsTemplateLevel(false)
+        setIsLocked(!!custom.locked)
+        setLoading(false)
+      } else {
+        setSaveError('Level not found.')
+        setLoading(false)
+      }
     }
   }, [levelId])
 
@@ -65,6 +83,7 @@ function EditorPageInner() {
   }, [])
 
   const handleMissionOrderChange = useCallback((order: string[]) => {
+    if (isLocked || isTemplateLevel) return
     setMissionOrder(order)
     if (customLevelId && levelData) {
       const updated: GameLevel = {
@@ -82,9 +101,20 @@ function EditorPageInner() {
         setLevelData(updated)
       }
     }
-  }, [customLevelId, levelData])
+  }, [customLevelId, levelData, isLocked, isTemplateLevel])
 
   const handleMapUpdate = useCallback((map: GameMap) => {
+    if (isLocked) return
+    if (isTemplateLevel && levelData) {
+      setLevelData({
+        ...levelData,
+        nodes: map.nodes,
+        name: map.name,
+        updatedAt: new Date().toISOString(),
+      })
+      return
+    }
+
     if (customLevelId && levelData) {
       const updated: GameLevel = {
         ...levelData,
@@ -107,7 +137,29 @@ function EditorPageInner() {
         setSaveError(result.error)
       }
     }
-  }, [customLevelId, levelData])
+  }, [customLevelId, levelData, isLocked, isTemplateLevel])
+
+  const handleSaveAndLockTemplate = useCallback(() => {
+    if (!levelData || !isTemplateLevel || isLocked) return
+    const map = gameRef.current?.getMapData()
+    const updated: GameLevel = {
+      ...levelData,
+      nodes: map?.nodes || levelData.nodes,
+      missionOrder,
+      locked: true,
+      templateOverride: true,
+      lockedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    }
+    const result = saveLockedTemplateLevel(updated)
+    if (result.success) {
+      setLevelData(updated)
+      setIsLocked(true)
+      setSaveError(null)
+    } else {
+      setSaveError(result.error)
+    }
+  }, [levelData, isTemplateLevel, isLocked, missionOrder])
 
   return (
     <main className="w-full h-full flex flex-col">
@@ -135,12 +187,14 @@ function EditorPageInner() {
         <div className="flex-1 h-full min-h-0 flex">
           <div className="flex-1 h-full min-w-0" style={{ background: '#1a1a2e' }}>
             <GameCanvas
-              key={`editor-${levelData?.id}-${levelData?.background}`}
+              key={`editor-${levelData?.id}-${levelData?.background}-${isLocked ? 'locked' : 'editable'}`}
               mode="editor"
               onNodeSelect={handleNodeSelect}
               onMapChange={handleMapUpdate}
               gameRef={gameRef}
               levelData={levelData}
+              editorReadOnly={isLocked}
+              editorPlacementOnly={isTemplateLevel}
             />
           </div>
           <EditorPanel
@@ -151,6 +205,9 @@ function EditorPageInner() {
             levelData={levelData}
             missionOrder={missionOrder}
             onMissionOrderChange={handleMissionOrderChange}
+            isTemplateLevel={isTemplateLevel}
+            isLocked={isLocked}
+            onSaveAndLockTemplate={handleSaveAndLockTemplate}
           />
         </div>
       )}

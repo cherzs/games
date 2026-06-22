@@ -66,7 +66,15 @@ export class EditorSystem {
     const idx = map.nodes.findIndex((n) => n.id === nodeId)
     if (idx === -1) return
 
-    map.nodes[idx] = { ...map.nodes[idx], ...updates }
+    const nextUpdates = { ...updates }
+    if (nextUpdates.x !== undefined) {
+      nextUpdates.x = clampPct(Number(nextUpdates.x))
+    }
+    if (nextUpdates.y !== undefined) {
+      nextUpdates.y = clampPct(Number(nextUpdates.y))
+    }
+
+    map.nodes[idx] = { ...map.nodes[idx], ...nextUpdates }
     this.mapSystem.updateMap(map)
     this.onChange?.(map)
 
@@ -152,4 +160,9 @@ export class EditorSystem {
     this.mapSystem.clearEditorNode()
     this.selectedNodeId = null
   }
+}
+
+function clampPct(value: number): number {
+  if (!Number.isFinite(value)) return 0
+  return +Math.max(0, Math.min(100, value)).toFixed(1)
 }

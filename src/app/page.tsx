@@ -8,7 +8,7 @@ import VirtualJoystick from '@/components/VirtualJoystick'
 import LevelSelect from '@/components/LevelSelect'
 import { GameLevel, GameRef } from '@/game/types'
 import { fetchTemplateLevel } from '@/game/levels/levelLoader'
-import { saveRecentLevelId, loadRecentLevelId, loadCustomLevel } from '@/lib/storage'
+import { saveRecentLevelId, loadRecentLevelId, loadCustomLevel, loadLockedTemplateLevel } from '@/lib/storage'
 
 const GameCanvas = dynamic(() => import('@/components/GameCanvas'), {
   ssr: false,
@@ -34,10 +34,10 @@ export default function HomePage() {
     const recentId = loadRecentLevelId()
     if (recentId) {
       if (recentId === 'level_1' || recentId === 'level_2' || recentId === 'level_3') {
-        const custom = loadCustomLevel(recentId)
-        if (custom) {
-          setSelectedLevel(custom)
-          setLevelData(custom)
+        const lockedTemplate = loadLockedTemplateLevel(recentId)
+        if (lockedTemplate) {
+          setSelectedLevel(lockedTemplate)
+          setLevelData(lockedTemplate)
           setShowLevelSelect(false)
         } else {
           fetchAndStartLevel(recentId).catch(() => setShowLevelSelect(true))
@@ -56,8 +56,10 @@ export default function HomePage() {
   }, [])
 
   async function fetchAndStartLevel(levelId: string): Promise<void> {
-    const custom = loadCustomLevel(levelId)
-    const level = custom || await fetchTemplateLevel(levelId)
+    const isTemplate = levelId === 'level_1' || levelId === 'level_2' || levelId === 'level_3'
+    const lockedTemplate = isTemplate ? loadLockedTemplateLevel(levelId) : null
+    const custom = isTemplate ? null : loadCustomLevel(levelId)
+    const level = lockedTemplate || custom || await fetchTemplateLevel(levelId)
     setSelectedLevel(level)
     setLevelData(level)
     setShowLevelSelect(false)

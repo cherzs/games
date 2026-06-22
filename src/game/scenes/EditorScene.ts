@@ -14,6 +14,8 @@ export interface EditorSceneData {
   onMapChange?: (map: GameMap) => void
   onNodeSelect?: (node: MapNode | undefined) => void
   onNotice?: (msg: string) => void
+  readOnly?: boolean
+  placementOnly?: boolean
 }
 
 export class EditorScene extends Phaser.Scene {
@@ -34,9 +36,6 @@ export class EditorScene extends Phaser.Scene {
     const bgPath = this.sceneData.levelData?.background || '/maps/maps.png'
 
     if (!this.textures.exists('map_bg')) {
-      this.load.image('map_bg', bgPath)
-    } else {
-      this.textures.remove('map_bg')
       this.load.image('map_bg', bgPath)
     }
   }
@@ -78,13 +77,18 @@ export class EditorScene extends Phaser.Scene {
       const clickedNode = this.editorSystem.findNodeAtPosition(worldX, worldY)
       if (clickedNode) {
         this.editorSystem.selectNode(clickedNode.id)
-        this.editorSystem.startDrag(worldX, worldY)
+        if (!this.sceneData.readOnly) {
+          this.editorSystem.startDrag(worldX, worldY)
+        }
         this.sceneData.onNodeSelect?.(clickedNode)
         return
       }
 
       this.editorSystem.deselectNode()
       this.sceneData.onNodeSelect?.(undefined)
+      if (this.sceneData.readOnly || this.sceneData.placementOnly) {
+        return
+      }
       this.editorSystem.addNode(worldX, worldY)
       this.sceneData.onNotice?.('Node added!')
 
@@ -93,7 +97,7 @@ export class EditorScene extends Phaser.Scene {
     })
 
     this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
-      if (pointer.isDown && this.editorSystem.getIsDragging()) {
+      if (!this.sceneData.readOnly && pointer.isDown && this.editorSystem.getIsDragging()) {
         this.editorSystem.updateDrag(pointer.worldX, pointer.worldY)
       }
     })
@@ -152,7 +156,12 @@ export class EditorScene extends Phaser.Scene {
     )
     this.cameras.main.setZoom(initZoom)
 
-    this.sceneData.onNotice?.('Click to add nodes. Drag to move. Right-drag to pan.')
+    const notice = this.sceneData.readOnly
+      ? 'Template locked. Select nodes to inspect. Right-drag to pan.'
+      : this.sceneData.placementOnly
+        ? 'Placement mode. Drag nodes or edit X/Y, then Save & Lock. Right-drag to pan.'
+        : 'Click to add nodes. Drag to move. Right-drag to pan.'
+    this.sceneData.onNotice?.(notice)
   }
 
   getEditorSystem(): EditorSystem {
